@@ -58,6 +58,41 @@ public class MyClass {
 Declaring fields in a Java class is a fundamental aspect of object-oriented programming. Fields represent the state of objects and store data that characterize them. Understanding how to declare and use fields is crucial for building Java applications.
 
 
+# Declaring Methods in Java Class
+In Java, methods are functions defined within a class. They encapsulate behavior and define what objects of that class can do. Methods are used to perform specific tasks and manipulate the state of objects.
+## Declaring Methods
+```java
+public class ClassName {
+    // Method declaration
+    public returnType methodName() {
+        // Method body
+        // Perform tasks here
+        return value; // Return statement (if returnType is not void)
+    }
+}
+```
+#### Example
+```
+public Car{
+
+String name;
+String color;
+double horsePower;
+
+public void startCar(){
+
+System.out.println("Car Started Successfully !);
+
+}
+
+public String stopCar(){
+String output = "Car stopped";
+ return output;
+}
+
+
+
+
 
 
 

@@ -4,7 +4,7 @@ Welcome to our Java course! In this guide, we'll walk you through creating your 
 Before getting started, ensure that you have the following installed on your system:
 - IntelliJ IDEA (Community or Ultimate edition)
 - Java Development Kit (JDK) installed on your machine
-  ### Steps to Create Your First Java Class
+### Steps to Create Your First Java Class
 1. #### Open IntelliJ IDEA : Launch IntelliJ IDEA on your system.
 2. #### Create a New Project :
      - Click on Create New Project on the welcome screen or go to File > New > Project.

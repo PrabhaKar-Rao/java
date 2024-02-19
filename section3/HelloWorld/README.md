@@ -25,6 +25,18 @@ Before getting started, ensure that you have the following installed on your sys
      - IntelliJ IDEA will create a Java class file with a template for you.
      - You can start writing your Java code inside the class.
  ```java
+public class HelloWorld {
+
+    public static void main(String[] args) {
+        System.out.println("Hello Madan");
+    }
+
+}
+```
+6. #### Run Your Java Program :
+   - Click on the green Run icon next to the main method or right-click anywhere inside the main method and select Run 'MyFirstClass.main()'.
+7. #### View Output :
+   - You should see the output Hello, world! printed in the Run tool window at the bottom of the IntelliJ IDEA window.
 
 
 

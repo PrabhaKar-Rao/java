@@ -21,9 +21,33 @@ Fields are declared within the body of a class. Here's the syntax for declaring 
    }
    ```
 #### In the above exapmle
-- name, age, and height are fields of the Person class.
+- "name", "age", and "height" are fields of the 'Person' class.
 - Each field has a data type (String, int, double) followed by the field name.
-- These fields represent the characteristics of a person object.
+- These fields represent the characteristics of a 'Person' object.
+### Field Types
+#### Instance Variables or Non-Statis variables :
+Instance variables are associated with objects of the class. Each instance (object) of the class has its own copy of instance variables.
+```java
+public class MyClass {
+    public int instanceVariable; // Instance variable
+}
+```
+#### Static Variables :
+Static variables are shared among all instances of a class. They are associated with the class rather than with any object.
+```java
+public class MyClass {
+    public static int staticVariable; // Static variable
+}
+```
+### Access Modifiers
+Java provides access modifiers to control the visibility of fields. The commonly used access modifiers are :
+- **public :** The field is accessible from any other class.
+- **private :** The field is accessible only within the same class.
+- **protected :** The field is accessible within the same package and subclasses.
+- **default (no modifier) :** The field is accessible only within the same package.
+
+
+
 
 
 

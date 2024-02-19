@@ -35,7 +35,7 @@ public class HelloWorld {
 ```
 
 6. #### Run Your Java Program :
-   - Click on the green Run icon next to the main method or right-click anywhere inside the main method and select Run 'MyFirstClass.main()'.
+   - Click on the green Run icon next to the main method or right-click anywhere inside the main method and select Run 'HelloWorld.main()'.
 7. #### View Output :
    - You should see the output Hello, world! printed in the Run tool window at the bottom of the IntelliJ IDEA window.
    - 

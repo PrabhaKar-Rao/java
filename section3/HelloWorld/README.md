@@ -15,12 +15,16 @@ Before getting started, ensure that you have the following installed on your sys
      - Build aystem as IntelliJ.
      - Add JDK as corretto-21 or click on New... and locate your JDK installation directory.
      - Click on Create to create the project.
-  4. #### Create A Java Class :
+  4. #### Create a Java Class :
      - In the Project tool window (usually located on the left-hand side), right-click on the src folder.
      - Go to New > Java Class.
      - Enter a name for your class in the Name field (e.g., MyFirstClass).
      - Optionally, you can specify a Package for your class. If you're just starting out, you can leave it as the default package.
      - Click OK to create the class.
+  5. #### Write Your First Java Code :
+     - IntelliJ IDEA will create a Java class file with a template for you.
+     - You can start writing your Java code inside the class.
+       
 
   
   

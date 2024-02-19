@@ -24,7 +24,9 @@ Before getting started, ensure that you have the following installed on your sys
   5. #### Write Your First Java Code :
      - IntelliJ IDEA will create a Java class file with a template for you.
      - You can start writing your Java code inside the class.
-       
+ ```java
+
+
 
   
   

@@ -25,7 +25,7 @@ Fields are declared within the body of a class. Here's the syntax for declaring 
 - Each field has a data type (String, int, double) followed by the field name.
 - These fields represent the characteristics of a 'Person' object.
 ### Field Types
-#### Instance Variables or Non-Statis variables :
+#### Instance Variables or Non-Static Variables :
 Instance variables are associated with objects of the class. Each instance (object) of the class has its own copy of instance variables.
 ```java
 public class MyClass {
@@ -45,6 +45,17 @@ Java provides access modifiers to control the visibility of fields. The commonly
 - **private :** The field is accessible only within the same class.
 - **protected :** The field is accessible within the same package and subclasses.
 - **default (no modifier) :** The field is accessible only within the same package.
+### Example
+```java
+public class MyClass {
+    public int publicField;
+    private int privateField;
+    protected int protectedField;
+    int defaultField; // Default access modifier
+}
+```
+### Conclusion
+Declaring fields in a Java class is a fundamental aspect of object-oriented programming. Fields represent the state of objects and store data that characterize them. Understanding how to declare and use fields is crucial for building Java applications.
 
 
 

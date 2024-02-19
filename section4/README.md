@@ -72,23 +72,52 @@ public class ClassName {
 }
 ```
 #### Example
+```java
+public class Car {
+
+    String model;
+    String color;
+    int horsePower;
+
+    public void startCar() {
+        System.out.println("Vehicle started...");
+    }
+
+    public String stopCar() {
+        String output = "Vehicle stopped...";
+        return output;
+    }
+
+}
 ```
-public Car{
-
-String name;
-String color;
-double horsePower;
-
-public void startCar(){
-
-System.out.println("Car Started Successfully !);
-
+## Method With Parameters
+```java
+public class ClassName {
+    // Method declaration
+    public returnType methodName(parameterType parameter1, parameterType parameter2, ...) {
+        // Method body
+        // Perform tasks here
+        return value; // Return statement (if returnType is not void)
+    }
 }
-
-public String stopCar(){
-String output = "Car stopped";
- return output;
+```
+### Example
+```java
+public class AithmeticOperations {
+    
+    public returnType add(int num1, int num2) {
+        int sum=num1+num2;
+        return sum;
+    }
 }
+```
+##### In the above example :
+- 'add' is a method of the 'AithmeticOperations' class.
+- It takes two parameters (num1 and num2) of type int.
+- 
+
+
+
 
 
 

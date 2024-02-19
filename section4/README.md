@@ -146,6 +146,22 @@ public class Addition{
 ```
 ## Object Creation
 Once you have defined the class, you can create an object of that class using 'new' keyword. The new keyword allocates memory for the object and returns to a reference it.
+```java
+public class Employee {
+    public static void main(String[]args){
+        Employee obj=new Employee();// Object Creation
+
+        //obj is the Object reference variable.
+        // The Object reference variable name should always a class name but in camel case.
+        Employee employee=new Employee();// Objcet creation
+
+       //This creates a new object of the Employee class and assigns its to the employee variable. The new keyword calls the constructor of the class to intialize the object.
+        
+    }
+}
+```
+
+
 If the method is Non-Static and present inside the same calss then call that method with ObjectReferenceVariable.methodName
 ```java
 public class AithmeticOperations {

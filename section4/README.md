@@ -104,7 +104,7 @@ public class ClassName {
 ### Example
 ```java
 public class AithmeticOperations {
-    
+
     public int add(int num1, int num2) {
         int sum =num1+num2;
         return sum;
@@ -115,6 +115,74 @@ public class AithmeticOperations {
 - 'add' is a method of the 'AithmeticOperations' class.
 - It takes two parameters (num1 and num2) of type int.
 - It returns the sum of num1 and num2 as an int.
+
+## Method Invocation
+
+If method is static and present in the same class then call that method with method name.
+```java
+public class AithmeticOperations {
+    public static void main(String[]args){
+        int result=add(10, 20); // Method Invocation
+    }
+    public int add(int num1, int num2) {
+        return num1 + num2; 
+    }
+}
+```
+If method is static and present outside of the class then call that with ClassName.methodName.
+```java
+public class AithmeticOperations {
+    public static void main(String[]args){
+        int result=Addition.add(10, 20); // Method Invocation
+        System.out.println(result);
+    }
+}
+
+public class Addition{
+      public int add(int num1, int num2) {
+        return num1 + num2; 
+    }
+}
+```
+## Object Creation
+Once you have defined the class, you can create an object of that class using 'new' keyword.
+If the method is Non-Static and present inside the same calss then call that method with ObjectReferenceVariable.methodName
+```java
+public class AithmeticOperations {
+    public static void main(String[]args){
+        // Create Object of class where the method is present.
+        AithmeticOperations aithmeticOperations=new AithmeticOperations(); //Object Creation
+        // aithmeticOperations is Object reference variable
+        int result=aithmeticOperations.add(10, 20); // Method Invocation
+         System.out.println(result);
+    }
+    public int add(int num1, int num2) {
+        return num1 + num2; 
+    }
+}
+```
+If the method is Non-Static and present outside calss then call that method with ObjectReferenceVariable.methodName
+```java
+public class AithmeticOperations {
+    public static void main(String[]args){
+        // Create Object of class where the method is present.
+        Addition addition=new Addition(); //Object Creation
+        // addition is Object reference variable
+        int result=addition.add(10, 20); // Method Invocation
+         System.out.println(result);
+    }
+}
+
+public class Addition{
+      public int add(int num1, int num2) {
+        return num1 + num2; 
+    }
+}
+
+
+
+
+
 
 
 

@@ -105,8 +105,8 @@ public class ClassName {
 ```java
 public class AithmeticOperations {
     
-    public returnType add(int num1, int num2) {
-        int sum=num1+num2;
+    public int add(int num1, int num2) {
+        int sum =num1+num2;
         return sum;
     }
 }
@@ -114,7 +114,7 @@ public class AithmeticOperations {
 ##### In the above example :
 - 'add' is a method of the 'AithmeticOperations' class.
 - It takes two parameters (num1 and num2) of type int.
-- 
+- It returns the sum of num1 and num2 as an int.
 
 
 

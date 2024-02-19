@@ -162,7 +162,7 @@ public class Employee {
 ```
 
 
-If the method is Non-Static and present inside the same calss then call that method with ObjectReferenceVariable.methodName
+If the method is Non-Static and present inside the same calss then call that method with ObjectReferenceVariable.methodName()
 ```java
 public class AithmeticOperations {
     public static void main(String[]args){
@@ -177,7 +177,7 @@ public class AithmeticOperations {
     }
 }
 ```
-If the method is Non-Static and present outside calss then call that method with ObjectReferenceVariable.methodName
+If the method is Non-Static and present outside calss then call that method with ObjectReferenceVariable.methodName()
 ```java
 public class AithmeticOperations {
     public static void main(String[]args){

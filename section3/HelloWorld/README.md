@@ -12,7 +12,7 @@ Before getting started, ensure that you have the following installed on your sys
      - Enter a Project Name for your project.
      - Choose a Project Location where you want to save your project files.
      - Select the Language as Java.
-     - Build aystem as IntelliJ.
+     - Build system as IntelliJ.
      - Add JDK as corretto-21 or click on New... and locate your JDK installation directory.
      - Click on Create to create the project.
 4. #### Create a Java Class :

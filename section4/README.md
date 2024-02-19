@@ -145,7 +145,7 @@ public class Addition{
 }
 ```
 ## Object Creation
-Once you have defined the class, you can create an object of that class using 'new' keyword.
+Once you have defined the class, you can create an object of that class using 'new' keyword. The new keyword allocates memory for the object and returns to a reference it.
 If the method is Non-Static and present inside the same calss then call that method with ObjectReferenceVariable.methodName
 ```java
 public class AithmeticOperations {

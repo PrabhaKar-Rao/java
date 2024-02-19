@@ -145,7 +145,7 @@ public class Addition{
 }
 ```
 ## Object Creation
-Once you have defined the class, you can create an object of that class using 'new' keyword. The new keyword allocates memory for the object and returns to a reference it.
+Once you have defined the class, you can create an object of that class using 'new' keyword. The 'new' keyword allocates memory for the object and returns a reference to it.
 ```java
 public class Employee {
     public static void main(String[]args){

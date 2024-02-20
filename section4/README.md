@@ -211,6 +211,7 @@ public class MyClass {
     public MyClass() {
         // Initialization code here
     }
+MyClass myClass= new MyClass();// Object Creation to call default constructor
 }
 ```
 #### Example
@@ -219,6 +220,7 @@ public class Employee {
     public Employee() {
         System.out.println("Object is getting created");
     }
+Employee employee= new Employee();
 }
 ```
 
@@ -232,6 +234,8 @@ public class MyClass {
     public MyClass(int value) {
         this.myVariable = value;
     }
+MyClass myClass= new MyClass(20);// Object Creation  to call parameterized constructor
+
 }
 ```
 #### Example
@@ -244,8 +248,59 @@ public class Employee {
         this.name = empName;
         this.empId=id;
     }
+Employee employee=new Employee("Suresh","A4678");
 }
 ```
+### Constructor Overloading
+Java allows you to have multiple constructors with different parameter lists in a class. This is known as constructor overloading.
+```java
+public class MyClass {
+    private int myVariable;
+    
+    // Default constructor
+    public MyClass() {
+        // Initialization code here
+    }
+    
+    // Parameterized constructor
+    public MyClass(int value) {
+        this.myVariable = value;
+    }
+    
+    // Another parameterized constructor
+    public MyClass(String name, int age) {
+        // Initialization code here
+    }
+MyClass myClass= new MyClass();// To call default constructor
+MyClass myClass= new MyClass(20);// To call Constructor with one 'int' parameter
+MyClass myClass= new MyClass("Ramesh",20);// To call Constructor with one 'String' parameter and one 'int' parameter.
+
+}
+```
+#### Example
+```java
+public class Employee {
+    public int name;
+    public String age;
+    
+    public Employee() {
+        // Initialization code here
+    }
+    
+    public Employee(int value) {
+        this.name = value;
+    }
+    
+    public Employee(String name, int age) {
+        this.name=name;
+        this.age=age;
+    }
+Employee employee=new Employee();
+Employee employee=new Employee(20);
+Employee employee=new Employee("Suresh",20);
+}
+```
+
 
 
 

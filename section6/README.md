@@ -122,6 +122,41 @@ This method does not take any parameters
 ### Return Value
 The length() method returns an integer value representing the number of characters in the string.
 #### Example
+```java
+public class LengthMethodDemo {
+
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+        String combined = str1+ " "+str2;
+
+        int length1 = str1.length();
+        int length2 = str2.length();
+        int length3 = combined.length();
+
+        int emptyLength = "".length(); 
+        int length4 = "Hello".length();
+
+        System.out.println(combined);// Output : 11
+        System.out.println(emptyLength);// Output : 0
+    }
+}
+```
+### Usage
+The length() method is commonly used to find the length of a string in Java. It is particularly useful when you need to validate input length, iterate over characters in a string, or perform other string manipulation tasks.
+### Notes
+- The length of a string is equal to the number of Unicode code units in the string.
+- This method returns 0 if the string is empty ("").
+### Conclusion 🎉
+- The length() method in Java's String class is a simple yet powerful tool for determining the length of a string. With its straightforward syntax and predictable behavior, it provides developers with a convenient way to retrieve the number of characters in a string. Whether you're validating user input, iterating through characters, or performing string manipulation tasks, 'length()' is there to help you get the job done efficiently.
+- So go ahead, leverage the length() method in your Java projects and let it simplify your string handling tasks! 🚀
+## String.equals() Method in Java
+The `equals()` method in Java is used to compare the contents of two strings. It returns `true` if the strings are equal, and `false` otherwise.
+#### Example 
+
+
+
+
 
 
 

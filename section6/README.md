@@ -208,6 +208,9 @@ The compareTo() method is useful when you need to compare strings alphabetically
 The compareTo() method in Java is a powerful tool for comparing strings lexicographically. By returning an integer value indicating whether one string is less than, equal to, or greater than another, it facilitates various sorting and comparison tasks in Java programming. Understanding how to use compareTo() effectively can greatly enhance your ability to manipulate and analyze strings in Java applications.
 ## String.charAt() Method in Java
 The `String.charAt()` method in Java returns the character located at the specified index within the given string. The index value should be between 0 and `length() - 1`.
+#### Example 💡
+```java
+
 
 
 

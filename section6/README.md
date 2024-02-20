@@ -47,7 +47,7 @@ public class StringPool {
 ```
 ## String.intern() Method in Java
 The `intern()` method in the `String` class is a useful tool for managing memory efficiently when working with strings in Java. It returns a canonical representation of the string object, which means that for any two strings `s` and `t`, `s.intern() == t.intern()` holds true if and only if `s.equals(t)`.
-### Example
+### Example 💡
 ```java
 public class InternMethodDemo {
 
@@ -99,7 +99,7 @@ Escape sequence characters are special characters that are preceded by a backsla
 Unicode character values represent characters from various writing systems and symbol sets. These values are commonly used to include special characters or symbols in strings. Examples include :
 - `\uXXXX` - Unicode character represented by hexadecimal value `XXXX`
 - `\UXXXXXXXX` - Unicode character represented by hexadecimal value `XXXXXXXX`
-#### Example 
+#### Example 💡
 ```java
 public class EscapeSeqDemo {
 
@@ -121,7 +121,7 @@ The `length()` method in Java is a part of the `String` class. It returns the le
 This method does not take any parameters
 ### Return Value
 The length() method returns an integer value representing the number of characters in the string.
-#### Example
+#### Example 💡
 ```java
 public class LengthMethodDemo {
 
@@ -154,7 +154,7 @@ The length() method is commonly used to find the length of a string in Java. It 
 The `equals()` method in Java is used to compare the contents of two strings. It returns `true` if the strings are equal, and `false` otherwise.
 ### Return Value
 Return value of the `equals()` method is 'boolean'.
-#### Example 
+#### Example 💡 
 ```java
 public class StringComparisonDemo {
 
@@ -188,8 +188,24 @@ The `compareTo()` method in Java is used to compare two strings lexicographicall
 - 0 if the strings are equal.
 - A negative integer if the current string is lexicographically less than the specified string.
 - A positive integer if the current string is lexicographically greater than the specified string.
-#### Example 📝
+#### Example 💡
 ```java
+public class StringComparisonDemo {
+
+    public static void main(String[] args) {
+
+        int comparison1 = "java".compareTo("java"); // 0
+        int comparison2 = "java".compareTo("python"); // -6
+        int comparison3 = "python".compareTo("java"); // 6
+
+    }
+
+}
+```
+#### Usage 🚀
+The compareTo() method is useful when you need to compare strings alphabetically or numerically in Java.
+#### Conclusion 🎉
+The compareTo() method in Java is a powerful tool for comparing strings lexicographically. By returning an integer value indicating whether one string is less than, equal to, or greater than another, it facilitates various sorting and comparison tasks in Java programming. Understanding how to use compareTo() effectively can greatly enhance your ability to manipulate and analyze strings in Java applications.
 
 
 

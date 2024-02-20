@@ -45,7 +45,7 @@ public class StringPool {
 
 }
 ```
-## String.intern()
+## String.intern() Method in Java
 The `intern()` method in the `String` class is a useful tool for managing memory efficiently when working with strings in Java. It returns a canonical representation of the string object, which means that for any two strings `s` and `t`, `s.intern() == t.intern()` holds true if and only if `s.equals(t)`.
 ### Example
 ```java
@@ -65,7 +65,7 @@ public class InternMethodDemo {
 
 }
 ```
-## String.concat()
+## String.concat() Method in Java
 The `concat()` method in Java is used to concatenate one string to the end of another string. It returns a new string that represents the concatenation of the two strings.
 ```java
 public class Concat {
@@ -101,6 +101,28 @@ Unicode character values represent characters from various writing systems and s
 - `\UXXXXXXXX` - Unicode character represented by hexadecimal value `XXXXXXXX`
 #### Example 
 ```java
+public class EscapeSeqDemo {
+
+    public static void main(String[] args) {
+        String name = "\"Madan\"";
+        System.out.println(name);// Output : "Madan"
+
+        String m =  "\u004D";
+        System.out.println(m);// Output : M
+        String unicodeName = "\u004Dadan\u0021";
+        System.out.println(unicodeName);// Output : Madan!
+    }
+
+}
+```
+## String.length() Method in Java
+The `length()` method in Java is a part of the `String` class. It returns the length of the string - the number of characters in the string.
+### Parameters
+This method does not take any parameters
+### Return Value
+The length() method returns an integer value representing the number of characters in the string.
+#### Example
+
 
 
 

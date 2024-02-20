@@ -242,6 +242,9 @@ The `isEmpty()` method in Java is used to check whether a string is empty or not
 ### Return Value
 - 'true' if the length of the string is 0, indicating that it is empty.
 - 'false' otherwise
+#### Example
+
+
 
 
 

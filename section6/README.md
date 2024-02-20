@@ -144,7 +144,7 @@ public class LengthMethodDemo {
 ```
 ### Usage
 The length() method is commonly used to find the length of a string in Java. It is particularly useful when you need to validate input length, iterate over characters in a string, or perform other string manipulation tasks.
-### Notes
+### Notes ✍️
 - The length of a string is equal to the number of Unicode code units in the string.
 - This method returns 0 if the string is empty ("").
 ### Conclusion 🎉
@@ -152,7 +152,48 @@ The length() method is commonly used to find the length of a string in Java. It 
 - So go ahead, leverage the length() method in your Java projects and let it simplify your string handling tasks! 🚀
 ## String.equals() Method in Java
 The `equals()` method in Java is used to compare the contents of two strings. It returns `true` if the strings are equal, and `false` otherwise.
+### Return Value
+Return value of the `equals()` method is 'boolean'.
 #### Example 
+```java
+public class StringComparisonDemo {
+
+    public static void main(String[] args) {
+
+        String str1 = new String("Hey");
+        String str2 = new String("Hello");
+        String str3 = new String("Hey");
+
+        boolean b1 = str1.equals(str2); // false
+        boolean b2 = str1.equals(str3); // true
+
+        boolean b3 = str1.equals("Hey"); // true
+        boolean b4 = "Hey".equals(str1);// true
+        boolean b5 = "Hey".equals("Hello");// false
+
+        String str4 ="java";
+        String str5 ="JAVA";
+        boolean b6 = str4.equalsIgnoreCase(str5); // true
+
+    }
+
+}
+```
+### Important Notes ✍️
+- The equals() method is case-sensitive.
+- It's recommended to use equals() to compare strings rather than == operator, which compares references.
+## String.compareTo() Method in Java
+The `compareTo()` method in Java is used to compare two strings lexicographically. It returns an integer value that indicates whether the current string is less than, equal to, or greater than the specified string.
+#### Return Value
+- 0 if the strings are equal.
+- A negative integer if the current string is lexicographically less than the specified string.
+- A positive integer if the current string is lexicographically greater than the specified string.
+#### Example 📝
+```java
+
+
+
+
 
 
 

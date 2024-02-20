@@ -300,6 +300,47 @@ Employee employee2=new Employee(20);
 Employee employee3=new Employee("Suresh",20);
 }
 ```
+### Constructor Chaining
+Constructor chaining allows one constructor to call another constructor in the same class. This is achieved using the 'this()' keyword.
+```java
+public class MyClass {
+    private int myVariable;
+    private String myString;
+    
+    // Parameterized constructor
+    public MyClass(int value) {
+        this(value, "Default");
+    }
+    
+    // Another parameterized constructor
+    public MyClass(int value, String str) {
+        this.myVariable = value;
+        this.myString = str;
+    }
+MyClass myClass=new MyClass(10);
+}
+```
+#### Example
+```java
+public class Employee {
+    private int id;
+    private String name;
+    
+    public Employee() {
+        this(282717, "Suresh");
+    }
+
+    public Employee(int value, String str) {
+        this.id = value;
+        this.name = str;
+    }
+Employee employee=new Employee();
+}
+```
+#### Conclusion
+Constructors are essential for initializing objects in Java. Understanding their types and usage is crucial for creating well-structured and efficient Java programs.
+
+
 
 
 

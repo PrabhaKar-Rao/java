@@ -194,6 +194,62 @@ public class Addition{
         return num1 + num2; 
     }
 }
+```
+# Constructors in Java
+
+In Java, a constructor is a special type of method that is automatically called when an instance of a class is created. Constructors are used to initialize the newly created object.
+
+## Types of Constructors
+
+### Default Constructor
+
+A default constructor is one that doesn't take any parameters. If you don't explicitly define a constructor for a class, Java provides a default constructor that initializes member variables to their default values (e.g., 0 for numeric types, null for reference types).
+
+```java
+public class MyClass {
+    // Default constructor
+    public MyClass() {
+        // Initialization code here
+    }
+}
+```
+#### Example
+```java
+public class Employee {
+    public Employee() {
+        System.out.println("Object is getting created");
+    }
+}
+```
+
+### Parameterized Constructor
+A parameterized constructor is one that takes one or more parameters. It allows you to initialize instance variables with values passed as arguments during object creation.
+```java
+public class MyClass {
+    private int myVariable;
+    
+    // Parameterized constructor
+    public MyClass(int value) {
+        this.myVariable = value;
+    }
+}
+```
+#### Example
+```java
+public class Employee {
+    public String name;
+    public String empId;
+    
+    public Employee(String empName, String id) {
+        this.name = empName;
+        this.empId=id;
+    }
+}
+```
+
+
+
+
 
 
 

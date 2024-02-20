@@ -1,4 +1,4 @@
-# Exploring Core Java Concepts
+# Basic Core Java Concepts
 ## Declaring Feilds in Java Class
 In Java, fields are declared within a class. They represent the state or attributes of objects created from that class. Fields can store data that characterize the objects and are accessible throughout the class.
 Fields are declared within the body of a class. Here's the syntax for declaring fields :

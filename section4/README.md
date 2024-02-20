@@ -271,9 +271,9 @@ public class MyClass {
     public MyClass(String name, int age) {
         // Initialization code here
     }
-MyClass myClass= new MyClass();// To call default constructor
-MyClass myClass= new MyClass(20);// To call Constructor with one 'int' parameter
-MyClass myClass= new MyClass("Ramesh",20);// To call Constructor with one 'String' parameter and one 'int' parameter.
+MyClass myClass1= new MyClass();// To call default constructor
+MyClass myClass2= new MyClass(20);// To call Constructor with one 'int' parameter
+MyClass myClass3= new MyClass("Ramesh",20);// To call Constructor with one 'String' parameter and one 'int' parameter.
 
 }
 ```
@@ -295,9 +295,9 @@ public class Employee {
         this.name=name;
         this.age=age;
     }
-Employee employee=new Employee();
-Employee employee=new Employee(20);
-Employee employee=new Employee("Suresh",20);
+Employee employee1=new Employee();
+Employee employee2=new Employee(20);
+Employee employee3=new Employee("Suresh",20);
 }
 ```
 

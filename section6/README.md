@@ -514,6 +514,18 @@ public class StringReplaceDemo {
 - Use `replaceFirst()` when you only want to replace the first occurrence based on a regular expression.
   
   These methods provide flexibility in manipulating strings according to specific requirements.
+## String.split() Method in Java
+The `split()` method in Java is a function provided by the `String` class to split a string into an array of substrings based on a delimiter. It's commonly used for parsing and manipulating textual data.
+###  Syntax
+```java
+public String[] split(String regex)
+```
+- **regex :** The regular expression to use as a delimiter.
+### Parameters
+**regex :** The regular expression that defines where the string should be split.
+### Return Value
+An array of strings split from the original string based on the delimiter provided.
+### Example
 
 
 

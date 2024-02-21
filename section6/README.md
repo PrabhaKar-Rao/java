@@ -482,11 +482,39 @@ public class SubStringDemo {
 ### String.replace()
 The `replace()` method in Java `String` class replaces all occurrences of a specified character or sequence of characters with another character or sequence of characters.
 ### String.replaceAll()
-The replaceAll() method in Java String class replaces each substring of this string that matches the given regular expression with the given replacement.
+The `replaceAll()` method in Java `String` class replaces each substring of this string that matches the given regular expression with the given replacement.
 ###  String.replaceFirst()
-The replaceFirst() method in Java String class replaces the first substring of this string that matches the given regular expression with the given replacement.
+The `replaceFirst()` method in Java `String` class replaces the first substring of this string that matches the given regular expression with the given replacement.
 #### Example
 ```java
+public class StringReplaceDemo {
+
+    public static void main(String[] args) {
+        String originalString = "Hello, World!";
+        String replacedString = originalString.replace('o', '*');// "Hell*, W*rld!"
+        String replacedString1 = originalString.replace("World","Universe");// "Hello, Universe!"
+        String replacedString2 = originalString.replace("world","Universe");// Hello, World!"
+
+        String originalString1 = "abababab";
+        String replacedString3 = originalString1.replace("ab","X");// "XXXX"
+
+        String originalString2 = "Java is fun!";
+        String replacedString4 = originalString2.replaceAll("a|e|i|o|u", "*");// J*v* *s f*n!"
+
+        String originalString3 = "apple orange apple banana apple";
+        String replacedString5 = originalString3.replaceFirst("apple", "grape");// "grape orange apple banana apple"
+
+    }
+
+}
+```
+### Conclusion
+- Use `replace()` when you want to replace all occurrences of a specific character or sequence.
+- Use `replaceAll()` when you want to replace all occurrences based on a regular expression.
+- Use `replaceFirst()` when you only want to replace the first occurrence based on a regular expression.
+  
+  These methods provide flexibility in manipulating strings according to specific requirements.
+
 
 
 

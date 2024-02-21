@@ -526,6 +526,30 @@ public String[] split(String regex)
 ### Return Value
 An array of strings split from the original string based on the delimiter provided.
 ### Example
+```java
+public class StringSplitDemo {
+
+    public static void main(String[] args) {
+        String fruits = "apple,orange,banana,grape";
+        String[] fruitArray = fruits.split(",");
+        for(int i=0; i<fruitArray; i++){
+        System.out.println(i); /*Output : apple
+                                          orange
+                                          banana
+                                          grape */                        
+    }
+
+}
+```
+In this example, the string `"apple,orange,banana,grape"` is split into parts using the comma `(,)` as the delimiter.
+### Notes
+- If the regex pattern is not found in the string, the resulting array will contain only one element, which is the original string.
+- To split a string into individual characters, you can use an empty string as the regex: `str.split("")`.
+### Conclusion
+- The `split()` method in Java is a versatile tool for splitting strings into substrings based on a specified delimiter. Whether you're parsing CSV files, breaking down user input, or manipulating textual data, `split()` offers a convenient way to achieve your goals.
+
+- By understanding its syntax, parameters, and return value, along with practical examples, you can leverage this method effectively in your Java applications.Remember to consider edge cases, such as handling empty strings or using appropriate regex patterns, to ensure robustness and accuracy in your implementations.
+
 
 
 

@@ -423,6 +423,22 @@ public String trim()
 - A new string with leading and trailing whitespace removed.
 #### Example
 ```java
+public class StringTrimDemo {
+
+    public static void main(String[] args) {
+        String java1 = " java ".trim(); //java
+        String java2 = "java ".trim(); // java
+        String java3 = "\n \t java \n \r ".trim();// java
+        String java5 = " ja va ".trim();//ja va
+        String java6 = " ja \n va ".trim();//ja
+                                           //  va
+        boolean isSame = "java".equals("java ".trim());//true
+        boolean isSame = "java".equals("java ");// false
+
+    }
+
+}
+```
 
 
 

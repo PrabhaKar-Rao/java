@@ -406,7 +406,7 @@ System.out.println(endsWithWorld); // Output: true
 - **Validation :** Checking if a file name has a specific extension.
 - **Parsing :** Determining if a line of text ends with a particular punctuation mark.
 - **Filtering :** Filtering a list of strings based on prefixes or suffixes.
-### Notes
+### Notes ✍️
 - Both methods are case-sensitive.
 - If the length of the prefix or suffix is greater than the length of the string, 'startsWith()' and 'endsWith()' will return 'false'.
 - Both methods return true for an empty prefix or suffix, indicating that the string starts or ends with nothing.
@@ -439,7 +439,7 @@ public class StringTrimDemo {
 
 }
 ```
-### Conclusion
+### Conclusion 🎉
 - The 'String.trim()' method in Java provides a convenient way to remove leading and trailing whitespace from a string. It is useful for cleaning up user input, parsing data, and manipulating strings in various applications.
 - By utilizing 'trim()', developers can ensure that strings are properly formatted and free of unnecessary whitespace, improving the reliability and readability of their code.
 - Remember to handle cases where the string may be null to avoid 'NullPointerExceptions', and be aware that 'trim()' creates a new string instance rather than modifying the original string.
@@ -458,6 +458,36 @@ public String substring(int beginIndex, int endIndex)
 A new string that is a substring of this string.
 #### Examples
 ```java
+public class SubStringDemo {
+
+    public static void main(String[] args) {
+        String originalString = "Hello, World!";
+        String subString1 = originalString.substring(7); // "World"
+        String subString2 = originalString.substring(0,5);// "Hello"
+    }
+
+}
+```
+### Notes ✍️
+- The 'beginIndex' must be less than the 'endIndex'.
+- If 'beginIndex' is equal to 'endIndex', the returned string is empty.
+- If 'beginIndex' or 'endIndex' is negative or greater than the length of the string, it throws 'IndexOutOfBoundsException'.
+### Conclusion 🎉
+- The 'String.substring()' method in Java provides a convenient way to extract substrings from a given string based on specified indices. Whether you need to extract a substring starting from a particular index or within a range of indices, this method allows you to do so with ease.
+
+- By understanding its syntax, parameters, and return value, you can effectively utilize this method in your Java programs. Remember to handle edge cases such as negative indices or out-of-bounds indices to ensure robustness in your code.
+
+- With the examples provided, you should now have a clear understanding of how to use 'String.substring()' method in various scenarios, enabling you to manipulate strings effectively in your Java applications.
+##  String.replace(), String.replaceAll(), and String.replaceFirst() Methods in Java
+### String.replace()
+The `replace()` method in Java `String` class replaces all occurrences of a specified character or sequence of characters with another character or sequence of characters.
+### String.replaceAll()
+The replaceAll() method in Java String class replaces each substring of this string that matches the given regular expression with the given replacement.
+###  String.replaceFirst()
+The replaceFirst() method in Java String class replaces the first substring of this string that matches the given regular expression with the given replacement.
+#### Example
+```java
+
 
 
 

@@ -439,6 +439,28 @@ public class StringTrimDemo {
 
 }
 ```
+### Conclusion
+- The 'String.trim()' method in Java provides a convenient way to remove leading and trailing whitespace from a string. It is useful for cleaning up user input, parsing data, and manipulating strings in various applications.
+- By utilizing 'trim()', developers can ensure that strings are properly formatted and free of unnecessary whitespace, improving the reliability and readability of their code.
+- Remember to handle cases where the string may be null to avoid 'NullPointerExceptions', and be aware that 'trim()' creates a new string instance rather than modifying the original string.
+- In summary, 'String.trim()' is a simple yet powerful method that contributes to the effectiveness and efficiency of string manipulation in Java programming.
+## String.substring() Method in Java
+The `String.substring()` method in Java is used to extract a substring from the given string. It returns a new string that is a substring of this string.
+### Syntax
+```java
+public String substring(int beginIndex)
+public String substring(int beginIndex, int endIndex)
+```
+### Parameters
+- **beginIndex :** The beginning index, inclusive.
+- **endIndex :** The ending index, exclusive.
+### Return Value
+A new string that is a substring of this string.
+#### Examples
+```java
+
+
+
 
 
 

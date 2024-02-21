@@ -485,7 +485,7 @@ The `replace()` method in Java `String` class replaces all occurrences of a spec
 The `replaceAll()` method in Java `String` class replaces each substring of this string that matches the given regular expression with the given replacement.
 ###  String.replaceFirst()
 The `replaceFirst()` method in Java `String` class replaces the first substring of this string that matches the given regular expression with the given replacement.
-#### Example
+#### Example 💡
 ```java
 public class StringReplaceDemo {
 
@@ -508,7 +508,7 @@ public class StringReplaceDemo {
 
 }
 ```
-### Conclusion
+### Conclusion 🎉
 - Use `replace()` when you want to replace all occurrences of a specific character or sequence.
 - Use `replaceAll()` when you want to replace all occurrences based on a regular expression.
 - Use `replaceFirst()` when you only want to replace the first occurrence based on a regular expression.

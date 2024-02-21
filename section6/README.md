@@ -242,7 +242,7 @@ The `isEmpty()` method in Java is used to check whether a string is empty or not
 ### Return Value
 - 'true' if the length of the string is 0, indicating that it is empty.
 - 'false' otherwise
-#### Example
+#### Example 💡
 ```java
 public class EmptyCheckDemo {
 
@@ -275,7 +275,7 @@ The `toUpperCase()` method converts all the characters in a `String` to uppercas
 ```java
 String upperCaseString = originalString.toUpperCase();
 ```
-#### Example
+#### Example 💡
 ```java
 String str = "Hello, World!";
 String upperCaseStr = str.toUpperCase();
@@ -286,7 +286,7 @@ The toLowerCase() method converts all the characters in a String to lowercase. H
 ```java
 String lowerCaseString = originalString.toLowerCase();
 ```
-#### Example
+#### Example 💡
 ```java
 String str = "Hello, World!";
 String lowerCaseStr = str.toLowerCase();
@@ -308,7 +308,124 @@ public static String valueOf(Object obj)
 - obj: The object whose string representation is to be returned.
 ### Return Value
 - Returns the string representation of the specified object. If the specified object is 'null', it returns the string "null".
+#### Example 💡
+```java
+public class ConvertStringDemo {
+
+    public static void main(String[] args) {
+        int intValue = 42;
+        double doubleValue = 3.14;
+        boolean boolValue = true;
+
+        String str1 = String.valueOf(intValue);// "42"
+        String str2 = String.valueOf(doubleValue);// "3.14"
+        String str3 = String.valueOf(boolValue);// "true"
+        String str4 = String.valueOf('M');// "M"
+
+        int age = 30;
+        String message = "My age is : "+ age; //" My age is : 42"
+        String piValue = ""+ 3.14;// "3.14"
+    }
+}
+```
+### Usage 🚀
+- Convert primitive data types to strings.
+- Convert objects to strings by invoking their toString() methods.
+- Concatenate strings with other data types easily.
+### Note ✍️
+- This method returns "null" for 'null' inputs to prevent 'NullPointerException'.
+### Conclusion 🎉
+The String.valueOf() method in Java is a versatile tool for converting various data types into their string representations. Its simplicity and flexibility make it a fundamental part of Java programming, allowing for easy manipulation and concatenation of strings with other data types. Whether you need to convert primitive types, objects, or handle null values gracefully, String.valueOf() provides a reliable solution. By understanding its syntax, parameters, and return value, you can leverage this method effectively in your Java projects.
+## String.indexOf() Method in java
+- The `indexOf()` method in Java is used to find the index of a specific character or substring within a given string. This method returns the index of the first occurrence of the specified character or substring within the string, or -1 if the character or substring is not found.
+- The syntax for using the `indexOf()` method is:
+```java
+int indexOf(int ch)
+int indexOf(int ch, int fromIndex)
+int indexOf(String str)
+int indexOf(String str, int fromIndex)
+```
+- 'ch' is the character to be searched.
+- 'str' is the substring to be searched.
+- 'fromIndex' is the index to start the search from.
+### Parameters
+The method returns the index of the first occurrence of the specified character or substring within the string, or -1 if the character or substring is not found.
+#### Example 💡
+```java
+String str = "Hello, World!";
+int index1 = str.indexOf('o'); // Returns 4
+int index2 = str.indexOf('o', 5); // Returns 8
+int index3 = str.indexOf("World"); // Returns 7
+int index4 = str.indexOf("World", 8); // Returns -1
+```
+#### In this example :
+- 'index1' returns 4 because the first occurrence of 'o' is at index 4.
+- 'index2' returns 8 because the search starts from index 5, and the next occurrence of 'o' is at index 8.
+- 'index3' returns 7 because the substring "World" starts at index 7.
+- 'index4' returns -1 because the substring "World" is not found when starting the search from index 8.
+### Note ✍️
+- The 'indexOf()' method is case-sensitive.
+- If you need a case-insensitive search, consider using 'toLowerCase()' or 'toUpperCase()' before invoking indexOf().
+### Conclusion 🎉
+- The 'indexOf()' method in Java is a powerful tool for searching for specific characters or substrings within a string. By understanding its syntax, parameters, and return value, you can efficiently locate the desired elements within your strings.
+- Remember that 'indexOf()' is case-sensitive, so ensure that your search criteria match the case of the characters or substrings within the string. If case-insensitive searching is required, consider converting the string to lowercase or uppercase before using 'indexOf()'.
+- With its versatility and ease of use, 'indexOf()' is a valuable method to have in your Java programming arsenal for string manipulation tasks.
+## String.startsWith() and String.endsWith() Methods in Java
+The 'startsWith()' and 'endsWith()' methods in Java are used to check whether a string begins or ends with a specific prefix or suffix, respectively. These methods are helpful in various scenarios where string manipulation is required.
+### startsWith()
+#### Syntax
+```java
+public boolean startsWith(String prefix)
+```
+### Parameters
+- **'prefix' :** The prefix to check against the beginning of the string.
+### Return Value
+- 'true' if the string starts with the specified prefix; otherwise, 'false'.
+#### Example 
+```java
+String str = "Hello, world!";
+boolean startsWithHello = str.startsWith("Hello");
+System.out.println(startsWithHello); // Output: true
+```
+### endsWith()
+#### Syntax
+```java
+public boolean endsWith(String suffix)
+```
+### Parameters
+- **'suffix' :** The suffix to check against the end of the string.
+### Return Value
+- 'true' if the string ends with the specified suffix; otherwise, false.
+#### Example 
+```java
+String str = "Hello, world!";
+boolean endsWithWorld = str.endsWith("world!");
+System.out.println(endsWithWorld); // Output: true
+```
+### Use Cases
+- **Validation :** Checking if a file name has a specific extension.
+- **Parsing :** Determining if a line of text ends with a particular punctuation mark.
+- **Filtering :** Filtering a list of strings based on prefixes or suffixes.
+### Notes
+- Both methods are case-sensitive.
+- If the length of the prefix or suffix is greater than the length of the string, 'startsWith()' and 'endsWith()' will return 'false'.
+- Both methods return true for an empty prefix or suffix, indicating that the string starts or ends with nothing.
+- If either the prefix or suffix is 'null', these methods will throw a 'NullPointerException'.
+## String.trim() Method in Java
+The 'String.trim()' method in Java is used to remove leading and trailing whitespace from a string. Whitespace refers to any character that has no visible representation, such as spaces, tabs, and newline characters.
+### Syntax
+```java
+public String trim()
+```
+### Parameters
+- This method does not take any parameters.
+### Return Value
+- A new string with leading and trailing whitespace removed.
 #### Example
+```java
+
+
+
 
 
 

@@ -525,7 +525,7 @@ public String[] split(String regex)
 **regex :** The regular expression that defines where the string should be split.
 ### Return Value
 An array of strings split from the original string based on the delimiter provided.
-### Example
+### Example 💡
 ```java
 public class StringSplitDemo {
 
@@ -560,8 +560,37 @@ public static String join(CharSequence delimiter, CharSequence... elements)
 - **elements :** The strings to be joined.
 ### Returns
 A string consisting of the elements joined together with the specified delimiter.
-### Example
+### Example 💡
 ```java
+public class StringJoinDemo {
+
+    public static void main(String[] args) {
+        String result = String.join(",", "Hello", "World", "Java"); // "Hello,World,Java"
+        String result1 = String.join("", "Java is", "fun and", "powerful");// "Java isfun andpowerfull"
+    }
+
+}
+```
+### Notes ✍️
+- If the delimiter is null, then `NullPointerException` is thrown.
+- If the elements array is null, then `NullPointerException` is thrown.
+- If any element is null, then "null" is added to the joined string.
+- The String.join() method was introduced in Java 8.
+### Conclusion 🎉
+The `String.join()` method in Java provides a concise and efficient way to concatenate multiple strings with a specified delimiter. By using this method, you can avoid manually iterating over the elements and appending them together, which leads to cleaner and more readable code.
+
+Remember to handle cases where the delimiter or elements array is null to prevent `NullPointerExceptions`. Additionally, keep in mind that if any element in the array is null, it will be represented as "null" in the joined string.
+
+Overall, the `String.join()` method is a valuable addition to the Java language introduced in Java 8, simplifying string concatenation tasks and improving code maintainability.
+## String.format() Method in Java
+In Java, the `String.format()` method is used to format strings. It returns a formatted string using the specified format string and arguments. This method is useful for creating complex output strings with placeholders for variables.
+### Syntax
+```java
+String formattedString = String.format(String format, Object... args);
+```
+**format :** A format string that specifies how the output string should be formatted. It may contain placeholders that will be replaced by the corresponding arguments.
+**args :** Optional arguments that will replace the placeholders in the format string.
+### Example
 
 
 

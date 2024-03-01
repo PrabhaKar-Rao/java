@@ -549,6 +549,21 @@ In this example, the string `"apple,orange,banana,grape"` is split into parts us
 - The `split()` method in Java is a versatile tool for splitting strings into substrings based on a specified delimiter. Whether you're parsing CSV files, breaking down user input, or manipulating textual data, `split()` offers a convenient way to achieve your goals.
 
 - By understanding its syntax, parameters, and return value, along with practical examples, you can leverage this method effectively in your Java applications.Remember to consider edge cases, such as handling empty strings or using appropriate regex patterns, to ensure robustness and accuracy in your implementations.
+## String.join() Method in Java
+The `String.join()` method in Java is used to join multiple strings into a single string. It's a convenient way to concatenate strings with a specified delimiter.
+### Syntax
+```java
+public static String join(CharSequence delimiter, CharSequence... elements)
+```
+### Parameters
+- **delimiter :** The delimiter to use for joining the strings.
+- **elements :** The strings to be joined.
+### Returns
+A string consisting of the elements joined together with the specified delimiter.
+### Example
+```java
+
+
 
 
 

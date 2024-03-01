@@ -590,7 +590,33 @@ String formattedString = String.format(String format, Object... args);
 ```
 **format :** A format string that specifies how the output string should be formatted. It may contain placeholders that will be replaced by the corresponding arguments.
 **args :** Optional arguments that will replace the placeholders in the format string.
-### Example
+### Example 💡
+```java
+public class StringFormatDemo {
+
+    public static void main(String[] args) {
+        String message = "Hello, %s ! You have %d messages.";
+        String msgForMadan = String.format(message, "Madan", 3); // "Hello, Madan ! You have 3 messages."
+        String msgForSaanvi = String.format(message, "Saanvi", 6);// "Hello, Saanvi  ! You have 6 messages."
+
+        String message1 = "The price is $%.2f";
+        String price1 = String.format(message1, 19.99);
+        String price2 = String.format(message1, 9.99);
+
+    }
+}
+```
+In this example, we used String.format() to create a formatted string with placeholders %s, %d, and %.2f for name, messages, and price, respectively.
+### Format Specifiers
+- **%s :** String
+- **%d :** Integer
+- **%f :** Float or double
+- **%c :** Character
+- **%b :** Boolean
+- **%t :** Date/time
+### Conclusion 🎉
+The `String.format()` method in Java provides a powerful way to create formatted strings with placeholders. By using format specifiers in the format string, you can control the formatting of different types of data in the output string.
+
 
 
 

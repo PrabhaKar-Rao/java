@@ -627,8 +627,32 @@ public PrintStream printf(String format, Object... args)
 **args :** These are the arguments to be inserted into the format string. They correspond to the format specifiers in the format string.
 ### Return Value
 This method returns a reference to the PrintStream object (System.out).
-### Example
+### Example 💡
 ```java
+public class PrintfDemo {
+
+    public static void main(String[] args) {
+
+        System.out.printf("Name: %s, Age: %d%n", "John", 25); // "Name: John, Age:25"
+        System.out.printf("Price: %.2f%n", 19.99); // "Price: 19.99"
+        System.out.printf("Grade: %c%n", 'A');
+        System.out.printf("Is Java fun ?: %b%n", true);
+    }
+
+}
+```
+### Notes ✍️
+- The `printf()` method uses the same formatting conventions as the Formatter class.
+- If the number of arguments does not match the number of format specifiers, an `IllegalFormatException` will be thrown.
+### Conclusion 🎉
+- The System.out.printf() method in Java provides a convenient way to format output strings. By using format specifiers within the format string, you can control the layout and appearance of the output. This method is particularly useful when you need to display data in a structured and visually appealing manner.
+- By leveraging System.out.printf(), you can enhance the readability and professionalism of your Java applications' output. Whether you're printing simple text or complex data structures, this method offers the flexibility and precision needed to meet your formatting requirements.
+
+
+
+
+
+
 
 
 

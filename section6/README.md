@@ -616,6 +616,20 @@ In this example, we used String.format() to create a formatted string with place
 - **%t :** Date/time
 ### Conclusion 🎉
 The `String.format()` method in Java provides a powerful way to create formatted strings with placeholders. By using format specifiers in the format string, you can control the formatting of different types of data in the output string.
+## System.out.printf() Method in Java
+`System.out.printf()` is a method in Java used for formatted output. It allows you to print formatted strings to the standard output stream (`System.out`).
+### Syntax
+```java
+public PrintStream printf(String format, Object... args)
+```
+### Parameters
+**format :** This is a string that specifies the formatting of the output. It can contain format specifiers, which start with % and are followed by optional flags, width, precision, and conversion characters.
+**args :** These are the arguments to be inserted into the format string. They correspond to the format specifiers in the format string.
+### Return Value
+This method returns a reference to the PrintStream object (System.out).
+### Example
+```java
+
 
 
 

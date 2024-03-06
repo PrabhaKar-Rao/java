@@ -647,6 +647,16 @@ public class PrintfDemo {
 ### Conclusion 🎉
 - The System.out.printf() method in Java provides a convenient way to format output strings. By using format specifiers within the format string, you can control the layout and appearance of the output. This method is particularly useful when you need to display data in a structured and visually appealing manner.
 - By leveraging System.out.printf(), you can enhance the readability and professionalism of your Java applications' output. Whether you're printing simple text or complex data structures, this method offers the flexibility and precision needed to meet your formatting requirements.
+## Mutable Strings in Java
+Mutable Strings in Java refer to strings that can be modified after their creation. Unlike the traditional String class, which is immutable, mutable strings offer the flexibility to change their content without creating new objects.
+### Introduction
+Mutable strings are particularly useful in scenarios where frequent modifications to the string content are required, such as in performance-critical applications or when dealing with large datasets
+In Java, the StringBuilder and StringBuffer classes provide mutable string functionality.
+### StringBuilder
+`StringBuilder` is a mutable sequence of characters. It is similar to StringBuffer, but differs in that it is not synchronized, making it faster for single-threaded operations.
+### StringBuffer
+`StringBuffer` is a thread-safe, mutable sequence of characters. It is similar to StringBuilder, but synchronized, making it safe for use in multi-threaded environments.
+
 
 
 

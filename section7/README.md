@@ -94,6 +94,55 @@ a++; // Increment a by 1, now a is 6
 int b = 10;
 b--; // Decrement b by 1, now b is 9
 ```
+### Unary Plus Operator in Java
+The unary plus operator (+) in Java is used to indicate a positive value. It is primarily used to explicitly specify the sign of a numeric expression, although it does not change the value itself.
+#### Example
+```java
+int number = 10;
+int positiveNumber = +number; // positiveNumber will be 10
+```
+In the above example, the unary plus operator is used to explicitly indicate that the value of number is positive. However, since number is already positive, the unary plus operator does not affect its value.
+
+###  Unary Minus Operator in Java
+The unary minus operator (-) in Java is used to negate the value of its operand. It is a unary operator because it operates on only one operand.
+#### Example
+```java
+public class Main {
+    public static void main(String[] args) {
+        int number = 10;
+        int result = -number;
+
+        System.out.println("Original Number: " + number); //10
+        System.out.println("Negated Number: " + result);// -10
+    }
+}
+```
+### Usage
+The unary minus operator is commonly used when you need to change the sign of a numeric value, for example, to convert a positive number to a negative one or vice versa.
+### Notes
+- The operand of the unary minus operator must be a numeric type (byte, short, int, long, float, or double).
+- If the operand is an integer type (byte, short, int, long), the result will be the negation of that integer.
+- If the operand is a floating-point type (float or double), the result will be the negation of that floating-point number.
+## Compound Arithmetic Assignment Operators in Java
+### Overview
+Compound arithmetic assignment operators in Java are shorthand notation for performing arithmetic operations and assignment in a single step. They combine an arithmetic operator with the assignment operator (`=`) to modify the value of a variable. These operators are useful for simplifying and streamlining code, especially when incrementing or decrementing variables by a fixed amount.
+### List of Compound Arithmetic Assignment Operators
+Java supports the following compound arithmetic assignment operators :
+- `+=`: Addition assignment operator
+- `-=`: Subtraction assignment operator
+- `*=`: Multiplication assignment operator
+- `/=`: Division assignment operator
+- `%=`: Modulus assignment operator
+### Syntax
+```java
+variable operator= expression;
+```
+Where:
+
+
+
+
+
 
 
 

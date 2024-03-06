@@ -656,6 +656,50 @@ In Java, the StringBuilder and StringBuffer classes provide mutable string funct
 `StringBuilder` is a mutable sequence of characters. It is similar to StringBuffer, but differs in that it is not synchronized, making it faster for single-threaded operations.
 ### StringBuffer
 `StringBuffer` is a thread-safe, mutable sequence of characters. It is similar to StringBuilder, but synchronized, making it safe for use in multi-threaded environments.
+### Example 💡
+```java
+import java.io.CharArrayWriter;
+import java.io.IOException;
+
+public class StringMutableDemo {
+
+    public static void main(String[] args) throws IOException {
+
+        // Approach 1
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("World");
+        stringBuilder.insert(0,"Hello "); // "Hello World"
+        stringBuilder.deleteCharAt(4); //" Hell World"
+        stringBuilder.insert(4,'o'); // "Hello World"
+        stringBuilder.setLength(5); //"Hello"
+        stringBuilder.reverse(); //"olleh"
+        String str = stringBuilder.toString();
+
+        // Approach 2
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("World");
+        stringBuffer.insert(0,"Hello ");
+        stringBuffer.deleteCharAt(4);
+        stringBuffer.insert(4,'o');
+        stringBuffer.setLength(5);
+        stringBuffer.reverse();
+        String str1 = stringBuffer.toString();
+
+        // Approach 3
+
+        CharArrayWriter cw = new CharArrayWriter();
+        cw.write("Hello");
+        cw.write(" World");
+        String string3 = cw.toString();
+
+    }
+
+}
+```
+### Conclusion 🎉
+Mutable strings provided by `StringBuilder` and `StringBuffer` classes offer efficient ways to manipulate string data in Java applications. Choose `StringBuilder` for single-threaded scenarios where synchronization is not needed, and `StringBuffer` for multi-threaded environments requiring thread safety.
+
+
 
 
 

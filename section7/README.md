@@ -331,6 +331,33 @@ public class LogicalOperatorsDemo {
 ## Logical XOR Operator 
 The `XOR` operator, denoted by the caret symbol `^`, is a binary operator that returns true if and only if the operands differ. It returns false if both operands are the same.
 #### Example
+```java
+public class LogicalOperatorsDemo {
+
+    public static void main(String[] args) {
+
+        boolean isValid;
+        isValid = !true;
+        isValid = !false;
+        int num1 = 9;
+        int num2 = 6;
+        isValid = ! (num1>num2);
+
+        boolean a = (num1>10) && ((num2=16)>15);
+        System.out.println(a);
+        System.out.println(num2);
+
+        boolean b = (num1 < 10) || ((num2=18)>15);
+        System.out.println(b);
+        System.out.println(num2);
+
+        boolean c = (num1>5) ^ (num2<10);
+        System.out.println(c);// false
+
+        boolean d = (num1>5) ^ (num2>10); true
+    }
+}
+```
 
 
 

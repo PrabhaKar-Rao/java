@@ -283,6 +283,28 @@ public class LogicalOperatorsDemo {
 The logical AND (`&&`) operator returns `true` if both operands are `true`, otherwise it returns `false`. However, if the first operand evaluates to `false`, the second operand is not evaluated because the result will always be `false` regardless of its value.
 #### Example 
 ```java
+public class LogicalOperatorsDemo {
+
+    public static void main(String[] args) {
+
+        boolean isValid;
+        isValid = !true;
+        isValid = !false;
+        int num1 = 9;
+        int num2 = 6;
+        isValid = ! (num1>num2);
+
+        boolean a = (num1>5) && ((num2=16)>15);
+        System.out.println(a); // true
+        System.out.println(num2); // 16
+    }
+
+}
+```
+### Logical OR (`||`) Operator
+The logical OR (`||`) operator returns true if at least one of the operands is true. Similar to the logical AND operator, the logical OR operator also short-circuits the evaluation of an expression. If the first operand evaluates to true, the second operand is not evaluated because the result will always be true regardless of its value.
+#### Example
+
 
 
 

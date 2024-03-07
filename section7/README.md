@@ -265,6 +265,25 @@ System.out.println(a <= b); // Output: true
 ### Logical NOT  Operator
 The logical NOT operator (`!`) is used to invert the value of a boolean expression. It returns `true` if the operand is `false`, and false if the operand is true. Here's an example :
 #### Example
+```java
+public class LogicalOperatorsDemo {
+
+    public static void main(String[] args) {
+
+        boolean isValid;
+        isValid = !true; //false
+        isValid = !false; // true
+        int num1 = 9;
+        int num2 = 6;
+        isValid = ! (num1>num2); // false
+    }
+}
+```
+## Logical AND (`&&`) Operator 
+The logical AND (`&&`) operator returns `true` if both operands are `true`, otherwise it returns `false`. However, if the first operand evaluates to `false`, the second operand is not evaluated because the result will always be `false` regardless of its value.
+#### Example 
+```java
+
 
 
 

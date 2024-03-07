@@ -304,6 +304,34 @@ public class LogicalOperatorsDemo {
 ### Logical OR (`||`) Operator
 The logical OR (`||`) operator returns true if at least one of the operands is true. Similar to the logical AND operator, the logical OR operator also short-circuits the evaluation of an expression. If the first operand evaluates to true, the second operand is not evaluated because the result will always be true regardless of its value.
 #### Example
+```java
+public class LogicalOperatorsDemo {
+
+    public static void main(String[] args) {
+
+        boolean isValid;
+        isValid = !true;
+        isValid = !false;
+        int num1 = 9;
+        int num2 = 6;
+        isValid = ! (num1>num2);
+
+        boolean a = (num1>10) && ((num2=16)>15);
+        System.out.println(a);
+        System.out.println(num2);
+
+        boolean b = (num1 < 10) || ((num2=18)>15);
+        System.out.println(b); //true
+        System.out.println(num2);// 6
+
+    }
+
+}
+```
+## Logical XOR Operator 
+The `XOR` operator, denoted by the caret symbol `^`, is a binary operator that returns true if and only if the operands differ. It returns false if both operands are the same.
+#### Example
+
 
 
 

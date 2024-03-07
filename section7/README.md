@@ -220,6 +220,57 @@ System.out.println(result);// true
 - It can also be used to compare objects in Java, where it checks if the references point to different objects.
 - When comparing objects, it's important to understand the difference between reference equality and object equality. For object comparison, you might need to override the `equals()` method.
 
+## Comparison Operators in Java
+In Java, comparison operators are used to compare two values. These operators return a boolean value (`true` or `false`) based on the comparison result. Here, we'll discuss the greater than (`>`), greater than or equal to (`>=`), less than (`<`), and less than or equal to (`<=`) operators.
+
+### Greater Than (`>`) Operator
+The greater than operator (`>`) is used to check if the value on the left side of the operator is greater than the value on the right side.
+
+#### Example
+```java
+int a = 5;
+int b = 3;
+
+Systsem.out.println(a > b); // true
+```
+### Greater Than or Equal To (>=) Operator
+The greater than or equal to operator (`>=`) is used to check if the value on the left side of the operator is greater than or equal to the value on the right side.
+#### Example
+```java
+int a = 5;
+int b = 5;
+
+System.out.println(a >= b); // Output: true
+```
+### Less Than (<) Operator
+The less than operator (`<`) is used to check if the value on the left side of the operator is less than the value on the right side.
+#### Example 
+```java
+int a = 3;
+int b = 5;
+
+System.out.println(a < b); // Output: true
+```
+### Less Than or Equal To (<=) Operator
+The less than or equal to operator (<=) is used to check if the value on the left side of the operator is less than or equal to the value on the right side.
+#### Example
+```java
+int a = 5;
+int b = 5;
+
+System.out.println(a <= b); // Output: true
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 

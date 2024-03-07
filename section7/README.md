@@ -233,7 +233,7 @@ int b = 3;
 
 Systsem.out.println(a > b); // true
 ```
-### Greater Than or Equal To (>=) Operator
+### Greater Than or Equal To (`>=`) Operator
 The greater than or equal to operator (`>=`) is used to check if the value on the left side of the operator is greater than or equal to the value on the right side.
 #### Example
 ```java
@@ -242,7 +242,7 @@ int b = 5;
 
 System.out.println(a >= b); // Output: true
 ```
-### Less Than (<) Operator
+### Less Than (`<`) Operator
 The less than operator (`<`) is used to check if the value on the left side of the operator is less than the value on the right side.
 #### Example 
 ```java
@@ -251,8 +251,8 @@ int b = 5;
 
 System.out.println(a < b); // Output: true
 ```
-### Less Than or Equal To (<=) Operator
-The less than or equal to operator (<=) is used to check if the value on the left side of the operator is less than or equal to the value on the right side.
+### Less Than or Equal To (`<=`) Operator
+The less than or equal to operator (`<=`) is used to check if the value on the left side of the operator is less than or equal to the value on the right side.
 #### Example
 ```java
 int a = 5;
@@ -260,6 +260,11 @@ int b = 5;
 
 System.out.println(a <= b); // Output: true
 ```
+## Logical Operators
+
+### Logical NOT  Operator
+The logical NOT operator (`!`) is used to invert the value of a boolean expression. It returns `true` if the operand is `false`, and false if the operand is true. Here's an example :
+#### Example
 
 
 

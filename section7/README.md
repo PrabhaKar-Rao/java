@@ -176,6 +176,35 @@ System.out.println(x); // Output: 1
 ### Conclusion  🎉
 Compound arithmetic assignment operators in Java are useful for performing arithmetic operations and assignment in a single step, making code concise and readable. They offer a convenient way to update variables based on their current values.
 
+## Realational Operators
+### Equality Operator in Java
+The Equality Operator `(==)` in Java is used to compare two operands to determine if they are equal. It's important to understand how it works and its nuances to avoid unexpected behavior in your Java programs.
+#### Basic Usage
+The Equality Operator compares the values of two operands. If the values are equal, it returns `true`; otherwise, it returns `false`. It's commonly used in conditional statements and expressions.
+#### Example
+```java
+int a = 5;
+int b = 5;
+
+boolean resul t= a==b;
+System.out.println(result); //true
+
+String str1=new String("hello");
+String str2=new String("hello");
+
+boolean isSame = str1==str2;
+
+System.out.println(isSame);// false
+```
+- When comparing reference types (objects), the Equality Operator checks if the references point to the same object in memory, not if the objects have the same values.
+- In the above example, `str1` and `str2` are different objects in memory, even though they have the same value. Therefore, the result of the comparison will be `false`.
+#### Equality vs. Identity
+- **Equality :** Compares the values of two operands.
+- **Identity :** Compares the memory addresses of two operands.
+#### Conclusion
+Understanding how the Equality Operator works in Java is crucial for writing reliable and bug-free code. Always consider the types of operands you are comparing and whether you need to check for equality or identity.
+
+
 
 
 

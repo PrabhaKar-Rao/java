@@ -358,6 +358,12 @@ public class LogicalOperatorsDemo {
     }
 }
 ```
+## Compound Logical Assignment operator in Java
+#### Example 
+```java
+
+```
+
 
 
 

@@ -480,6 +480,103 @@ In this example, the binary representation of 5 is 00000101. When we left shift 
 ### Notes
 - Left shifting a number by n bits is equivalent to multiplying the number by 2^n.
 - The leftmost bits that are shifted out of the number are discarded, and zero bits are shifted in from the right.
+## Signed Right Shift Operator
+In Java, the signed right shift operator (>>) is used to shift the bits of a number to the right. It preserves the sign of the number, meaning it fills the shifted positions with the sign bit (the leftmost bit) of the original number.
+### Syntax
+The syntax for the signed right shift operator is as follows:
+```java
+result = number >> shiftAmount;
+```
+Where :
+- number is the integer value whose bits are to be shifted.
+- shiftAmount is the number of positions to shift the bits.
+### Example
+```java
+int x = 10;    // Binary: 0000 1010
+int shifted = x >> 2;  // Shift right by 2 positions // Binary: 0000 0010
+System.out.println(shifted); // 2
+
+```
+After the shift operation, shifted will have the value 2, because the rightmost two bits are discarded.
+### Behavior
+- The signed right shift operator preserves the sign of the number.
+- If the number is positive, it fills the vacant positions on the left with 0.
+- If the number is negative, it fills the vacant positions on the left with 1.
+### Applications
+- It is commonly used in optimizing division by powers of 2.
+- It can be used for efficient multiplication or division by 2^n, where n is the shift amount.
+### Note
+- When shifting right by n positions, the number effectively gets divided by 2^n.
+- Care should be taken when using the signed right shift operator with negative numbers to avoid unexpected results.
+### Conclusion
+The signed right shift operator (>>) in Java is a useful tool for shifting the bits of a number to the right while preserving its sign. Understanding its behavior and applications can help in writing efficient and concise code.
+## Unsigned Right Shift Operator (>>>)
+In Java, the Unsigned Right Shift operator (`>>>`) is used to shift the bits of a number to the right by a specified number of positions. Unlike the Right Shift operator (`>>`), the Unsigned Right Shift operator always fills the leftmost bits with zeros, irrespective of the sign bit.
+### Syntax
+The syntax for the Unsigned Right Shift operator is :
+- result = value >>> numPositions;
+- Here, `value` is the number whose bits are to be shifted, `numPositions` is the number of positions to shift the bits to the right, and `result` is the variable that will hold the result of the operation.
+#### Example
+
+```java
+int number = 10; // binary representation: 0000 0101
+int result = number >>> 1; // Shift right by 1 position // binary representation : 0000 0010
+System.out.println(result) //2
+```
+### Use Cases
+- Dividing by powers of 2: Unsigned Right Shift is often used for dividing by powers of 2 because it's a fast operation.
+- Working with binary data: When dealing with binary data and you need to shift bits to the right while maintaining the unsigned nature of the data, the Unsigned Right Shift operator comes in handy.
+### Notes
+- The Unsigned Right Shift operator (>>>) does not preserve the sign bit, which means it treats the number as if it were positive, shifting all bits to the right and filling the leftmost bits with zeros.
+- This operator is useful when working with binary data or when you want to perform logical right shifts without considering the sign of the number.
+## Compound Assignment Bitwise Operators
+Compound assignment bitwise operators combine a bitwise operation with assignment, allowing you to perform an operation and assign the result to the same variable in a single statement.
+### Compound Assignment Bitwise And Operator
+#### Example 
+```
+int x = 10; //binary representation :1010
+int y = 6; // binary representation :0110
+ x &= y
+System.out.println(x) //2 // binary representation :0010
+```
+Please practice remaing `Compound Assignment Bitwise And Operator`
+
+## Ternary Conditional Operator
+The Ternary Conditional Operator, often referred to as the "conditional operator" or "ternary operator", is a concise way to express conditional statements in Java. It provides a shorthand for the if-else statement.
+### Syntax
+```
+condition ? expression1 : expression2
+```
+- If the condition evaluates to true, the expression1 is executed.
+- If the condition evaluates to false, the expression2 is executed.
+#### Example
+```java
+int x = 10;
+int y = 5;
+int max = (x > y) ? x : y;
+System.out.println("The maximum value is: " + max);// 10
+```
+In this example :
+- If `x` is greater than `y`, `x` is assigned to max.
+- If `y` is greater than or equal to `x`, `y` is assigned to max.
+### Advantages
+- **Conciseness :** The ternary operator reduces the amount of code required for simple conditional statements.
+- **Readability :** It can make the code more readable, especially for simple conditions.
+### Limitations
+- Complexity: Overuse of nested ternary operators can lead to decreased readability and maintainability.
+- Not Suitable for Complex Logic: For complex conditions, using if-else statements is often more appropriate.
+### Conclusion
+The Ternary Conditional Operator is a powerful tool for writing concise conditional statements in Java. It can improve code readability and reduce verbosity for simple conditions. However, it should be used judiciously and avoided for complex logic to maintain code clarity and understandability.
+
+
+
+
+
+
+
+
+
+
 
 
 

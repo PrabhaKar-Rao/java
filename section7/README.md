@@ -389,7 +389,102 @@ The bitwise `NOT` operator in Java, denoted by `~`, is a unary operator that fli
 ### Usage
 The bitwise NOT operator flips each bit of its operand. If a bit is 1, it becomes 0, and if it's 0, it becomes 1.
 #### Example
-Let's say a is 5, represented in binary as 101. Applying the bitwise NOT operator to a will flip each bit :
+```java
+public class BitwiseOperatorsDemo {
+
+    public static void main(String[] args) {
+
+        int x = 9;
+        int y = ~x;
+        System.out.println(y); // -10
+    }
+
+}
+```
+##  Bitwise AND Operator
+The BITWISE AND operator (`&`) in Java is a binary operator that performs a bitwise AND operation between two integer operands. It evaluates to 1 if both corresponding bits in the operands are 1; otherwise, it evaluates to 0.
+#### Example
+```java
+public class BitwiseAndExample {
+    public static void main(String[] args) {
+        int num1 = 10;   // Binary: 1010
+        int num2 = 6;    // Binary: 0110
+        int result = num1 & num2; // Binary result: 0010 (2 in decimal)
+        System.out.println("Result of BITWISE AND operation: " + result); // 2
+    }
+}
+```
+## Bitwise OR Operator 
+In Java, the bitwise OR operator (`|`) is a binary operator that performs a bitwise OR operation between two integer operands. It evaluates to 1 if either or both of the corresponding bits in the operands are 1 else 0.
+#### Example
+```java
+int a = 5;     // 101 in binary
+int b = 3;     // 011 in binary
+int result = a | b;  // result = 7 (111 in binary)
+```
+In this example, the bitwise OR operation is performed between a and b, resulting in 7 which is 111 in binary.
+### Usage
+- Combining Flags: Bitwise OR is commonly used to combine or set specific flags or options in programming.
+- Masking: It's used in bitmasking techniques to manipulate individual bits or groups of bits within an integer.
+### Notes
+- The bitwise OR operator evaluates each bit position independently.
+- It sets the corresponding bit in the result to 1 if either of the bits in the operands is 1.
+### Alternatives
+**Logical OR (`||`) Operator :** This is a conditional OR operator used for boolean expressions. It evaluates to true if either operand is true.
+### Conclusion
+The bitwise OR operator in Java provides a powerful tool for manipulating individual bits within integers. It's commonly used in low-level programming and for various bitwise operations.
+## Bitwise XOR Operator
+In Java, the bitwise XOR operator (`^`) is used to perform a bitwise exclusive OR operation between two integers.It compares each bit two operands, and if the bits are diffrent then the resulting bit is 1, otherwise resulting bit is 0.
+#### Example
+```java
+int a = 5;      // 101 in binary
+int b = 3;      // 011 in binary
+
+int result = a ^ b; // result = 110 in binary, which is 6 in decimal
+
+System.out.println("5 ^ 3 = " + result); // Output: 6
+```
+### Usage
+The bitwise XOR operator is commonly used for various purposes such as :
+- Flipping bits: XORing a value with a bit pattern of all 1s flips all of its bits.
+- Encrypting and decrypting data.
+- Checking for differences between two bit patterns.
+- Swapping values without using a temporary variable.
+### Important Notes
+- The operands for the XOR operator must be of integer types (byte, short, int, long, char).
+- The XOR operation sets a bit to 1 if it is different in the operands, otherwise sets it to 0.
+### Conclusion
+The bitwise XOR operator (^) in Java is a fundamental tool for performing bitwise exclusive OR operations between integers. Understanding its behavior and applications is essential for working with binary data and performing bitwise manipulations efficiently.
+##  Left Shift Operator
+In Java, the left shift operator (`<<`) is a bitwise operator used to shift the bits of a number to the left. It is used to perform multiplication by powers of two.
+
+Where:
+- `operand` is the value to be shifted.
+- `numBits` is the number of positions to shift the bits to the left.
+
+## Example
+
+```java
+int num = 5;  // Binary representation: 00000101
+
+// Left shifting by 2 bits
+int result = num << 2;  // Binary representation: 00010100
+
+System.out.println(result);  // Output: 20
+```
+In this example, the binary representation of 5 is 00000101. When we left shift this number by 2 bits (num << 2), the result is 00010100, which is equivalent to 20 in decimal.
+
+### Usage
+- The left shift operator is commonly used for performing quick multiplication or division by powers of two.
+- It can also be used for bit manipulation and optimizing certain algorithms.
+### Notes
+- Left shifting a number by n bits is equivalent to multiplying the number by 2^n.
+- The leftmost bits that are shifted out of the number are discarded, and zero bits are shifted in from the right.
+
+
+
+
+
 
 
 

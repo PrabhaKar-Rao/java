@@ -359,10 +359,39 @@ public class LogicalOperatorsDemo {
 }
 ```
 ## Compound Logical Assignment operator in Java
+Compound logical assignment operators in Java are shorthand operators used to combine an arithmetic or bitwise operation with an assignment. These operators perform the operation and then assign the result to the variable in a single step. They are convenient for modifying variables based on certain conditions efficiently.
 #### Example 
 ```java
+public class LogicalOperatorsDemo {
+
+    public static void main(String[] args) {
+
+        boolean b1 = true;
+        b1 &= true;
+        System.out.println(b1);// true
+
+        boolean b2 = true;
+        b2 |= false;
+        System.out.println(b2); //true
+
+        boolean b3 = true;
+        b3 ^= false;
+        System.out.println(b3); // true
+    }
+
+}
 
 ```
+## Biwise Operators in Java
+Bitwise operators in Java are used to perform operations on individual bits of integer operands. These operators work on the binary representation of numbers. Java provides six bitwise operators :
+### Bitwise NOT Operator in Java
+The bitwise `NOT` operator in Java, denoted by `~`, is a unary operator that flips the bits of its operand. It's used to perform bitwise negation on individual bits of an integer operand.
+### Usage
+The bitwise NOT operator flips each bit of its operand. If a bit is 1, it becomes 0, and if it's 0, it becomes 1.
+#### Example
+Let's say a is 5, represented in binary as 101. Applying the bitwise NOT operator to a will flip each bit :
+
+
 
 
 

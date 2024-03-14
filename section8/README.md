@@ -90,5 +90,33 @@ public class MessageForDay {
 ```
 ##  Ternary Operator 
 The ternary operator is a concise way of writing if-else statements in Java. It's also known as the conditional operator. It's a one-liner syntax that evaluates a condition and returns one of two values, depending on whether the condition is true or false.
+### Example
+```java
+public class TernaryOperator {
+
+    public static void main(String[] args) {
+        int x = 10;
+        int y;
+       
+        y = x > 5 ? 20 : 30;
+        System.out.println(y);
+        sum(x, x > 5 ? 20 : 30 );
+    }
+
+    public static void sum (int x, int y) {
+        System.out.println(x+y);
+    }
+}
+```
+### Advantages
+- **Concise syntax :** It reduces code length compared to if-else statements, making code more readable and easier to maintain.
+- **Functional programming :** It allows for functional programming-style expressions, especially when used with lambda expressions.
+### Limitations
+- **Readability :** Overuse or complex nesting of ternary operators can reduce code readability.
+- **Limited to simple conditions :** Ternary operators are best suited for simple conditions. Complex conditions may be difficult to read or understand when expressed using the ternary operator.
+### Conclusion
+The ternary operator in Java provides a concise and elegant way to express conditional statements. When used appropriately, it can improve code readability and maintainability. However, it's essential to use it judiciously and avoid overcomplicating expressions.
+
+
 
 

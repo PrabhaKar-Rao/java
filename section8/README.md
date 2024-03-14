@@ -119,6 +119,52 @@ The ternary operator in Java provides a concise and elegant way to express condi
 ## Switch-Case Statements
 Switch-case statements in Java provide a convenient way to execute different blocks of code based on the value of a variable or expression. They offer a cleaner alternative to multiple `if-else` statements when dealing with multiple possible conditions.
 ### Example
+```java
+public class SwitchCaseDemo {
+
+    public static void main(String[] args) {
+
+        String fruitName = "Banana";
+
+        switch (fruitName) {
+
+            case "Banana":
+            case "Apple":
+                System.out.println("$ 1.0 charged");
+                break;
+            case "Grapes":
+                System.out.println("$ 2.0 charged");
+                break;
+            case "Pineapple":
+                System.out.println("$ 2.5 charged");
+                break;
+            case "Mango":
+                System.out.println("$ 3.0 charged");
+                break;
+            default:
+                System.out.println("Pick a valid fruit");
+                break;
+                                                               // Output : $ 1.0 charged
+        }
+
+    }
+
+}
+```
+- **switch :** Begins the switch statement and evaluates the expression.
+- **case value :** Specifies a value to compare the expression against.
+- **break :** Terminates the switch block. Without a break statement, execution will continue to the next case.
+- **default :** Executes if the expression doesn't match any of the cases. It's optional but recommended for handling unexpected values.
+### Key Points
+- **Expression :** The variable or expression whose value is being compared against different cases. It must evaluate to a primitive type (such as int, char, or enum) or String (Java 7 and later).
+- **Values :** Each case specifies a value to compare the expression against. These values must be constant expressions.
+- **Execution Flow :** When a match is found, the corresponding code block executes. If there's no break, execution will continue to the next case. The default case, if present, is executed if no matches are found.
+- **Break Statement :** Each case block should end with a break statement to prevent fall-through to subsequent cases.
+- **Default Case :** It's good practice to include a default case to handle unexpected values gracefully.
+##  Switch Expression
+A switch expression is a control flow statement that evaluates an expression and selects one of several code blocks to execute, depending on the value of the expression. It's an enhanced version of the traditional switch statement found in many programming languages.
+#### Example
+
 
 
 

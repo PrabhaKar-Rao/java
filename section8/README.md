@@ -264,6 +264,37 @@ do {
 - If the condition is true, the code block will be executed again.
 - This process continues until the condition becomes false
 ### Example
+```java
+public class DoWhileStatementDemo {
+
+    public static void main(String[] args) {
+
+        int n = 6;
+
+        do {
+            System.out.println(n);
+            n++;
+        } while ( n < 10);
+
+    }
+
+}
+```
+### Conclusion
+The do-while loop in Java is useful when you need to execute a block of code at least once, regardless of whether the condition is initially true or false. It's commonly used in situations where the exact number of iterations is not known beforehand.
+## for Loop
+In Java, the for loop provides a concise way to iterate over a range of values or elements in an array or collection. It consists of three parts: initialization, condition, and iteration expression.
+### Syntax
+```java
+for (initialization; condition; iteration) {
+    // code block to be executed
+}
+```
+- **Initialization :** Initializes the loop control variable.
+- **Condition :** Evaluates to true or false. If true, the code block is executed; if false, the loop terminates.
+- **Iteration :** Updates the loop control variable after each iteration.
+### Example
+
 
 
 

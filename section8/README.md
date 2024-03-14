@@ -325,6 +325,44 @@ for (initialization; condition; increment/decrement) {
 The outer loop controls the execution of the inner loop. It runs once for each iteration of the outer loop.
 ### Example
 ```java
+public class NestedForLoopDemo {
+
+    public static void main(String[] args) {
+
+        int number = 10;
+
+        for(int i = 1; i <= number; i++) {
+            for(int j =1; j<=number;j++) {
+                System.out.println(i + " x " + j + " = " + i*j);
+            }
+        }
+
+        int rows = 10;
+        for (int i =1; i <=rows; i ++ ) {
+            for (int j =1; j <=i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+    }
+
+}
+```
+### Nested Loop Behavior
+When using nested loops, keep in mind that the inner loop runs to completion for each iteration of the outer loop. This means that the inner loop will run its entire course before the outer loop moves to its next iteration.
+### Advantages
+- Nested loops provide a way to handle complex iterations over multi-dimensional data structures.
+- They allow you to perform operations on combinations of elements from multiple collections.
+### Tips
+- Ensure that you are incrementing/decrementing loop variables properly to avoid infinite loops.
+- Be cautious of performance implications, especially with deeply nested loops and large datasets.
+### Conclusion
+Nested for loops in Java are a powerful tool for iterating over multi-dimensional data structures and handling combinations of elements. Understanding how to use them effectively can greatly enhance your ability to work with complex data.
+## Break Statement
+The `break` statement in Java is used to terminate the execution of a loop prematurely. When the `break` statement is encountered inside a loop, the loop is immediately terminated, and the program control resumes at the next statement following the loop.
+### Example
+
 
 
 

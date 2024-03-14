@@ -362,6 +362,26 @@ Nested for loops in Java are a powerful tool for iterating over multi-dimensiona
 ## Break Statement
 The `break` statement in Java is used to terminate the execution of a loop prematurely. When the `break` statement is encountered inside a loop, the loop is immediately terminated, and the program control resumes at the next statement following the loop.
 ### Example
+```java
+public class BreakExample {
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            if (i == 5) {
+                System.out.println("Reached the break statement, terminating loop.");
+                break;
+            }
+            System.out.println("Iteration: " + i); //5
+        }
+    }
+}
+
+```
+In this example, the loop terminates when the value of i becomes equal to 5, and the program control resumes at the statement following the loop.
+
+### Notes
+- The `break` statement can be used with for, while, and do-while loops.
+- When `break` is used inside nested loops, it only terminates the innermost loop.
+### continue Statement
 
 
 

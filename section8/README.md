@@ -294,6 +294,38 @@ for (initialization; condition; iteration) {
 - **Condition :** Evaluates to true or false. If true, the code block is executed; if false, the loop terminates.
 - **Iteration :** Updates the loop control variable after each iteration.
 ### Example
+```java
+public class ForLoopDemo {
+
+    public static void main(String[] args) {
+        int result ;
+        for (int i = 1; i <= 10; i++) {
+                result = i * 9;
+            System.out.println("9 * " + i + " = "+ result);
+        }
+    }
+}
+```
+### Notes
+- The initialization step is executed only once at the beginning of the loop.
+- The condition is evaluated before each iteration. If it evaluates to false, the loop terminates.
+- The iteration expression is executed after each iteration.
+## Nested For Loops
+Nested for loops in Java are used when you need to iterate over a collection of items that contain another collection. This is commonly seen when dealing with multi-dimensional arrays or when you need to perform a task on each combination of elements from two or more collections.
+### Syntax
+```java
+for (initialization; condition; increment/decrement) {
+    // Outer loop
+    for (initialization; condition; increment/decrement) {
+        // Inner loop
+        // Code to be executed
+    }
+}
+```
+The outer loop controls the execution of the inner loop. It runs once for each iteration of the outer loop.
+### Example
+```java
+
 
 
 

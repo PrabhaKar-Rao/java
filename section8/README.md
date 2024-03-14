@@ -229,6 +229,41 @@ while (condition) {
 - The code block within the curly braces {} contains the statements to be executed repeatedly.
 ### Example
 ```java
+public class WhileStatementDemo {
+
+    public static void main(String[] args) {
+
+        int i = 1;
+
+        while (i<=10 ) {
+            System.out.println(i);
+            i++;
+        }
+
+        while (true) {
+            System.out.println("I can print infinitely");
+        }
+    }
+}
+```
+### Key Points
+- Use the `while` loop when the number of iterations is not known beforehand.
+- Ensure that the condition eventually becomes false to avoid infinite loops.
+- The code block inside the while loop must contain statements that alter the variables involved in the condition to avoid an infinite loop.
+## Do-While Statement
+In Java, a do-while statement is used to execute a block of code repeatedly until a specified condition evaluates to false. Unlike the while loop, the do-while loop ensures that the block of code is executed at least once, even if the condition is initially false.
+### Syntax
+```java
+```java
+do {
+    // code block to be executed
+} while (condition);
+```
+- The code block within the do statement is executed first.
+- Then, the condition is evaluated.
+- If the condition is true, the code block will be executed again.
+- This process continues until the condition becomes false
+### Example
 
 
 

@@ -116,6 +116,11 @@ public class TernaryOperator {
 - **Limited to simple conditions :** Ternary operators are best suited for simple conditions. Complex conditions may be difficult to read or understand when expressed using the ternary operator.
 ### Conclusion
 The ternary operator in Java provides a concise and elegant way to express conditional statements. When used appropriately, it can improve code readability and maintainability. However, it's essential to use it judiciously and avoid overcomplicating expressions.
+## Switch-Case Statements
+Switch-case statements in Java provide a convenient way to execute different blocks of code based on the value of a variable or expression. They offer a cleaner alternative to multiple `if-else` statements when dealing with multiple possible conditions.
+### Example
+
+
 
 
 

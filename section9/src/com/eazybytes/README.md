@@ -86,4 +86,77 @@ This lets you use static methods like sqrt() and pow() directly without prefixin
 
 ### Conclusion
 Using the import statement in Java is essential for managing packages and accessing their members efficiently. By importing packages and specific members, you can keep your code concise and readable, while static imports provide convenience when working with static members.
+## Java Access Modifiers for Methods and Fields
+Access modifiers in Java are keywords used to specify the accessibility of classes, methods, and fields. They control the level of visibility and accessibility to other classes and packages. Understanding access modifiers is crucial for encapsulation and maintaining the integrity of your codebase.
+
+### Access Modifiers for Fields
+** public :** Fields declared as public are accessible from any other class.
+
+```java
+public class MyClass {
+    public int publicField;
+}
+```
+**private :** Fields declared as private are accessible only within the same class.
+
+```java
+public class MyClass {
+    private int privateField;
+}
+```
+**protected :** Fields declared as protected are accessible within the same package and subclasses.
+```java
+public class MyClass {
+    protected int protectedField;
+}
+```
+** default (no modifier) :** Fields with no explicit modifier are accessible within the same package.
+
+```java
+public class MyClass {
+    int defaultField;
+}
+```
+### Access Modifiers for Methods
+**public :** Methods declared as public are accessible from any other class.
+
+```java
+public class MyClass {
+    public void publicMethod() {
+        // Method implementation
+    }
+}
+```
+**private :** Methods declared as private are accessible only within the same class.
+
+```java
+public class MyClass {
+    private void privateMethod() {
+        // Method implementation
+    }
+}
+```
+**protected :** Methods declared as protected are accessible within the same package and subclasses.
+```java
+public class MyClass {
+    protected void protectedMethod() {
+        // Method implementation
+    }
+}
+```
+**default (no modifier) :** Methods with no explicit modifier are accessible within the same package.
+
+```java
+public class MyClass {
+    void defaultMethod() {
+        // Method implementation
+    }
+}
+```
+### Summary
+- **public :** Accessible from anywhere.
+- **private :** Accessible only within the same class.
+- **protected :** Accessible within the same package and subclasses.
+- **default (no modifier) :** Accessible within the same package.
+- Understanding these access modifiers will help you design more robust and secure Java applications.
 

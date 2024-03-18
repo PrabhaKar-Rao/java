@@ -263,6 +263,53 @@ In this example:
 - The `instanceof` operator is used for type checking at runtime.
 - It returns true if the object is an instance of the specified type or any of its subtypes, otherwise false.
 - It's commonly used when working with polymorphic code to determine the actual type of an object before performing certain operations.
+## Static Binding and Dynamic Binding
+In Java, binding refers to the process of associating a method call with the method body. There are two types of binding in Java: static binding and dynamic binding.
+## Static Binding
+Static binding, also known as early binding, occurs during compile time. In static binding, the method call is resolved by the compiler based on the reference type. This means that the compiler determines which method to call based on the reference type of the object at compile time.
+### Dynamic Binding
+Dynamic binding, also known as late binding, occurs during runtime. In dynamic binding, the method call is resolved by the JVM (Java Virtual Machine) based on the actual object type. This means that the JVM determines which method to call based on the actual object type at runtime.
+#### Example:
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal1 = new Animal();
+        Animal animal2 = new Dog();
+        Animal animal3 = new Cat();
+
+        animal1.sound(); // Output: Animal makes a sound (static binding)
+        animal2.sound(); // Output: Dog barks (dynamic binding)
+        animal3.sound(); // Output: Cat meows (dynamic binding)
+    }
+}
+
+```
+In this example:
+
+- animal1 is of type Animal, and the sound() method call is resolved at compile time because the reference type is known.
+- animal2 is of type Animal, but it refers to a Dog object. The method call is resolved at runtime, and the sound() method of Dog class is invoked (dynamic binding).
+- animal3 is also of type Animal, but it refers to a Cat object. Again, the method call is resolved at runtime, and the sound() method of Cat class is invoked (dynamic binding).
+- This demonstrates the difference between static binding, where the method is determined at compile time based on the reference type, and dynamic binding, where the method is determined at runtime based on the actual object type.
+
+
 
 
 

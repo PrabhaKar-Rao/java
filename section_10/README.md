@@ -227,9 +227,44 @@ public class Main {
         dog.sound(); // Output: Dog barks
     }
 }
+```
 In the above example, we first up-cast a Dog object to an Animal reference. Then, we down-cast the Animal reference back to a Dog reference. Since the original object was indeed a Dog, down-casting is safe in this scenario.
 ### Conclusion
 Up-casting and down-casting are important concepts in Java that allow for flexibility and polymorphism in object-oriented programming. While up-casting is implicit and safe, down-casting requires explicit type casting and should be used carefully to avoid runtime errors.
+### instanceof Operator
+The `instanceof` operator in Java is used to test whether an object is an instance of a particular class or interface. It returns either `true` or `false` based on whether the object is an instance of the specified type.
+#### Example
+```java
+public class Main {
+    public static void main(String[] args) {
+        String str = "Hello";
+
+        // Using instanceof to check if str is an instance of String class
+        boolean isString = str instanceof String;
+        System.out.println("Is str an instance of String? " + isString); // Output: true
+
+        // Using instanceof to check if str is an instance of Object class
+        boolean isObject = str instanceof Object;
+        System.out.println("Is str an instance of Object? " + isObject); // Output: true // Object class is super class of all the classes
+
+
+        // Using instanceof to check if str is an instance of Integer class
+        boolean isInteger = str instanceof Integer;
+        System.out.println("Is str an instance of Integer? " + isInteger); // Output: false
+    }
+}
+```
+In this example:
+- We create a String object str.
+- We use the instanceof operator to check if str is an instance of the `String` class, which returns `true`.
+- Similarly, we check if `str` is an instance of the `Object` class, which also returns `true`.
+- Finally, we check if str is an instance of the `Integer` class, which returns `false`.
+### Key Points
+- The `instanceof` operator is used for type checking at runtime.
+- It returns true if the object is an instance of the specified type or any of its subtypes, otherwise false.
+- It's commonly used when working with polymorphic code to determine the actual type of an object before performing certain operations.
+
+
 
 
 

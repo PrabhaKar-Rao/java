@@ -117,7 +117,7 @@ public class ObjectExample {
 - The `wait`, `notify`, and `notifyAll` methods are used for inter-thread communication and synchronization.
 ## is-a Realationship
 In Java, the "is-a" relationship is a fundamental principle of object-oriented programming (OOP) that is implemented through inheritance. It signifies a relationship between classes where one class is considered to be a specialized version of another class.
-#### Example
+#### Example  💡
 ```java
 // Superclass
 class Animal {
@@ -142,7 +142,7 @@ class Cat extends Animal { // Cat is a Animal
 ```
 ## "has-a" Relationship 
 In the "has-a" relationship, one class (usually referred to as the container or composite class) contains an instance of another class (referred to as the contained or component class) as one of its members. This implies that the container class "has" an object of the component class.
-#### Example
+#### Example  💡
 ```java
 public class Car {
     private Engine engine;
@@ -175,7 +175,7 @@ When designing classes in Java, consider whether one class needs to contain an i
 Understanding the "has-a" relationship is crucial for designing modular and maintainable Java applications. By utilizing this relationship effectively, you can create flexible and reusable code that accurately models real-world scenarios.
 ## Up-casting
 Up-casting refers to the process of converting an object of a subclass to a reference of its superclass. It is implicit and does not require any explicit casting operator. Up-casting is always safe because a subclass object inherently possesses all the attributes and behaviors of its superclass.
-#### Example:
+#### Example  💡
 ```java
 class Animal {
     public void sound() {
@@ -199,7 +199,7 @@ public class Main {
 ```
 ### Down-casting
 Down-casting is the opposite of up-casting. It refers to the process of converting a reference of a superclass type to its subclass type. Down-casting is explicit and requires the use of the casting operator. It can potentially lead to a `ClassCastException` at runtime if the object being casted is not actually an instance of the target subclass.
-#### Example:
+#### Example  💡
 ```java
 class Animal {
     public void sound() {
@@ -233,7 +233,7 @@ In the above example, we first up-cast a Dog object to an Animal reference. Then
 Up-casting and down-casting are important concepts in Java that allow for flexibility and polymorphism in object-oriented programming. While up-casting is implicit and safe, down-casting requires explicit type casting and should be used carefully to avoid runtime errors.
 ### instanceof Operator
 The `instanceof` operator in Java is used to test whether an object is an instance of a particular class or interface. It returns either `true` or `false` based on whether the object is an instance of the specified type.
-#### Example
+#### Example  💡
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -269,7 +269,7 @@ In Java, binding refers to the process of associating a method call with the met
 Static binding, also known as early binding, occurs during compile time. In static binding, the method call is resolved by the compiler based on the reference type. This means that the compiler determines which method to call based on the reference type of the object at compile time.
 ### Dynamic Binding
 Dynamic binding, also known as late binding, occurs during runtime. In dynamic binding, the method call is resolved by the JVM (Java Virtual Machine) based on the actual object type. This means that the JVM determines which method to call based on the actual object type at runtime.
-#### Example:
+#### Example  💡
 ```java
 class Animal {
     void sound() {
@@ -313,7 +313,7 @@ Polymorphism is one of the fundamental concepts in object-oriented programming (
 ### Types of Polymorphism
 ### 1. Compile-time Polymorphism (Method Overloading)
 Method overloading allows a class to have multiple methods with the same name but with different parameters. The appropriate method is called based on the number and type of parameters during compile-time.
-#### Example:
+#### Example  💡
 ```java
 public class Calculator {
     public int add(int a, int b) {
@@ -327,7 +327,7 @@ public class Calculator {
 ```
 ### Runtime Polymorphism (Method Overriding)
 Method overriding occurs when a subclass provides a specific implementation of a method that is already defined in its superclass. It allows the subclass to provide its own implementation of the method.
-#### Example:
+#### Example  💡
 ```java
 class Animal {
     public void makeSound() {
@@ -355,7 +355,7 @@ When a subclass overrides a method defined in its superclass, you can use `super
 ```java
 super.methodName();
 ```
-#### Example
+#### Example  💡
 ```java
 class Vehicle {
     void start() {

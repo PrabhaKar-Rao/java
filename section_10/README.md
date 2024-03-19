@@ -308,6 +308,87 @@ In this example:
 - animal2 is of type Animal, but it refers to a Dog object. The method call is resolved at runtime, and the sound() method of Dog class is invoked (dynamic binding).
 - animal3 is also of type Animal, but it refers to a Cat object. Again, the method call is resolved at runtime, and the sound() method of Cat class is invoked (dynamic binding).
 - This demonstrates the difference between static binding, where the method is determined at compile time based on the reference type, and dynamic binding, where the method is determined at runtime based on the actual object type.
+## Polymorphism in Java
+Polymorphism is one of the fundamental concepts in object-oriented programming (OOP) languages like Java. It allows objects of different classes to be treated as objects of a common superclass. This enables a single interface to be used for entities of different types.
+### Types of Polymorphism
+### 1. Compile-time Polymorphism (Method Overloading)
+Method overloading allows a class to have multiple methods with the same name but with different parameters. The appropriate method is called based on the number and type of parameters during compile-time.
+#### Example:
+```java
+public class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+    
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+```
+### Runtime Polymorphism (Method Overriding)
+Method overriding occurs when a subclass provides a specific implementation of a method that is already defined in its superclass. It allows the subclass to provide its own implementation of the method.
+#### Example:
+```java
+class Animal {
+    public void makeSound() {
+        System.out.println("Some generic sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Woof");
+    }
+}
+```
+### Benefits of Polymorphism
+**Code Reusability :** Polymorphism allows methods to be written that can work with objects of any subclass of a common superclass, promoting code reuse.
+**Flexibility and Extensibility :** New classes can be added without modifying existing code, as long as they inherit from the common superclass.
+#### Conclusion
+Polymorphism is a powerful feature of Java that enhances code flexibility, reusability, and extensibility. By treating objects of different classes uniformly through a common interface, it simplifies code maintenance and promotes good design practices.
+## Using the super Keyword
+In Java, the `super` keyword is used to refer to the superclass (parent class) of the current object. One common use of `super` is to invoke superclass methods or constructors from a subclass.
+### Invoking Superclass Methods
+When a subclass overrides a method defined in its superclass, you can use `super` to invoke the overridden method of the superclass. This is particularly useful when you want to extend the behavior of the superclass method rather than replace it entirely.
+### Syntax
+```java
+super.methodName();
+```
+#### Example
+```java
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle started");
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    void start() {
+        super.start(); // invoking superclass method
+        System.out.println("Car started");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.start();
+    }
+}
+```
+#### Output:
+```java
+Vehicle started
+Car started
+```
+In this example, the `start()` method of the Car class invokes the `start()` method of the superclass Vehicle using `super.start()`, and then it adds its own behavior.
+#### Conclusion
+The `super` keyword in Java provides a way to access superclass members (methods, fields, and constructors) from within a subclass. It's particularly handy when you want to customize or extend the behavior of superclass methods in your subclass implementations.
+
+
+
 
 
 

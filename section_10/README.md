@@ -52,7 +52,7 @@ When working with inheritance in Java, keep these points in mind:
 - You want to model an "is-a" relationship between classes (e.g., a Car is-a Vehicle).
 - You need to reuse code from existing classes.
 - You want to establish a hierarchical structure to organize classes.
-### Conclusion
+### Conclusion 🎉
 Inheritance is a powerful feature in Java that allows classes to inherit properties and behaviors from other classes. By understanding and leveraging inheritance, you can write more efficient and maintainable code.
 ## Object Class in Java
 ## Methods
@@ -85,7 +85,7 @@ The wait method causes the current thread to wait until another thread calls the
 
 ### public final void wait(long timeout, int nanos) throws InterruptedException
 Similar to the previous wait method, but allows specifying a timeout in nanoseconds.
-#### Example
+#### Example 💡
 ```java
 public class ObjectExample {
     public static void main(String[] args) {
@@ -111,7 +111,7 @@ public class ObjectExample {
     }
 }
 ```
-### Notes
+### Notes  🚀
 - The `Object` class provides default implementations for many of its methods, which can be overridden by subclasses to customize behavior.
 - When overriding the `equals` method, it is recommended to also override the `hashCode` method to maintain the general contract between the two methods.
 - The `wait`, `notify`, and `notifyAll` methods are used for inter-thread communication and synchronization.
@@ -259,7 +259,7 @@ In this example:
 - We use the instanceof operator to check if str is an instance of the `String` class, which returns `true`.
 - Similarly, we check if `str` is an instance of the `Object` class, which also returns `true`.
 - Finally, we check if str is an instance of the `Integer` class, which returns `false`.
-### Key Points
+### Key Points  🚀
 - The `instanceof` operator is used for type checking at runtime.
 - It returns true if the object is an instance of the specified type or any of its subtypes, otherwise false.
 - It's commonly used when working with polymorphic code to determine the actual type of an object before performing certain operations.

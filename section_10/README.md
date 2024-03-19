@@ -386,6 +386,71 @@ Car started
 In this example, the `start()` method of the Car class invokes the `start()` method of the superclass Vehicle using `super.start()`, and then it adds its own behavior.
 #### Conclusion  🎉
 The `super` keyword in Java provides a way to access superclass members (methods, fields, and constructors) from within a subclass. It's particularly handy when you want to customize or extend the behavior of superclass methods in your subclass implementations.
+## Method Hiding in Java
+Method hiding is a concept in Java where a subclass can define a static method with the same signature as a static method in its superclass. This hides the superclass method from the subclass, effectively replacing it with the subclass method. This behavior is different from method overriding, where the subclass provides a specific implementation of a non-static method from its superclass.
+## Usage
+To understand method hiding, consider the following example:
+```java
+class Superclass {
+    static void myStaticMethod() {
+        System.out.println("Static method in Superclass");
+    }
+}
+
+class Subclass extends Superclass {
+    static void myStaticMethod() {
+        System.out.println("Static method in Subclass");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Superclass.myStaticMethod(); // Output: Static method in Superclass
+        Subclass.myStaticMethod();   // Output: Static method in Subclass
+    }
+}
+```
+In this example, both Superclass and Subclass have a static method named `myStaticMethod()`. When called from the Main class, the output demonstrates that the method from the subclass is invoked, even though the reference is of the superclass type.
+### Key Points
+- Method hiding occurs when a subclass defines a static method with the same signature as a static method in its superclass.
+- Method hiding is resolved at compile time based on the reference type, not the object type.
+- It is recommended to use method hiding judiciously, as it can lead to confusion and make the code harder to understand.
+- Unlike method overriding, method hiding does not involve polymorphism because it is based on the reference type, not the object type.
+#### Conclusion
+Method hiding in Java provides a mechanism for subclasses to hide static methods of their superclass and provide their own implementations. While it can be useful in certain situations, it should be used carefully to avoid confusion and maintain code clarity.
+## Feild Hiding 
+To achieve field hiding in Java, you can use inheritance along with declaring fields with the same name in the superclass and subclass. Here's a simple example to demonstrate field hiding :
+```java
+// Superclass
+class Parent {
+    int x = 10; // Field in the superclass
+
+    void display() {
+        System.out.println("Value of x in Parent: " + x);
+    }
+}
+
+// Subclass
+class Child extends Parent {
+    int x = 20; // Field in the subclass, hiding the field in the superclass
+
+    void display() {
+        System.out.println("Value of x in Child: " + x);
+        System.out.println("Value of x in Parent: " + super.x); // Accessing superclass field
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.display(); // This will print the value of x in Child and Parent
+    }
+}
+```
+In this example, the Child class extends the Parent class, and both classes have a field named `x`. However, the field in the subclass hides the field in the superclass. When you access x inside the Child class, it refers to the field in the subclass. If you want to access the field in the superclass, you can use the `super` keyword.
+
+
+
 
 
 

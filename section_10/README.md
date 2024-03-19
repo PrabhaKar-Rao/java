@@ -416,7 +416,7 @@ In this example, both Superclass and Subclass have a static method named `myStat
 - Method hiding is resolved at compile time based on the reference type, not the object type.
 - It is recommended to use method hiding judiciously, as it can lead to confusion and make the code harder to understand.
 - Unlike method overriding, method hiding does not involve polymorphism because it is based on the reference type, not the object type.
-#### Conclusion
+#### Conclusion 🎉
 Method hiding in Java provides a mechanism for subclasses to hide static methods of their superclass and provide their own implementations. While it can be useful in certain situations, it should be used carefully to avoid confusion and maintain code clarity.
 ## Feild Hiding 
 To achieve field hiding in Java, you can use inheritance along with declaring fields with the same name in the superclass and subclass. Here's a simple example to demonstrate field hiding :
@@ -448,6 +448,246 @@ public class Main {
 }
 ```
 In this example, the Child class extends the Parent class, and both classes have a field named `x`. However, the field in the subclass hides the field in the superclass. When you access x inside the Child class, it refers to the field in the subclass. If you want to access the field in the superclass, you can use the `super` keyword.
+## Types of Inheritance
+### Single Inheritance
+Single inheritance refers to the inheritance of properties and behaviors from a single parent class. In Java, a class can extend only one other class.
+```java
+class Parent {
+    // Parent class members
+}
+
+class Child extends Parent {
+    // Child class members
+}
+```
+### Multilevel Inheritance
+Multilevel inheritance involves a chain of inheritance where a subclass becomes the superclass for another subclass. This creates a hierarchical relationship between classes.
+
+```java
+class Grandparent {
+    // Grandparent class members
+}
+
+class Parent extends Grandparent {
+    // Parent class members
+}
+
+class Child extends Parent {
+    // Child class members
+}
+```
+### Hierarchical Inheritance
+Hierarchical inheritance involves multiple subclasses inheriting from a single superclass. Each subclass inherits the properties and behaviors of the superclass.
+
+```java
+class Animal {
+    // Animal class members
+}
+
+class Dog extends Animal {
+    // Dog class members
+}
+
+class Cat extends Animal {
+    // Cat class members
+}
+```
+### Multiple Inheritance (with Interfaces)
+Java does not support multiple inheritance of classes due to the "diamond problem" (ambiguous references). However, it supports multiple inheritance of interfaces. A class can implement multiple interfaces, inheriting abstract methods from each.
+
+```java
+interface Interface1 {
+    // Interface1 methods
+}
+
+interface Interface2 {
+    // Interface2 methods
+}
+
+class MyClass implements Interface1, Interface2 {
+    // MyClass members
+}
+```
+Using Inheritance
+To use inheritance in Java, you simply need to extend a class using the extends keyword or implement interfaces using the implements keyword.
+
+```java
+class Vehicle {
+    void drive() {
+        System.out.println("Driving...");
+    }
+}
+
+class Car extends Vehicle {
+    void park() {
+        System.out.println("Parking...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.drive(); // Output: Driving...
+        myCar.park(); // Output: Parking...
+    }
+}
+```
+### Conclusion 🎉
+Inheritance is a fundamental concept in Java programming, allowing classes to inherit properties and behaviors from other classes. Understanding the types of inheritance and how to use them is essential for building maintainable and efficient Java applications.
+## Abstract Classes and Methods
+In Java, abstract classes and methods are fundamental concepts in object-oriented programming. They allow you to define a blueprint for classes and methods that must be implemented by subclasses.
+### Abstract Classes
+An abstract class in Java is a class that cannot be instantiated on its own and may contain one or more abstract methods. Abstract classes are typically used to define a common interface for subclasses. They can also include concrete methods.
+#### Example 💡
+To create an abstract class in Java, use the `abstract` keyword in the class declaration. Abstract classes can have abstract methods (methods without a body) and concrete methods (methods with a body).
+```java
+public abstract class Shape {
+    // Abstract method
+    public abstract double area();
+
+    // Concrete method
+    public void display() {
+        System.out.println("Displaying shape...");
+    }
+}
+```
+### Abstract Methods
+An abstract method in Java is a method declared without implementation. It must be overridden by concrete subclasses. Abstract methods serve as placeholders for functionality that must be implemented by subclasses.
+### Usage
+To declare an abstract method, use the abstract keyword in the method declaration. Abstract methods must be implemented by non-abstract subclasses.
+```java
+
+public abstract double area();
+```
+#### Example 💡
+```java
+public abstract class Shape {
+    // Abstract method
+    public abstract double area();
+
+    // Concrete method
+    public void display() {
+        System.out.println("Displaying shape...");
+    }
+}
+
+public class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    // Implementing abstract method
+    @Override
+    public double area() {
+        return length * width;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(5, 3);
+        System.out.println("Area of rectangle: " + rectangle.area());
+        rectangle.display();
+    }
+}
+
+```
+#### Conclusion 🎉
+Abstract classes and methods provide a powerful mechanism for defining common interfaces and behaviors in Java. They promote code reusability and help in achieving abstraction and encapsulation.
+## final Keyword
+In Java, the `final` keyword is used to restrict the user. It can be applied to variables, methods, and classes, each with its own implications. Here's a breakdown of its usage
+###  Final Variables
+When a variable is declared as `final`, its value cannot be changed once initialized.
+```java
+final int x = 10;
+x = 20; // This will result in a compilation error
+```
+### Final Methods
+When a method is declared as final in a class, it means that the method cannot be overridden by subclasses.
+```java
+class Parent {
+    final void display() {
+        System.out.println("Parent class method");
+    }
+}
+
+
+class Child extends Parent {
+    void display() { // This will result in a compilation error
+        System.out.println("Child class method");
+    }
+}
+```
+### Final Classes
+When a class is declared as `final`, it means that it cannot be subclassed.
+```java
+final class FinalClass {
+    // Class implementation
+}
+
+// This will result in a compilation error
+class SubClass extends FinalClass {
+    // Class implementation
+}
+```
+### Benefits of Using final
+- **Security :** It prevents modifications to sensitive data or methods.
+- **Performance :** The JVM can optimize final variables, methods, and classes more aggressively.
+- **Design Clarity :** It communicates intent to other developers, making the code easier to understand and maintain.
+#### Conclusion 🎉
+The `final` keyword in Java provides a way to create constants, enforce immutability, and define methods or classes that cannot be overridden or subclassed. Proper use of final can enhance code clarity, security, and performance.
+## Sealed Classes and Interfaces
+Sealed classes and interfaces were introduced in Java 15 as a preview feature and became a permanent feature starting from Java 17. They provide a mechanism to restrict which classes can extend or implement a particular class or interface. This enhances encapsulation and improves maintainability by controlling the inheritance hierarchy.
+### Key Concepts
+### Sealed Classes
+A sealed class is a class that restricts which other classes can extend it. It explicitly specifies the permitted subclasses. To declare a sealed class, you use the `sealed` modifier followed by the permitted subclasses. The permitted subclasses can be either `final` classes or non-sealed classes.
+#### Example:
+```java
+public sealed class Shape permits Circle, Square, Triangle {
+    // Class implementation
+}
+```
+## Sealed Interfaces
+Similarly, a sealed interface restricts which classes can implement it. It specifies the permitted implementing classes using the `permits` keyword.
+```java
+public sealed interface Vehicle permits Car, Truck, Motorcycle {
+    // Interface methods
+}
+```
+### Permitting Classes
+Permitted subclasses or implementing classes can be either final or non-sealed. If a subclass is final, it cannot have further subclasses. If it's non-sealed, it can have subclasses that are not explicitly listed in the permits clause.
+
+### Non-sealed Classes and Interfaces
+Non-sealed classes and interfaces can be extended or implemented by any class in the same package. They provide flexibility while designing the class hierarchy.
+#### Example
+```java
+public non-sealed class Animal {
+    // Class implementation
+}
+
+public non-sealed interface Printable {
+    void print();
+}
+
+```
+### Benefits
+**Enhanced Encapsulation :** Sealed classes and interfaces explicitly specify the allowed subclasses or implementing classes, thus preventing unexpected extensions or implementations.
+**Improved Maintainability :** By controlling the inheritance hierarchy, sealed classes and interfaces make the codebase more maintainable and easier to understand.
+**Stronger Contracts :** They provide clearer contracts for subclasses or implementing classes, reducing the likelihood of unintentional misuse.
+### Usage Guidelines
+- Use sealed classes and interfaces when you want to tightly control the inheritance hierarchy and provide clear boundaries for extensions or implementations.
+- Prefer sealed classes/interfaces over final classes/interfaces when you need to allow limited extension or implementation.
+### Compatibility
+- Sealed classes and interfaces were introduced as a preview feature in Java 15 and became permanent in Java 17. Ensure that you're using a compatible JDK version to leverage this feature.
+### Conclusion
+Sealed classes and interfaces are a powerful addition to Java's type system, providing fine-grained control over class hierarchies. By explicitly specifying permitted subclasses or implementing classes, they enhance encapsulation and maintainability of the codebase.
+
+
+
 
 
 

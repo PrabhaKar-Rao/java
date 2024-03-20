@@ -5,7 +5,7 @@ In Java, an interface is a reference type, similar to a class, that can contain 
 ## Steps to Create an Interface in Java
 ### 1. Define the Interface
 Create a new Java file with a .java extension. Define your interface using the interface keyword followed by the interface name. Declare method signatures within the interface. 
-#### Example
+#### Example  💡
 ```java
 public interface MyInterface {
     // Method signatures
@@ -16,7 +16,7 @@ public interface MyInterface {
 ```
 ### 2. Implement the Interface
 Create a class that implements the interface. Use the implements keyword followed by the interface name after the class declaration. Implement all the methods declared in the interface. 
-#### Example:
+#### Example  💡
 ```java
 public class MyClass implements MyInterface {
     @Override
@@ -39,7 +39,7 @@ public class MyClass implements MyInterface {
 ```
 ### 3. Utilize the Interface
 Create objects of the class that implements the interface and use them to invoke the interface methods.
-#### Example
+#### Example  💡
 
 ```java
 public class Main {
@@ -75,7 +75,7 @@ public interface MyInterface {
     public static final int MY_CONSTANT = 42;
 }
 ```
-### Usage Examples
+### Usage Examples  💡
 Once constants are declared in an interface, they can be accessed by implementing classes without the need for instantiation.
 
 ```java
@@ -147,7 +147,7 @@ Interfaces in Java provide a powerful mechanism for defining contracts and provi
 
 ## Building Default Methods in Interfaces
 In Java, interfaces traditionally only allowed method declarations but not method implementations. However, with the introduction of Java 8, default methods were introduced, which allow interfaces to have methods with a default implementation. This feature was added to facilitate the evolution of interfaces without breaking existing implementations.
-### Example
+### Example  💡
 ```java
 // Example interface with a default method
 interface MyInterface {
@@ -202,7 +202,7 @@ Static methods in interfaces can be accessed using the interface name, followed 
 ```java
 MyInterface.myStaticMethod();
 ```
-### Example
+### Example  💡
 
 Let's create an interface named MathUtils with a static method multiply that multiplies two numbers:
 

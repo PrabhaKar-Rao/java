@@ -4,8 +4,8 @@ In Java, an interface is a reference type, similar to a class, that can contain 
 
 ## Steps to Create an Interface in Java
 ### 1. Define the Interface
-Create a new Java file with a .java extension. Define your interface using the interface keyword followed by the interface name. Declare method signatures within the interface. Example:
-
+Create a new Java file with a .java extension. Define your interface using the interface keyword followed by the interface name. Declare method signatures within the interface. 
+#### Example
 ```java
 public interface MyInterface {
     // Method signatures
@@ -15,7 +15,8 @@ public interface MyInterface {
 }
 ```
 ### 2. Implement the Interface
-Create a class that implements the interface. Use the implements keyword followed by the interface name after the class declaration. Implement all the methods declared in the interface. Example:
+Create a class that implements the interface. Use the implements keyword followed by the interface name after the class declaration. Implement all the methods declared in the interface. 
+#### Example:
 ```java
 public class MyClass implements MyInterface {
     @Override
@@ -37,7 +38,8 @@ public class MyClass implements MyInterface {
 }
 ```
 ### 3. Utilize the Interface
-Create objects of the class that implements the interface and use them to invoke the interface methods. Example:
+Create objects of the class that implements the interface and use them to invoke the interface methods.
+#### Example
 
 ```java
 public class Main {
@@ -182,7 +184,7 @@ class MyClass implements MyInterface {
 ### Benefits of Default Methods
 **Backward Compatibility :** Allows adding new methods to interfaces without breaking existing implementations.
 **Code Reusability :** Provides a default implementation that can be reused across multiple classes.
-### Conclusion
+### Conclusion  🎉
 Default methods in interfaces provide a way to extend interfaces in Java without breaking the classes that implement them. They offer flexibility and backward compatibility, making it easier to evolve interfaces over time.
 ## Building Static Methods in Interfaces
 In Java 8 and later versions, interfaces can have static methods. This feature enables interface types to have utility methods that can be called without creating an instance of the interface
@@ -225,7 +227,7 @@ public class Main {
 - Static methods in interfaces cannot be overridden by implementing classes or interfaces.
 - Static methods can only access other static members of the interface and cannot access instance members.
 - Static methods cannot be abstract.
-### Conclusion
+### Conclusion  🎉
 Static methods in interfaces provide a way to define utility methods associated with the interface type itself. They enhance code reusability and readability by encapsulating common functionality within the interface definition.
 
 

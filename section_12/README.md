@@ -123,6 +123,49 @@ public class ArrayIteration {
 The for-each loop provides a convenient and concise way to iterate over arrays and collections in Java. It simplifies the syntax and improves code readability, making it a preferred choice for looping through elements.
 ## Copying Arrays Using Loops
 Copying arrays in Java is a common operation in programming. It allows you to create a new array with the same elements as an existing array, which is useful for various tasks such as data manipulation, sorting, and more. By this we can create a new array with required size.
+```java
+package com.eazybytes.main;
+
+import java.util.Arrays;
+
+public class ArrayCopyDemo {
+
+    public static void main(String[] args) {
+
+        int[] oldArray = {1,2,3,4,5};
+        int[] newArray = new int[oldArray.length+5];
+        newArray = copyArrayUsingLoop(oldArray, newArray);
+      
+        for(int num:targetArray1) {
+            System.out.println(num);
+        }
+
+    }
+
+    private static int[] copyArrayUsingLoop(int[] oldArray, int[] newArray) {
+            for(int i = 0; i<oldArray.length;i++){
+                newArray[i] = oldArray[i];
+            }
+            return newArray;
+    }
+}
+```
+### Using System.arraycopy() and Arrays.copyOf()
+#### Using `System.arraycopy()`
+#### Syntax
+```java
+int[] sourceArray = {1, 2, 3, 4, 5};
+int[] destinationArray = new int[sourceArray.length];
+System.arraycopy(sourceArray, 0, destinationArray, 0, sourceArray.length);
+```
+#### Using `Arrays.copyOf()`
+```java
+int[] sourceArray = {1, 2, 3, 4, 5};
+int[] destinationArray = Arrays.copyOf(sourceArray, sourceArray.length);
+```
+#### Example
+
+
 
 
 

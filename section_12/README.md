@@ -309,6 +309,76 @@ for (int i = 0; i < matrix.length; i++) {
 - Matrix Multiplication: Multiplying two matrices following specific rules.
 ## Matrix Addition
 This Java program demonstrates how to add two matrices of the same dimensions.
+```java
+package com.eazybytes.main;
+
+public class AddMatricesDemo {
+
+    public static void main(String[] args) {
+
+        int[][] array1 = {
+                {4,7,9}, {5,7,0}
+        };
+        int[][] array2 = {
+                {3,8,2}, {2,6,1}
+        };
+
+        int[][] sumArray = new int[2][3];
+
+        for (int i = 0;i<array1.length;i++) {
+            for (int j=0;j<array1[i].length;j++) {
+                sumArray[i][j] = array1[i][j] + array2[i][j];
+                System.out.print(sumArray[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+
+}
+```
+## Jagged Arrays 
+n Java, a jagged array is an array whose elements are also arrays. Unlike a regular 2D array where each row has the same number of columns, a jagged array allows different rows to have different lengths. This flexibility can be useful in situations where you need to represent data that doesn't fit neatly into a rectangular grid.
+### Declaration
+To declare a jagged array in Java, you first declare an array of arrays. Each inner array represents a row of the jagged array, and can have a different length. Here's how you declare a jagged array:
+```java
+dataType[][] arrayName = new dataType[rowSize][];
+```
+### Initialization
+Jagged arrays are initialized similarly to regular arrays, but each inner array must be initialized separately. Here's an example of how to initialize a jagged array:
+```java
+int[][] jaggedArray = new int[3][];
+jaggedArray[0] = {1, 2, 3};
+jaggedArray[1] = {4, 5};
+jaggedArray[2] = {6, 7, 8, 9};
+```
+### Accessing Elements
+```java
+for (int i = 0; i < jaggedArray.length; i++) {
+    for (int j = 0; j < jaggedArray[i].length; j++) {
+        System.out.print(jaggedArray[i][j] + " ");
+    }
+    System.out.println(); //
+}
+```
+### Advantages
+- **Flexibility :** Jagged arrays allow you to represent data structures that are not rectangular.
+- **Memory Efficiency :** Jagged arrays can be more memory efficient than regular arrays when rows have varying lengths.
+### Disadvantages
+**Complexity :** Working with jagged arrays can be more complex than working with regular arrays, especially when it comes to accessing elements.
+**Performance :** Nested loops required for accessing elements can lead to slower performance compared to regular arrays.
+### Conclusion
+Jagged arrays provide a flexible way to represent non-rectangular data structures in Java. While they offer advantages in terms of flexibility and memory efficiency, they also come with complexity and potential performance overhead. Understanding how to work with jagged arrays can be valuable when dealing with certain types of data in Java.
+##  3D Arrays in Java
+In Java, a 3D array is an array of arrays of arrays. It can be visualized as a collection of 2D arrays. Just like 2D arrays, 3D arrays are used to store data in a three-dimensional grid-like structure.
+### Creating a 3D Array
+To create a 3D array in Java, you need to specify the dimensions of each dimension. Here's how you can create a 3D array:
+### Syntax
+```java
+dataType[][][] arrayName = new dataType[xSize][ySize][zSize];
+```
+
+
 
 
 

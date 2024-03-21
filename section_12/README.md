@@ -164,6 +164,33 @@ int[] sourceArray = {1, 2, 3, 4, 5};
 int[] destinationArray = Arrays.copyOf(sourceArray, sourceArray.length);
 ```
 #### Example
+```java
+package com.eazybytes.main;
+
+import java.util.Arrays;
+
+public class ArrayCopyDemo {
+
+    public static void main(String[] args) {
+
+        int[] oldArray = {1,2,3,4,5};
+        int[] newArray = new int[oldArray.length+5];
+
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
+        int[] targetArray = Arrays.copyOf(oldArray,3);
+
+        for(int num:targetArray1) {
+            System.out.println(num);
+        }
+
+    }
+}
+```
+## Coverting Arrays
+The `Arrays` class in Java provides a convenient method `toString()` to convert an array to a string representation. This method can handle arrays of primitive types and objects.
+#### Example
+
+
 
 
 

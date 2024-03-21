@@ -121,6 +121,12 @@ public class ArrayIteration {
 ```
 ### Conclusion
 The for-each loop provides a convenient and concise way to iterate over arrays and collections in Java. It simplifies the syntax and improves code readability, making it a preferred choice for looping through elements.
+## Copying Arrays Using Loops
+Copying arrays in Java is a common operation in programming. It allows you to create a new array with the same elements as an existing array, which is useful for various tasks such as data manipulation, sorting, and more. By this we can create a new array with required size.
+
+
+
+
 
 
 

@@ -221,6 +221,9 @@ public class Main {
 }
 
 ```
+## Arrays.fill()
+The `Arrays.fill()` method from the `java.util` package fills the specified array with the specified value.
+
 
 
 

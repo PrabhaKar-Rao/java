@@ -223,6 +223,95 @@ public class Main {
 ```
 ## Arrays.fill()
 The `Arrays.fill()` method from the `java.util` package fills the specified array with the specified value.
+#### Example
+```java
+package com.eazybytes.main;
+
+import java.util.Arrays;
+
+public class FillDemo {
+
+    public static void main(String[] args) {
+
+        int[] scores = new int[10];
+        Arrays.fill(scores, 100);
+        System.out.println(Arrays.toString(scores));
+
+        int[] indices = new int[5];
+        Arrays.setAll(indices, i -> i*2);
+        System.out.println(Arrays.toString(indices));
+        
+    }
+
+}
+```
+## Arrays.setAll()
+In Java, the `Arrays.setAll()` method is used to set each element of an array to the result of applying a specified generator function to its index.
+### Syntax
+```java
+public static void setAll(T[] array, IntFunction<? extends T> generator)
+```
+- **array :** the array whose elements are to be set.
+- **generator :** a function that accepts an integer index and produces a value to be stored at that index in the array.
+#### Example
+Suppose we have an array of integers and we want to initialize it with consecutive even numbers starting from 0.
+```java
+import java.util.Arrays;
+import java.util.function.IntFunction;
+
+public class Main {
+    public static void main(String[] args) {
+        int size = 5;
+        int[] arr = new int[size];
+        
+        Arrays.setAll(arr, index -> index * 2);
+        
+        // Output the array
+        System.out.println(Arrays.toString(arr)); // Output: [0, 2, 4, 6, 8]
+    }
+}
+```
+In this example:
+- We create an array of size 5.
+- We use `Arrays.setAll()` to set each element of the array to `index * 2`, effectively assigning consecutive even numbers starting from 0.
+- Finally, we print out the contents of the array.
+### Notes
+- The generator function is called for each index of the array in ascending order.
+- It's important to ensure that the generator function does not throw any exceptions when called.
+- The method throws `NullPointerException` if the specified array or generator is null.
+## 2D Arrays
+A 2D array, also known as a matrix, is a grid of elements where each element is identified by two indices - row and column. In Java, 2D arrays are used to represent matrices, tables, grids, or other 2-dimensional structures.
+```java
+// Declare and initialize a 2D array with specified dimensions
+int[][] matrix = new int[rows][columns];
+
+// Initialize a 2D array with predefined values
+int[][] matrix = {{1, 2, 3},{4, 5, 6},{7, 8, 9}};
+```
+### Accessing Elements
+Accessing elements in a 2D array involves specifying both row and column indices
+```java
+// Accessing an element at row i and column j
+int element = matrix[i][j];
+```
+### Traversing a 2D Array
+Traversing a 2D array requires nested loops to iterate through each row and column.
+```java
+for (int i = 0; i < matrix.length; i++) {
+    for (int j = 0; j < matrix[i].length; j++) {
+        // Accessing and performing operations on matrix[i][j]
+    }
+}
+```
+### Common Operations
+- Transpose: Switching rows with columns in a 2D array.
+- Matrix Addition: Adding two matrices of the same dimensions.
+- Matrix Multiplication: Multiplying two matrices following specific rules.
+## Matrix Addition
+This Java program demonstrates how to add two matrices of the same dimensions.
+
+
+
 
 
 

@@ -189,6 +189,39 @@ public class ArrayCopyDemo {
 ## Coverting Arrays
 The `Arrays` class in Java provides a convenient method `toString()` to convert an array to a string representation. This method can handle arrays of primitive types and objects.
 #### Example
+```java
+package com.eazybytes.main;
+
+import java.util.Arrays;
+
+public class ToStringDemo {
+
+    public static void main(String[] args) {
+        int[] numbers = {1,2,3,4,5};
+        System.out.println(Arrays.toString(numbers));
+        System.out.println(numbers);// Output : [1,2,3,4,5]
+    }
+
+}
+```
+## Sorting Arrays
+`Arrays.sort()` is a method provided by the `java.util.Arrays` class in Java, used for sorting arrays of primitive data types and objects. It sorts the specified array into ascending numerical or lexicographical order. This method uses the dual-pivot quicksort algorithm for sorting primitive types and the merge sort algorithm for sorting objects.
+#### Example
+```java
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] numbers = {5, 2, 8, 4, 1};
+        
+        // Sort the entire array
+        Arrays.sort(numbers);
+        System.out.println("Sorted array: " + Arrays.toString(numbers));// [1,2,4,5,8]
+    }
+}
+
+```
+
 
 
 

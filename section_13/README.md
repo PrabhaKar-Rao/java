@@ -71,6 +71,59 @@ public class JavaBasicInputDemo {
 BufferedReader is a class in Java that reads text from a character-input stream, buffering characters so as to provide for the efficient reading of characters, arrays, and lines.
 #### Example
 ```java
+package com.eazybytes.input;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class BufferedReaderDemo {
+
+    public static void main(String[] args) throws IOException {
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader bf = new BufferedReader(isr);
+        System.out.println("Please enter a value...");
+        String input = bf.readLine();
+        System.out.println("The user entered a value: "+ input);
+        bf.close();
+    }
+
+}
+```
+#### Example for identify even and odd numbers
+```java
+package com.eazybytes.input;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class BufferedReaderDemo {
+
+    public static void main(String[] args) throws IOException {
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader bf = new BufferedReader(isr);
+        System.out.println("Please enter a value...");
+        String input = bf.readLine();
+       // System.out.println("The user entered a value: "+ input);
+       int number = Integer.parseInt(input);
+       if(number % 2 == 0){
+           System.out.println("You have entered even number");
+       }else{
+           System.out.println("You have entered odd number");
+       }   
+        bf.close();
+    }
+
+}
+```
+## Scanner 
+## The `Scanner` class in Java is used to parse primitive types and strings from the standard input.
+#### Example
+```java
+
+
+
 
 
 

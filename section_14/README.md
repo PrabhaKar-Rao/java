@@ -165,6 +165,30 @@ public class ExceptionDemo {
 Try-With-Resources is a feature introduced in Java 7 that simplifies resource management by automatically closing resources that are opened within the try block. It ensures that resources are closed properly without the need for explicit finally blocks.
 #### Example
 ```java
+package com.eazybytes.exception;
+
+import java.util.Scanner;
+
+public class TryWithResourcesDemo {
+
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter a number....");
+            int number = scanner.nextInt();
+            System.out.println(number);
+        } catch(Exception ex) {
+            System.out.println("Please provide input in numerical format only and try again...");
+        }
+    }
+
+}
+```
+### Advantges
+**Automatic Resource Management :** With try-with-resources, resources are automatically closed after the try block, ensuring proper cleanup without the need for explicit finally blocks. This reduces the chance of resource leaks and simplifies code maintenance.
+
+**Concise and Readable Code :** By eliminating the need for boilerplate code to close resources in finally blocks, try-with-resources leads to cleaner and more readable code. Developers can focus on the core logic of the program without getting distracted by resource management concerns.
+
+**Improved Exception Handling :** Any exceptions thrown during the execution of the try block, as well as any exceptions thrown during resource closing, are properly handled. This simplifies error handling and makes code more robust.
 
  
 

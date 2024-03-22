@@ -121,6 +121,34 @@ public class BufferedReaderDemo {
 ## The `Scanner` class in Java is used to parse primitive types and strings from the standard input.
 #### Example
 ```java
+package com.eazybytes.input;
+
+import java.util.Scanner;
+
+public class ScannerDemo {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your name:");
+        String name = sc.nextLine();
+        System.out.println("Enter your age:");
+        int age = sc.nextInt();
+        System.out.println("Hello "+ name+ " , you are "+ age+" years old.");
+        sc.close();
+    }
+
+}
+```
+## Java Logging
+Logging is an essential aspect of software development, providing insight into the behavior of applications during runtime. In Java, the `java.util.logging` package offers a straightforward logging solution that comes bundled with the JDK.
+### Features
+- Logging configuration
+- Log levels (INFO, WARNING, SEVERE)
+- Writing log messages to console and file
+#### Example
+```java
+
+
 
 
 

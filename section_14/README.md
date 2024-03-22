@@ -77,6 +77,54 @@ public class ArrayIndexOutofBoundsExceptionDemo {
 ```
 ### With Multipple catch blocks
 ```java
+package com.eazybytes.exception;
+
+import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.logging.Logger;
+
+public class MultipleCatchDemo {
+
+    private static Logger logger = Logger.getLogger(
+            MultipleCatchDemo.class.getName());
+
+    public static void main(String[] args) {
+        String input = null;
+        try {
+                input = "Madan";
+                input = input.toUpperCase();
+                logger.info(input);
+                input = input.substring(1,10);
+            logger.info(input);
+        } catch (NullPointerException ex) {
+            logger.severe("An null pointer exception occurred. Please check your data");
+        } catch (StringIndexOutOfBoundsException | ArrayIndexOutOfBoundsException  ex) {
+            logger.severe("IndexOutOfBoundsException exception occurred. Please check your input data");
+        } catch (Exception ex) {
+            logger.severe("An exception occurred. Please check your program");
+        }
+    }
+}
+```
+### finally block
+In Java, the `finally` block is used to define a block of code that will be executed after a `try` block has completed execution, whether an exception is thrown or not. This block ensures that certain cleanup or finalization tasks are performed, such as closing resources like files or database connections.
+### Syntax
+```java
+try {
+    // Code that may throw an exception
+} catch (Exception e) {
+    // Exception handling code
+} finally {
+    // Code to be executed regardless of whether an exception is thrown or not
+}
+```
+- The `try` block contains the code that may throw an exception.
+- The `catch` block is optional and is used to handle exceptions.
+- The `finally` block contains the code that will be executed regardless of whether an exception occurs or not.
+#### Example
+```java
+
+
 
 
 

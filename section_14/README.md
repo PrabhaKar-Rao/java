@@ -123,6 +123,50 @@ try {
 - The `finally` block contains the code that will be executed regardless of whether an exception occurs or not.
 #### Example
 ```java
+package com.eazybytes.exception;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ExceptionDemo {
+
+    public static void main(String[] args) {
+        Scanner scanner = null;
+        try {
+             scanner = new Scanner(System.in);
+            System.out.println("Enter a number....");
+            int number = scanner.nextInt();
+            System.out.println(number);
+        }
+        catch(Exception ex) {
+            System.out.println("Please provide input in numerical format only and try again...");
+        }
+        finally {
+            System.out.println("finally block is being executed");
+            if(scanner != null) {
+                scanner.close();
+            }
+        }
+
+    }
+
+}
+```
+### Key Points
+- The `finally` block is always executed, even if an exception is thrown.
+- If an exception is thrown and caught, the `finally` block is executed after the `catch` block.
+- If no exception is thrown, the `finally` block is still executed after the `try` block.
+- The `finally` block is often used to perform cleanup tasks, such as closing resources opened in the `try` block.
+### Best Practices
+- **Resource Management :** Use the `finally` block to ensure that resources like files, database connections, or network connections are properly closed, regardless of whether an exception occurs.
+- **Error Cleanup :** Perform any necessary cleanup operations in the `finally` block to leave the program or system in a consistent state, even in the event of an error.
+- **Avoid Logic :** Keep the `finally` block free from complex logic to ensure that it executes quickly and reliably. Complex logic in the `finally` block can make code harder to understand and maintain.
+### Try-With-Resources
+Try-With-Resources is a feature introduced in Java 7 that simplifies resource management by automatically closing resources that are opened within the try block. It ensures that resources are closed properly without the need for explicit finally blocks.
+#### Example
+```java
+
+ 
 
 
 

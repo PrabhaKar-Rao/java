@@ -45,6 +45,33 @@ public static int read() throws IOException
 ```
 #### Example
 ```java
+package com.eazybytes.input;
+
+import java.io.IOException;
+
+public class JavaBasicInputDemo {
+
+    public static void main(String[] args) throws IOException {
+        System.out.println("Please enter a value...");
+        int num = System.in.read();
+        System.out.println("The user entered a value: "+ num); // It will display the ASCII value of entered number
+    }
+
+}
+```
+### Return Value
+- Returns the next byte of data from the input stream as an integer in the range 0 to 255. If the end of the stream has been reached, the value -1 is returned.
+### Exceptions
+- IOException - If an I/O error occurs.
+### Notes
+- This method reads only one byte at a time, making it suitable for handling raw byte input. For reading characters or strings, consider using higher-level input operations provided by classes like `Scanner` or `BufferedReader`.
+- Since `System.in.read()` reads bytes, it may not handle multibyte characters correctly in all cases, especially when dealing with character encodings beyond the ASCII range.
+- Always wrap the call to `System.in.read()` within a try-catch block to handle any potential I/O errors.
+## BufferedReader
+BufferedReader is a class in Java that reads text from a character-input stream, buffering characters so as to provide for the efficient reading of characters, arrays, and lines.
+#### Example
+```java
+
 
 
 

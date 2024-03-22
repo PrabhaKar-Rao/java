@@ -31,5 +31,30 @@ And many more...
 And many more...
 ### Example with try, catch block
 ```java
+package com.eazybytes.exception;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ExceptionDemo {
+
+    public static void main(String[] args) {
+        Scanner scanner = null;
+        try {
+             scanner = new Scanner(System.in);
+            System.out.println("Enter a number....");
+            int number = scanner.nextInt();
+            System.out.println(number);
+        }
+        catch(Exception ex) {
+            System.out.println("Please provide input in numerical format only and try again...");
+        }
+    }
+}
+```
+### ArrayIndexOutofBoundsException 
+`ArrayIndexOutOfBoundsException` is a runtime exception in Java that occurs when you try to access an index that is outside the bounds of an array. For example, if you have an array with 5 elements and you try to access the 6th element, it will throw `ArrayIndexOutOfBoundsException`.
+
+
 
 

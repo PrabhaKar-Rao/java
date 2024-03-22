@@ -147,6 +147,38 @@ Logging is an essential aspect of software development, providing insight into t
 - Writing log messages to console and file
 #### Example
 ```java
+package com.eazybytes.log;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class LoggingDemo {
+
+    private static Logger logger = Logger.getLogger(LoggingDemo.class.getName());
+
+    public static void main(String[] args) {
+        logger.setLevel(Level.SEVERE);
+        logger.info("This is info level logging");
+        logger.log(Level.WARNING, "This is warning level logging");
+        logger.severe("This is severe level logging");
+        System.out.println("Hello using System.out.println");
+    }
+
+}
+```
+### Usage
+- The `Logger` class is used to log messages in your Java code.
+- Log messages can be categorized into different levels such as INFO, WARNING, and SEVERE.
+- Use appropriate log levels to convey the importance of log messages.
+- Log messages can be directed to different destinations such as console, file, or custom handlers.
+### Conclusion
+- Logging plays a crucial role in understanding the behavior of Java applications during runtime. By integrating logging into your projects, you gain valuable insights into the execution flow, identify issues, and monitor application health.
+
+- This Java logging example demonstrates the fundamental concepts of logging, including configuring log levels, directing log output to different destinations, and utilizing the `java.util.logging` package effectively.
+
+- With the knowledge gained from this example, you can enhance the robustness and maintainability of your Java applications by implementing logging practices tailored to your specific use cases.
+
+
 
 
 

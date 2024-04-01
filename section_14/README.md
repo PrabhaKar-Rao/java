@@ -394,6 +394,28 @@ Nested try blocks are a powerful feature of Java's exception handling mechanism 
 ## Custom Checked Exceptions
 In Java, exceptions play a crucial role in handling errors and abnormal conditions that may occur during program execution. While Java provides a wide range of built-in exceptions, sometimes it's necessary to create custom exceptions to handle specific scenarios unique to your application.
 Custom exceptions allow you to define your own exception types tailored to the requirements of your application domain. Checked exceptions, in particular, are those that are checked at compile-time, ensuring that they are either caught or declared to be thrown by the method in which they may occur.
+#### Example
+```java
+package com.eazybytes.exception;
+
+import com.eazybytes.exception.custom.InvalidAgeException;
+
+import java.util.Scanner;
+
+public class AcceptAgeDetails {
+
+    public static void main(String[] args) throws InvalidAgeException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your Age:");
+        int age = scanner.nextInt();
+        if(age<0 || age>100) {
+            throw new InvalidAgeException("Invalid age details entered. Please enter a age between 0-100");
+        }
+        System.out.println("Your age is : "+age);
+    }
+
+}
+
 
 
 

@@ -270,6 +270,7 @@ public class ThrowsDemo {
     }
 
 }
+```
 ### Key Points
 - The `throws` keyword is used in method declarations.
 - It specifies the exceptions that a method might throw during its execution.
@@ -282,6 +283,122 @@ The syntax for using the `throw` keyword is as follows:
 throw throwableObject;
 ```
 Here, `throwableObject` is the exception object that you want to throw.
+#### Example
+```java
+package com.eazybytes.exception;
+
+import java.util.Scanner;
+
+public class ThrowDemo {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the numerator value");
+        String num1 = scanner.next();
+        System.out.println("Please enter the denominator value");
+        String num2 = scanner.next();
+        Division division = new Division();
+        if(num2.equals("0")) {
+            throw new ArithmeticException("Division by zero");
+        }
+        double output = division.divide(num1, num2);
+        System.out.println(output);
+    }
+
+}
+
+package com.eazybytes.exception;
+
+public class Division {
+
+    public double divide (String num1, String num2) throws
+            NumberFormatException, ArithmeticException {
+        int n1 = Integer.parseInt(num1);
+        int n2 = Integer.parseInt(num2);
+        return n1/n2;
+    }
+
+}
+```
+### When to Use
+- Use the `throw` keyword when you encounter an exceptional condition in your program that you want to handle.
+- It is commonly used within methods or constructors to signal that something unexpected has occurred.
+### Conclusion
+The `throw` keyword in Java provides a way to manually throw exceptions in your code, allowing you to handle exceptional conditions gracefully. It is an essential part of Java's exception handling mechanism.
+## Exception Propagation
+Exception propagation is a mechanism in Java where an exception that is not caught in a method is automatically propagated to the calling method. This process continues until the exception is caught or until it reaches the top of the call stack.
+###  How Exception Propagation Works
+1. **Exception Occurrence**: An exception occurs within a method.
+2. **Uncaught Exception**: If the exception is not caught within the method, it is automatically propagated to the calling method.
+3. **Propagation Continues**: The process of propagating the exception continues until it is either caught or it reaches the top of the call stack.
+4. **Handling the Exception**: If the exception is caught at any point during propagation, it can be handled using try-catch blocks or it can be propagated further up the call stack.
+#### Example
+
+```java
+public class ExceptionPropagationExample {
+
+    public static void main(String[] args) {
+        try {
+            method1();
+        } catch (Exception e) {
+            System.out.println("Exception caught in main method: " + e);
+        }
+    }
+
+    public static void method1() {
+        method2();
+    }
+
+    public static void method2() {
+        method3();
+    }
+
+    public static void method3() {
+        // Simulating an exception
+        int result = 10 / 0;
+    }
+}
+```
+In this example, an exception occurs in `method3()` due to division by zero. Since the exception is not caught within `method3()`, it is propagated to `method2()`, then to `method1()`, and finally caught in the `main` method.
+### Best Practices
+- Catch Exceptions at the Appropriate Level: Catch exceptions at a level where you can handle them effectively.
+- Use try-catch Blocks Judiciously: Use try-catch blocks only where necessary to maintain code readability and to handle exceptions appropriately.
+- Log Exceptions: Always log exceptions or at least handle them gracefully to provide useful information for debugging and troubleshooting.
+### Conclusion
+Understanding exception propagation is essential for writing robust and reliable Java applications. By knowing how exceptions propagate through method calls, you can effectively handle errors and ensure the stability of your code.
+## Nested Try Block
+In Java, exception handling is accomplished using try-catch blocks. A nested try block is a try block inside another try block. This allows for more granular handling of exceptions and enables developers to handle exceptions at different levels of code execution.
+### Usage
+Nested try blocks are particularly useful when dealing with complex code structures where different parts of the code may throw different types of exceptions. By nesting try blocks, you can handle exceptions more precisely and maintain the flow of your program.
+### Example
+```java
+public class NestedTryExample {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = {1, 2, 3};
+            int result = numbers[5]; // This line will throw an ArrayIndexOutOfBoundsException
+            try {
+                int quotient = 10 / 0; // This line will throw an ArithmeticException
+            } catch (ArithmeticException ex) {
+                System.out.println("ArithmeticException caught: " + ex.getMessage());
+            }
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("ArrayIndexOutOfBoundsException caught: " + ex.getMessage());
+        }
+    }
+}
+```
+In this example, we have an outer try block that contains an array access statement, which may throw an `ArrayIndexOutOfBoundsException`. Inside the outer try block, we have a nested try block that contains a division operation, which may throw an `ArithmeticException`. By using nested try blocks, we can handle these exceptions separately and provide specific error messages or take appropriate actions based on the type of exception thrown.
+### Conclusion
+Nested try blocks are a powerful feature of Java's exception handling mechanism that allows developers to handle exceptions at different levels of code execution. When used judiciously, nested try blocks can make your code more robust and maintainable by providing fine-grained control over exception handling.
+## Custom Checked Exceptions
+In Java, exceptions play a crucial role in handling errors and abnormal conditions that may occur during program execution. While Java provides a wide range of built-in exceptions, sometimes it's necessary to create custom exceptions to handle specific scenarios unique to your application.
+Custom exceptions allow you to define your own exception types tailored to the requirements of your application domain. Checked exceptions, in particular, are those that are checked at compile-time, ensuring that they are either caught or declared to be thrown by the method in which they may occur.
+
+
+
+
+
 
 
 

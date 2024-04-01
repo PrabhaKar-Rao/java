@@ -255,6 +255,38 @@ public class Division {
 
 }
 
+package com.eazybytes.exception;
+
+public class ThrowsDemo {
+
+    public static void main(String[] args) {
+        Division division = new Division();
+        try{
+            double ouput = division.divide("4", "2");
+            System.out.println(ouput);
+        } catch (NumberFormatException | ArithmeticException ex) {
+            System.out.println("Invalid data provided. Please provide valid numbers and try again..");
+        }
+    }
+
+}
+### Key Points
+- The `throws` keyword is used in method declarations.
+- It specifies the exceptions that a method might throw during its execution.
+- The caller of the method must handle the declared exceptions using try-catch blocks or propagate them using the throws clause.
+## throw Keyword
+In Java, the `throw` keyword is used to explicitly throw an exception. This means that when a certain condition occurs in your program, you can use the `throw` keyword to create and throw an exception manually.
+### Syntax
+The syntax for using the `throw` keyword is as follows:
+```java
+throw throwableObject;
+```
+Here, `throwableObject` is the exception object that you want to throw.
+
+
+
+
+
 
  
 

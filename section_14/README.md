@@ -208,6 +208,38 @@ try (ResourceType1 resource1 = new ResourceType1();
 }
 ```
 Replace `ResourceType1`, `ResourceType2` etc., with the actual types of resources you want to manage.
+#### Example
+```java
+package com.eazybytes.exception;
+
+import java.util.Scanner;
+
+public class TryWithResourcesDemo {
+
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter a number....");
+            int number = scanner.nextInt();
+            System.out.println(number);
+        } catch(Exception ex) {
+            System.out.println("Please provide input in numerical format only and try again...");
+        }
+    }
+
+}
+```
+### Benefits of Try-with-Resources
+- Automatic Resource Management: Resources are automatically closed at the end of the try block, reducing the risk of resource leaks.
+- Concise and Readable: Try-with-resources reduces boilerplate code, making your code cleaner and easier to understand.
+- Exception Handling: Exceptions that occur during resource management are properly handled without the need for explicit finally blocks.
+### Conclusion
+Try-with-resources is a powerful feature in Java for managing resources efficiently and safely. By using this feature, you can simplify your code and improve its robustness by ensuring that resources are properly closed after use.
+## throws Keyword
+The `throws` keyword in Java is used in method declarations to indicate that the method may throw one or more specific exceptions during its execution. When a method uses `throws`, it essentially delegates the responsibility of handling the exception to the caller of the method.
+### Syntax
+```java
+return_type method_name(parameters) throws exception_type1, exception_type2, ...
+```
 
  
 

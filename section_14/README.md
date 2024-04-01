@@ -416,6 +416,76 @@ public class AcceptAgeDetails {
 
 }
 
+package com.eazybytes.exception.custom;
+
+public class InvalidAgeException extends Exception {
+
+    public InvalidAgeException() {
+        super();
+    }
+
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+
+}
+```
+## Understanding final, finally, and finalize
+### final
+The `final` keyword in Java is used to declare constants, prevent method overriding, and restrict subclassing. Here's a brief overview of its usage:
+ - **Constant Declaration:** When a variable is declared with `final`, its value cannot be changed once initialized.
+  ```java
+  final int MAX_VALUE = 100;
+```
+- **Method Declaration :** When a method is declared as final, it cannot be overridden by subclasses.
+
+```java
+public final void display() {
+    // Method implementation
+}
+```
+- **Class Declaration :** When a class is declared as final, it cannot be subclassed.
+
+```java
+public final class MyClass {
+    // Class implementation
+}
+```
+### finally
+The `finally` block in Java is used in exception handling to execute code that must be run regardless of whether an exception is thrown or not. It is usually placed after the `try` block and/or `catch` block. Here's how it works:
+```java
+try {
+    // Code that may throw an exception
+} catch (Exception e) {
+    // Exception handling
+} finally {
+    // Code that always executes, irrespective of whether an exception occurred or not
+}
+```
+The `finally` block is often used for releasing resources like closing files or database connections, ensuring they are properly cleaned up.
+### finalize
+The `finalize()` method in Java is called by the garbage collector before an object is reclaimed. It's used for performing cleanup operations on an object before it is garbage collected. However, it's important to note that `finalize()` method has been deprecated in Java 9 and may be removed in future versions. It's generally not recommended to rely on `finalize()` for resource cleanup. Instead, developers should use explicit resource management techniques such as try-with-resources or implement AutoCloseable interface for resource cleanup.
+#### Example
+```java
+public class MyClass {
+    // Class implementation
+
+    @Override
+    protected void finalize() throws Throwable {
+        try {
+            // Cleanup operations
+        } finally {
+            super.finalize();
+        }
+    }
+}
+```
+### Conclusion
+Understanding the distinctions between `final`, `finally`, and `finalize` is crucial for writing robust and maintainable Java code. Proper usage of these constructs can lead to better resource management, exception handling, and class design.
+
+
+
+
 
 
 

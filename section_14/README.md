@@ -240,6 +240,21 @@ The `throws` keyword in Java is used in method declarations to indicate that the
 ```java
 return_type method_name(parameters) throws exception_type1, exception_type2, ...
 ```
+#### Example
+```java
+package com.eazybytes.exception;
+
+public class Division {
+
+    public double divide (String num1, String num2) throws
+            NumberFormatException, ArithmeticException {
+        int n1 = Integer.parseInt(num1);
+        int n2 = Integer.parseInt(num2);
+        return n1/n2;
+    }
+
+}
+
 
  
 

@@ -189,6 +189,25 @@ public class TryWithResourcesDemo {
 **Concise and Readable Code :** By eliminating the need for boilerplate code to close resources in finally blocks, try-with-resources leads to cleaner and more readable code. Developers can focus on the core logic of the program without getting distracted by resource management concerns.
 
 **Improved Exception Handling :** Any exceptions thrown during the execution of the try block, as well as any exceptions thrown during resource closing, are properly handled. This simplifies error handling and makes code more robust.
+## Try-with-Resources
+Try-with-resources is a feature introduced in Java 7 that simplifies resource management by automatically closing resources at the end of their usage. This feature can significantly reduce the boilerplate code required for managing resources such as files, database connections, and network connections.
+### How to Use Try-with-Resources
+
+Using try-with-resources is straightforward. You declare the resources within the parentheses of the try statement. The resources must implement the `AutoCloseable` interface. Java automatically closes the resources at the end of the try block, whether an exception is thrown or not.
+
+Here's the basic syntax:
+
+```java
+try (ResourceType1 resource1 = new ResourceType1();
+     ResourceType2 resource2 = new ResourceType2();
+     // Add more resources as needed
+) {
+    // Code that uses the resources
+} catch (Exception e) {
+    // Exception handling
+}
+```
+Replace `ResourceType1`, `ResourceType2` etc., with the actual types of resources you want to manage.
 
  
 

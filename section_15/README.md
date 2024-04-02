@@ -1,4 +1,4 @@
-# Method in Object Class
+# Methods in Object Class
 In Java, an ` Object` class refers to any class that extends the fundamental base class, Object. Every class in Java implicitly or explicitly extends Object, which is the root of the class hierarchy.
 ## Object.getClass()
 The `getClass()` method in Java is a part of the Object class, which is the root of the Java class hierarchy. It returns the runtime class of an object. In other words, it returns an instance of the Class class representing the runtime class of the object.
@@ -222,7 +222,7 @@ try {
 - Deep cloning can be achieved by overriding the `clone()` method to create a new object and copying all mutable fields recursively.
 - `clone()` method returns Object, so explicit casting is required.
 - It's recommended to use `clone()` judiciously, as it can lead to unexpected behavior, especially when dealing with mutable objects.
-#### Example
+#### Example 💡
 ```java
 public class MyClass implements Cloneable {
     private int id;
@@ -341,7 +341,7 @@ int age = record.getAge();
 String email = record.getEmail();
 ```
 - **Immutable Nature :** Note that once a Record instance is created, its fields cannot be modified. This ensures data integrity.
-#### Example
+#### Example 💡
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -370,7 +370,7 @@ The `var` keyword in Java allows for type inference, reducing verbosity in varia
 - **Maintainability :** While var enhances readability, overuse may obfuscate code, especially in complex scenarios.
 - **Clarity :** Prioritize clarity over brevity; use var judiciously where type inference improves code comprehension.
 - **Compatibility :** Compatible with Java 10 and later versions; ensure compatibility with target runtime environments.
-### Example
+### Example 💡
 ```java
 
 var list = new ArrayList<String>();

@@ -129,7 +129,7 @@ public String toString()
 ```
 ### Return Value
 - A string representation of the object.
-#### Example
+#### Example 💡
 ```java
 public class MyClass {
     private int id;
@@ -157,12 +157,42 @@ public class MyClass {
 ```java
 MyClass{id=1, name='Example'}
 ```
-### Usage
+### Usage  🚀
 - Override the `toString()` method in your custom classes to provide a meaningful string representation of the object.
 - Useful for debugging purposes to print object information.
 - Used in logging or displaying object information to users.
-### Note 
+### Notes  🚀 🎉
 If you don't override `toString()` in your custom class, you'll get the default implementation provided by the `Object` class, which may not provide meaningful information about the object.
+## Object.finalize()
+`Object.finalize()` is a method in Java that is called by the garbage collector on an object when garbage collection determines that there are no more references to the object. It's provided as a means for an object to perform cleanup operations before it is garbage collected.
+However, it's important to note that `finalize()` is generally considered unreliable and should not be relied upon for critical resource cleanup. This is because there's no guarantee as to when or if the finalize method will be called.
+### Usage
+Here's a basic usage example:
+
+```java
+public class MyClass {
+    // Override finalize method
+    @Override
+    protected void finalize() throws Throwable {
+        try {
+            // Cleanup operations
+        } finally {
+            // Call superclass finalize method
+            super.finalize();
+        }
+    }
+}
+```
+### Considerations
+- **Unreliability :** As mentioned earlier, the finalize() method is not guaranteed to be called promptly or at all, so it should not be relied upon for critical cleanup tasks.
+- **Performance :** Invoking finalize() can have performance implications due to its impact on garbage collection. Objects with finalizers may take longer to be collected than those without.
+- **Alternative Approaches :** For resource cleanup, it's generally better to use other mechanisms such as try-with-resources statements (for managing resources that implement AutoCloseable) or explicit close() methods.
+## Object.clone()
+- In Java, `Object.clone()` is a method used to create a shallow copy of an object. This method is declared in the Object class and is protected, meaning it can be accessed only by the classes within the same package or subclasses.
+- A shallow copy of an object is a new object that is created, but it shares the same fields (references) with the original object. That means if the original object contains references to other objects, the copied object will also refer to the same objects.
+
+
+ 
 
 
 

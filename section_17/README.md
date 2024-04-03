@@ -366,6 +366,221 @@ This guide demonstrates how to sort an ArrayList in Java using the `sort()` meth
 
 ## Conclusion
 Sorting an ArrayList in Java is straightforward using the `sort()` method provided by the `java.util.Collections` class. This method arranges the elements of the ArrayList in ascending order.
+##  Sorting ArrayList using Custom Comparator
+In Java, you can sort an `ArrayList` using a custom comparator to define your own sorting logic. This is particularly useful when you want to sort objects based on certain criteria that are not directly supported by their natural ordering.
+### Custom Comparator
+A custom comparator is an implementation of the `Comparator` interface that defines how objects should be compared for sorting. You can create a custom comparator by implementing the `compare` method.
+
+Here's a simple example of a custom comparator for sorting strings based on their lengths:
+
+```java
+```java
+import java.util.Comparator;
+
+public class StringLengthComparator implements Comparator<String> {
+    @Override
+    public int compare(String s1, String s2) {
+        return Integer.compare(s1.length(), s2.length());
+    }
+}
+```
+### Sorting ArrayList using Custom Comparator
+Once you have defined your custom comparator, you can use it to sort an `ArrayList` of objects. Here's how you can sort an `ArrayList` of strings using the StringLengthComparator:
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("apple");
+        strings.add("banana");
+        strings.add("orange");
+
+        // Create an instance of the custom comparator
+        StringLengthComparator comparator = new StringLengthComparator();
+
+        // Sort the ArrayList using the custom comparator
+        Collections.sort(strings, comparator);
+
+        // Print the sorted ArrayList
+        System.out.println("Sorted ArrayList:");
+        for (String str : strings) {
+            System.out.println(str);
+        }
+    }
+}
+```
+In this example, the ArrayList of strings is sorted based on their lengths using the `StringLengthComparator`.
+
+### Conclusion
+Using a custom comparator gives you the flexibility to define your own sorting logic when sorting `ArrayList` or any other collections in Java.
+## Sorting ArrayList of Custom Data Type Using Comparable in Java
+
+This guide will walk you through sorting an ArrayList of custom data types using the `Comparable` interface in Java. By implementing the `Comparable` interface, you can define a natural ordering for your custom objects, allowing them to be sorted using built-in sorting methods.
+
+
+## Steps
+
+### 1. Define Your Custom Data Type
+
+First, you need to define a class for your custom data type. Ensure that it implements the `Comparable` interface and overrides the `compareTo()` method to define the natural ordering of objects.
+
+```java
+public class CustomObject implements Comparable<CustomObject> {
+    private int value;
+
+    public CustomObject(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    @Override
+    public int compareTo(CustomObject other) {
+        // Implement comparison logic based on the 'value' field
+        return Integer.compare(this.value, other.value);
+    }
+}
+```
+### 2. Create and Populate ArrayList
+Next, create an ArrayList of your custom data type and populate it with objects.
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<CustomObject> customList = new ArrayList<>();
+        customList.add(new CustomObject(5));
+        customList.add(new CustomObject(2));
+        customList.add(new CustomObject(8));
+    }
+}
+```
+### 3. Sort ArrayList
+Use the `Collections.sort()` method to sort the ArrayList. Since your custom data type implements the Comparable interface, it will automatically use the `compareTo()` method for sorting.
+
+```java
+Collections.sort(customList);
+```
+### 4. Complete Example
+Here's the complete example:
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<CustomObject> customList = new ArrayList<>();
+        customList.add(new CustomObject(5));
+        customList.add(new CustomObject(2));
+        customList.add(new CustomObject(8));
+
+        // Sort the ArrayList
+        Collections.sort(customList);
+
+        // Print sorted ArrayList
+        for (CustomObject obj : customList) {
+            System.out.println(obj.getValue());
+        }
+    }
+}
+
+class CustomObject implements Comparable<CustomObject> {
+    private int value;
+
+    public CustomObject(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    @Override
+    public int compareTo(CustomObject other) {
+        return Integer.compare(this.value, other.value);
+    }
+}
+```
+### Conclusion
+Using the `Comparable` interface in Java allows you to define the natural ordering of custom objects, enabling you to easily sort `ArrayLists` containing these objects. By following the steps outlined in this guide, you can effectively sort `ArrayLists` of custom data types using `Comparable` in Java.
+## Sorting ArrayList of Custom Data Type using Comparator in Java
+
+This guide demonstrates how to sort an ArrayList containing custom data types in Java using the `Comparator` interface.
+
+
+### Sorting ArrayList of Custom Data Type
+
+1. **Create your custom data type:** Define a class representing your custom data type. For example, let's consider a `Person` class with `name` and `age` attributes.
+
+    ```java
+    public class Person {
+        private String name;
+        private int age;
+        
+        // Constructor, getters, and setters
+    }
+    ```
+
+2. **Implement Comparator interface:** Implement the `Comparator` interface to define custom comparison logic for your custom data type. Override the `compare` method.
+
+    ```java
+    import java.util.Comparator;
+
+    public class PersonComparator implements Comparator<Person> {
+        @Override
+        public int compare(Person p1, Person p2) {
+            // Custom comparison logic, e.g., comparing by age
+            return Integer.compare(p1.getAge(), p2.getAge());
+        }
+    }
+    ```
+
+3. **Sort ArrayList using Comparator:** Use the `Collections.sort()` method to sort the ArrayList using your custom Comparator.
+
+    ```java
+    import java.util.ArrayList;
+    import java.util.Collections;
+
+    public class Main {
+        public static void main(String[] args) {
+            // Create ArrayList of Person objects
+            ArrayList<Person> people = new ArrayList<>();
+            people.add(new Person("Alice", 30));
+            people.add(new Person("Bob", 25));
+            people.add(new Person("Charlie", 35));
+            
+            // Sort the ArrayList using Comparator
+            Collections.sort(people, new PersonComparator());
+            
+            // Print sorted ArrayList
+            for (Person person : people) {
+                System.out.println(person.getName() + ", " + person.getAge());
+            }
+        }
+    }
+    ```
+
+### Running the Code
+
+1. Compile the Java files: `javac Main.java Person.java PersonComparator.java`
+2. Run the compiled Java program: `java Main`
+
+You should see the sorted list of `Person` objects printed in the console.
+
+### Conclusion
+
+Sorting an ArrayList of custom data types in Java using Comparator provides flexibility in defining custom comparison logic. By implementing the `Comparator` interface, you can sort the ArrayList based on any attributes or criteria specific to your application.
+
+
+
 
 
 

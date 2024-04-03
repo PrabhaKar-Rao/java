@@ -567,6 +567,41 @@ In this example :
 - Not Suitable for Complex Logic: For complex conditions, using if-else statements is often more appropriate.
 ### Conclusion
 The Ternary Conditional Operator is a powerful tool for writing concise conditional statements in Java. It can improve code readability and reduce verbosity for simple conditions. However, it should be used judiciously and avoided for complex logic to maintain code clarity and understandability.
+## Java Operators Precedence & Associativity
+In Java, operators have precedence and associativity, which determine the order of evaluation of expressions. Understanding these concepts is crucial for writing correct and efficient code.
+### Precedence
+Precedence refers to the priority of operators in an expression. Operators with higher precedence are evaluated before operators with lower precedence. Here's a summary of operator precedence in Java (from highest to lowest precedence):
+1. Postfix operators: `expr++`, `expr--`
+2. Unary operators: `++expr`, `--expr`, `+expr`, `-expr`, `~`, `!`
+3. Multiplicative operators: `*`, `/`, `%`
+4. Additive operators: `+`, `-`
+5. Shift operators: `<<`, `>>`, `>>>`
+6. Relational operators: `<`, `<=`, `>`, `>=`, `instanceof`
+7. Equality operators: `==`, `!=`
+8. Bitwise AND: `&`
+9. Bitwise XOR: `^`
+10. Bitwise OR: `|`
+11. Logical AND: `&&`
+12. Logical OR: `||`
+13. Ternary conditional: `? :`
+14. Assignment operators: `=`, `+=`, `-=`, `*=`, `/=`, `%=`, `&=`, `|=`, `^=`, `<<=`, `>>=`, `>>>=`
+- Operators with higher precedence are evaluated first. For example, in `a + b * c`, `b * c` is evaluated first because `*` has higher precedence than `+`.
+### Associativity
+Associativity determines the order in which operators of the same precedence are evaluated. Java operators can be either left-associative or right-associative.
+- Left-associative operators are evaluated from left to right. For example, `a + b + c` is evaluated as `(a + b) + c`.
+- Right-associative operators are evaluated from right to left. Assignment operators (`=`) are the only right-associative operators in Java.
+#### Examples
+
+#### Precedence Example
+```java
+int result = 10 + 2 * 3; // Result is 16 (2 * 3 is evaluated first)
+```
+### Associativity Example
+```java
+int result = 10 - 5 - 2; // Result is 3 (left associative: (10 - 5) - 2)
+```
+### Conclusion
+Understanding operator precedence and associativity helps in writing code that behaves as expected. Always use parentheses to clarify expressions when needed, especially when dealing with complex expressions involving multiple operators.
 
 
 

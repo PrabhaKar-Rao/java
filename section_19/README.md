@@ -128,6 +128,143 @@ public class GenericMethodDemo {
 ## Collections without Generics
 Java collections framework provides a set of classes and interfaces to store and manipulate groups of objects. Before the introduction of generics, these collections could hold any type of objects, which could lead to runtime errors if the wrong type of object was added or retrieved.
 #### Example
+```java
+package com.eazybytes.generics;
+
+import java.util.ArrayList;
+
+public class WithOutGenericsDemo {
+
+    public static void main(String[] args) {
+        ArrayList list = new ArrayList();
+        list.add("Hello");
+        list.add(123);
+        list.add(true);
+
+        String greeting = (String) list.get(0);
+        int number = (Integer) list.get(1);
+        boolean flag = (Boolean) list.get(2);
+
+        ArrayList<String> list1 = new ArrayList<>();
+        list1.add("Hello");
+        // list1.add(123);
+        // list1.add(true);
+
+        String greeting1 = list1.get(0);
+        // int number = (Integer) list.get(1);
+        // boolean flag = (Boolean) list.get(0);
+
+    }
+
+}
+```
+## Covariance
+### What is Covariance?
+Covariance is a concept in object-oriented programming that allows a subclass to override a method in its superclass with a return type that is a subclass of the return type of the superclass method. This enables more flexibility in method overriding and allows for a more specific return type in the subclass.
+
+In Java, covariance is primarily used in the context of method overriding and return types in inheritance hierarchies.
+### Understanding Covariance
+In Java, covariance can be illustrated with the use of method overriding and inheritance. Consider a scenario where you have a superclass `Animal` and a subclass `Dog` that extends `Animal`. If the `Animal` class has a method `makeSound()` that returns an `Animal` object, the `Dog` class can override this method to return a `Dog` object instead, thanks to covariance.
+#### Example
+```java
+class Animal {
+    Animal makeSound() {
+        System.out.println("Some sound");
+        return new Animal();
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    Dog makeSound() {
+        System.out.println("Woof");
+        return new Dog();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Dog();
+        animal.makeSound();
+    }
+}
+```
+In this example, the `makeSound()` method in the `Dog` class overrides the same method in the `Animal` class with a more specific return type (Dog).
+## Upper Bound Wildcards
+Upper bound wildcards in Java are a feature of generics that allow greater flexibility when working with generic types. They are denoted by the `<? extends T>` syntax, where `T` is a specific type. 
+### What are Upper Bound Wildcards?
+Upper bound wildcards are used when you want to specify that a parameterized type may be any subtype of a certain type. For instance, if you have a method that accepts a List of any type that is a subtype of Number, you can use an upper bound wildcard to indicate this:
+```java
+```java
+public void processNumbers(List<? extends Number> numbers) {
+    // Method implementation
+}
+```
+This method can accept a `List<Integer>`, `List<Double>`, or any other `List` containing elements that extend Number.
+### Key Points to Remember
+- Upper bound wildcards are indicated by <? extends T> where T is the upper bound type.
+- They allow methods to accept generic types that are subtypes of a specific type.
+- When using upper bound wildcards, you can only read from the collection, not write to it. This is because the compiler cannot guarantee the type safety of adding elements to the collection.
+- Upper bound wildcards are useful when you want to write methods that operate on collections of objects of unknown types but with a certain upper limit.
+
+#### Example
+```java
+import java.util.List;
+
+public class UpperBoundExample {
+    public static double sum(List<? extends Number> numbers) {
+        double sum = 0.0;
+        for (Number num : numbers) {
+            sum += num.doubleValue();
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> integers = List.of(1, 2, 3, 4, 5);
+        List<Double> doubles = List.of(1.1, 2.2, 3.3, 4.4, 5.5);
+
+        System.out.println("Sum of integers: " + sum(integers)); // Output: Sum of integers: 15.0
+        System.out.println("Sum of doubles: " + sum(doubles));   // Output: Sum of doubles: 16.5
+    }
+}
+```
+In this example, the sum method can accept both List<Integer> and List<Double> because they both extend Number.
+
+### Conclusion
+Upper bound wildcards in Java provide a powerful tool for writing flexible and reusable code when working with generic types. By using them, you can create methods that accept collections of any subtype of a specific type, enhancing the versatility of your code.
+## Lower Bounded Wildcards
+This Java project demonstrates the use of lower bounded wildcards in Java generics. Lower bounded wildcards are used to relax the restrictions on the type of objects that can be passed as arguments to a method. This README provides an overview of how lower bounded wildcards work and includes examples to illustrate their usage.
+### What are Lower Bounded Wildcards?
+- In Java generics, wildcards (`?`) can be used to represent unknown types. Lower bounded wildcards are denoted by `<? super T>`, where `T` is a specific type. Lower bounded wildcards allow for greater flexibility when dealing with generic types by specifying that the type parameter must be either of type `T` or a superclass of `T`.
+- Consider a scenario where we have a method `addAllNumbers` that adds numbers from a list to another list. We want to ensure that the destination list can accept any type that is a superclass of `Number`. We can achieve this using a lower bounded wildcard.
+```java
+import java.util.List;
+
+public class LowerBoundedWildcardExample {
+
+    public static void addAllNumbers(List<? super Number> dest, List<? extends Number> src) {
+        dest.addAll(src);
+    }
+
+    public static void main(String[] args) {
+        List<Number> numbers = new ArrayList<>();
+        numbers.add(10);
+        numbers.add(20.5);
+
+        List<Integer> integers = Arrays.asList(1, 2, 3);
+
+        addAllNumbers(numbers, integers);
+
+        System.out.println("Combined List: " + numbers);
+    }
+}
+```
+In this example, the `addAllNumbers` method accepts a destination list (dest) with a lower bounded wildcard `<? super Number>`, which means it can accept any type that is a superclass of Number. The source list (src) uses an upper bounded wildcard `<? extends Number> to specify that it can accept any subtype of Number. This allows us to add elements from the source list to the destination list without worrying about the specific type of elements in the source list.
+
+
+
+
 
 
 

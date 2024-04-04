@@ -1,7 +1,7 @@
 # Generics in Java 📚
 Generics in Java are a powerful feature that allow you to write code that can work with different types while providing compile-time type safety. They were introduced in Java 5 to enable developers to create classes, interfaces, and methods that operate on a wide range of data types without sacrificing type safety.
 ## Why we need Generics in java
-Generics in Java serve several important purposes:
+Generics in Java serve several important purposes :
 
 **Type Safety :** Generics provide compile-time type checking, which helps catch type-related errors at compile time rather than runtime. This ensures that you cannot insert the wrong type of object into a generic container, reducing the likelihood of bugs and making code more robust.
 

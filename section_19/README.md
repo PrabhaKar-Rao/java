@@ -104,5 +104,30 @@ public <T> void methodName(T parameter) {
     // Method implementation
 }
 ```
+#### Example
+```java
+package com.eazybytes.generics;
+
+public class GenericMethodDemo {
+
+    public static void main(String[] args) {
+        String[] stringArray = {"Hello", "World"};
+        printArray(stringArray);
+        Integer[] intArray = {1,2,3,4,5};
+        printArray(intArray);
+    }
+
+    public static <T> void printArray(T[] array){
+        for(T element:array){
+            System.out.println(element);
+        }
+    }
+
+}
+```
+## Collections without Generics
+Java collections framework provides a set of classes and interfaces to store and manipulate groups of objects. Before the introduction of generics, these collections could hold any type of objects, which could lead to runtime errors if the wrong type of object was added or retrieved.
+#### Example
+
 
 

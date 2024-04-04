@@ -261,9 +261,80 @@ public class LowerBoundedWildcardExample {
 }
 ```
 In this example, the `addAllNumbers` method accepts a destination list (dest) with a lower bounded wildcard `<? super Number>`, which means it can accept any type that is a superclass of Number. The source list (src) uses an upper bounded wildcard `<? extends Number> to specify that it can accept any subtype of Number. This allows us to add elements from the source list to the destination list without worrying about the specific type of elements in the source list.
+## Unbounded Wildcards in Java
+In Java, wildcards are used in generics to represent an unknown type. Unbounded wildcards, denoted by the question mark (?), allow flexibility by accepting any type. They are particularly useful when the code doesn't rely on the specific type of objects in a generic class or method.
+### Syntax
+The syntax for an unbounded wildcard is simply a question mark (?).
+
+```java
+List<?> list;
+```
+### Use Cases
+Unbounded wildcards are commonly used in the following scenarios:
+
+When the code is agnostic about the type: If the code doesn't depend on the specific type of objects in a generic class or method, unbounded wildcards can be used to provide flexibility.
+
+When working with collections of unknown types: When dealing with collections where the type of elements is unknown or irrelevant, unbounded wildcards can be used to ensure compatibility.
+
+As a parameter or return type in methods: Unbounded wildcards can be used as parameter types or return types in methods to accept or return any type of object.
 
 
+### Examples
+### Example 1: Using Unbounded Wildcards with Collections
+```java
+import java.util.List;
 
+public class UnboundedWildcardsExample {
+    public static double sum(List<?> list) {
+        double sum = 0.0;
+        for (Object obj : list) {
+            if (obj instanceof Number) {
+                sum += ((Number) obj).doubleValue();
+            }
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> integers = List.of(1, 2, 3);
+        List<Double> doubles = List.of(1.5, 2.5, 3.5);
+
+        System.out.println("Sum of integers: " + sum(integers));
+        System.out.println("Sum of doubles: " + sum(doubles));
+    }
+}
+```
+In this example, the sum method accepts a list of any type `(List<?>). It iterates over the elements of the list and sums up the values if they are instances of Number. This method can accept lists of integers, doubles, or any other numeric type.
+
+### Example 2: Using Unbounded Wildcards with Methods
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class UnboundedWildcardsExample {
+    public static void printList(List<?> list) {
+        for (Object obj : list) {
+            System.out.print(obj + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        List<Integer> integers = Arrays.asList(1, 2, 3);
+        List<String> strings = Arrays.asList("Hello", "World");
+
+        System.out.print("Integers: ");
+        printList(integers);
+
+        System.out.print("Strings: ");
+        printList(strings);
+    }
+}
+```
+In this example, the printList method accepts a list of any type `(List<?>)`. It prints the elements of the list without knowing their specific type. This method can be used to print lists of integers, strings, or any other type.
+
+### Conclusion
+Unbounded wildcards `(?)` in Java generics provide flexibility when the code doesn't rely on the specific type of objects in a generic class or method. They are useful for scenarios where the type is unknown or irrelevant, allowing for more versatile and reusable code.
 
 
 

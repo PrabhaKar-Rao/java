@@ -79,7 +79,7 @@ In conclusion, this demo showcases the basic functionality of the HashMap data s
 ## TreeMap 📚
 The `TreeMap` class in Java is a part of the Java Collections Framework and provides an efficient way to store key-value pairs in a sorted order based on the natural ordering of its keys or by a custom comparator.
 This demo will illustrate basic operations such as insertion, deletion, and retrieval of elements from a TreeMap.
-### Example
+### Example 💡
 
 ```java
 import java.util.TreeMap;
@@ -107,7 +107,7 @@ TreeMap in Java is a powerful data structure provided by the Java Collections Fr
 ## LinkedHashMap 📚
 The `LinkedHashMap` class in Java is a part of the Java Collections Framework and extends the `HashMap` class. It maintains the insertion order of its elements, which means the order in which elements are inserted is preserved. Additionally, it also provides optional access-ordering, where the entries are ordered based on their access order.
 This demo will illustrate basic operations such as insertion, deletion, and retrieval of elements from a LinkedHashMap.
-#### Example
+#### Example 💡
 ```java
 import java.util.LinkedHashMap;
 
@@ -129,7 +129,7 @@ public class LinkedHashMapDemo {
     }
 }
 ```
-### Conclusion
+### Conclusion 🎉
  LinkedHashMap in Java is a versatile data structure provided by the Java Collections Framework. It extends the HashMap class and maintains the insertion order of its elements, making it suitable for scenarios where the order of insertion needs to be preserved. Additionally, LinkedHashMap also offers optional access-ordering, allowing entries to be ordered based on their access patterns.
 
 The LinkedHashMap provides efficient performance for basic operations such as insertion, deletion, and retrieval of elements. It combines the features of a HashMap with the ability to maintain the insertion order, making it a valuable tool for developers working on projects that require both fast lookup operations and preservation of the order in which elements are added.

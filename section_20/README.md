@@ -182,3 +182,5 @@ public class ImmutableMapExample {
 ### Conclusion 🎉
 Creating immutable map objects in Java using the `Map.of()` method provides a concise and convenient way to define fixed collections of `key-value` pairs. Whether you need a small map with up to 10 entries or a larger map with more entries, you can leverage these methods to ensure data integrity and thread safety in your applications.
 
+Keep coding happily! 😊
+

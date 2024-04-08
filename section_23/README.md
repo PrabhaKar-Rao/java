@@ -61,3 +61,63 @@ public class DateDemo {
     }
 }
 ```
+## Date Formatting and Parsing using SimpleDateFormat
+Formatting dates involves converting a `Date` object into a string representation according to a specified pattern, while parsing dates involves converting a string representation of a date into a `Date` object.
+
+### Formatting Dates
+
+To format a date into a string representation, follow these steps:
+
+1. Create a `SimpleDateFormat` object with the desired date pattern.
+2. Call the `format()` method on the `SimpleDateFormat` object, passing the `Date` object you want to format.
+
+#### Example:
+```java
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DateFormattingExample {
+    public static void main(String[] args) {
+        Date currentDate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String formattedDate = formatter.format(currentDate);
+        System.out.println("Formatted Date: " + formattedDate);
+    }
+}
+```
+
+### Parsing Dates
+To parse a string representation of a date into a Date object, follow these steps:
+
+- Create a `SimpleDateFormat` object with the date pattern matching the format of the string representation.
+- Call the `parse()` method on the `SimpleDateFormat` object, passing the string representation of the date.
+#### Example:
+
+```java
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DateParsingExample {
+    public static void main(String[] args) {
+        String dateString = "08-04-2024 14:30:00";
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        try {
+            Date parsedDate = formatter.parse(dateString);
+            System.out.println("Parsed Date: " + parsedDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+### Date Patterns
+You can use various patterns to format and parse dates according to your requirements. Some commonly used patterns include:
+
+- `dd` - Day of the month (01-31)
+- `MM` - Month in year (01-12)
+- `yyyy` - Year (e.g., 2024)
+- `HH` - Hour in day (00-23)
+- `mm` - Minute in hour (00-59)
+- `ss` - Second in minute (00-59)
+

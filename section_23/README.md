@@ -635,6 +635,172 @@ OffsetTime specificOffsetTime = OffsetTime.of(localTime, zoneOffset);
 ### Conclusion
 The OffsetDateTime and OffsetTime classes in the java.time package provide essential functionalities for dealing with date-time and time with offsets in Java. By using these classes, developers can easily work with date-times and times in specific offsets from UTC/Greenwich and handle time zone offsets accurately in their applications.
 
+## Day Lught saving with ZonedDateTime
+```java
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
+public class DaylightSavingDemo {
+    public static void main(String[] args) {
+        // Define a date-time before daylight saving time starts
+        LocalDateTime dateTimeBeforeDST = LocalDateTime.of(2024, 3, 10, 1, 30);
+        
+        // Define a time zone
+        ZoneId zone = ZoneId.of("Europe/Paris");
+        
+        // Create a ZonedDateTime for the given date-time and time zone
+        ZonedDateTime zonedDateTimeBeforeDST = ZonedDateTime.of(dateTimeBeforeDST, zone);
+        
+        // Display the ZonedDateTime
+        System.out.println("ZonedDateTime before daylight saving time: " + zonedDateTimeBeforeDST);
+        
+        // Define a date-time after daylight saving time starts
+        LocalDateTime dateTimeAfterDST = LocalDateTime.of(2024, 3, 10, 3, 30);
+        
+        // Create a ZonedDateTime for the given date-time and time zone
+        ZonedDateTime zonedDateTimeAfterDST = ZonedDateTime.of(dateTimeAfterDST, zone);
+        
+        // Display the ZonedDateTime
+        System.out.println("ZonedDateTime after daylight saving time: " + zonedDateTimeAfterDST);
+    }
+}
+```
+In this demo, we create two LocalDateTime objects representing two different times on the day when daylight saving time starts in Paris in 2024: one just before the clock moves forward and one just after. Then, we create ZonedDateTime objects using these LocalDateTime instances and the time zone Europe/Paris. Finally, we print out these ZonedDateTime instances.
+
+When you run this demo, you'll observe that the output shows the difference in the offset due to daylight saving time:
+
+```java
+ZonedDateTime before daylight saving time: 2024-03-10T01:30+01:00[Europe/Paris]
+ZonedDateTime after daylight saving time: 2024-03-10T03:30+02:00[Europe/Paris]
+```
+You can see that the offset changes from +01:00 to +02:00 when daylight saving time starts. This demonstrates how ZonedDateTime handles daylight saving time transitions automatically according to the specified time zone.
+
+Java's java.time API primarily focuses on the ISO calendar system, but it does provide support for other calendar systems through the java.time.chrono package. While the ISO calendar is widely used and recommended, other calendars such as the Hijrah (Islamic) calendar and the Japanese calendar are supported for specific use cases.
+
+Here's a brief overview of how you can work with non-ISO calendars in the java.time Date and Time API:
+
+Hijrah (Islamic) Calendar: You can work with the Hijrah calendar using the HijrahChronology class. This calendar is used primarily in Islamic countries and calculates dates based on lunar cycles.
+
+Japanese Calendar: The Japanese calendar is supported through the JapaneseChronology class. It is used in Japan and counts years based on the reigns of Japanese emperors.
+
+Here's a simple example demonstrating how to work with the Hijrah calendar:
+
+java
+Copy code
+import java.time.LocalDate;
+import java.time.chrono.HijrahChronology;
+import java.time.chrono.HijrahDate;
+import java.time.format.DateTimeFormatter;
+
+public class NonISOCalendarDemo {
+    public static void main(String[] args) {
+        // Create a LocalDate in the Hijrah calendar
+        LocalDate hijrahDate = LocalDate.of(1443, 8, 15); // Hijrah year 1443, Shawwal month, 15th day
+        
+        // Convert to HijrahDate
+        HijrahDate hijrahDateConverted = HijrahChronology.INSTANCE.date(hijrahDate);
+        
+        // Format and display the Hijrah date
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        System.out.println("Hijrah Date: " + formatter.format(hijrahDateConverted));
+    }
+}
+This example creates a LocalDate object representing a date in the Hijrah calendar, converts it to a HijrahDate using HijrahChronology.INSTANCE, and then formats and displays the date.
+
+Similarly, you can work with the Japanese calendar by using JapaneseChronology in a similar manner.
+
+Keep in mind that support for non-ISO calendars may vary depending on the version of Java you're using, so be sure to consult the documentation for the specific version you're working with.
+
+## Formatting Dates and Times using DateTimeFormatter
+
+Formatting dates and times using the DateTimeFormatter class in Java allows you to represent date and time objects in various formats, such as "yyyy-MM-dd HH:mm:ss" or "MMM dd, yyyy hh:mm a".
+
+Here's a basic example demonstrating how to format dates and times using DateTimeFormatter:
+
+```java
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class DateTimeFormattingDemo {
+    public static void main(String[] args) {
+        // Create a LocalDateTime object representing the current date and time
+        LocalDateTime dateTime = LocalDateTime.now();
+
+        // Define a custom date and time format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        // Format the LocalDateTime object using the formatter
+        String formattedDateTime = dateTime.format(formatter);
+
+        // Display the formatted date and time
+        System.out.println("Formatted Date and Time: " + formattedDateTime);
+    }
+}
+```
+In this example:
+
+We create a LocalDateTime object representing the current date and time.
+We define a custom date and time format using the DateTimeFormatter.ofPattern() method. In this case, "yyyy-MM-dd HH:mm:ss" represents the format "year-month-day hour:minute:second".
+We format the LocalDateTime object using the defined formatter with the format() method.
+Finally, we print out the formatted date and time.
+Output:
+
+```sql
+Formatted Date and Time: 2024-04-10 15:30:45
+```
+You can create various formats by adjusting the pattern string passed to ofPattern(). Here are some commonly used pattern letters:
+
+
+- `y`: year
+- `M`: month
+- `d`: day of month
+- `H`: hour (0-23)
+- `m`: minute
+- `s`: second
+- `a`: AM/PM marker
+## Parsing dates and times using the DateTimeFormatter
+
+Parsing dates and times in Java using the DateTimeFormatter class allows you to convert textual representations of dates and times into LocalDate, LocalTime, LocalDateTime, or other date/time types provided by the java.time package.
+
+Here's a basic example demonstrating how to parse dates and times using DateTimeFormatter:
+
+```java
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class DateTimeParsingDemo {
+    public static void main(String[] args) {
+        // Define a date string in a specific format
+        String dateString = "2024-04-10";
+
+        // Define a custom date format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        // Parse the date string using the formatter
+        LocalDate date = LocalDate.parse(dateString, formatter);
+
+        // Display the parsed date
+        System.out.println("Parsed Date: " + date);
+    }
+}
+```
+In this example:
+
+We define a date string "2024-04-10" in the format "yyyy-MM-dd".
+We define a custom date format using the DateTimeFormatter.ofPattern() method.
+We parse the date string using the defined formatter with the parse() method, which returns a LocalDate object.
+Finally, we print out the parsed date.
+Output:
+
+```yaml
+Parsed Date: 2024-04-10
+```
+
+You can similarly parse time strings or combined date-time strings by using LocalTime.parse() or LocalDateTime.parse(), respectively. Just make sure the pattern in the DateTimeFormatter matches the format of the string you are trying to parse.
+
+If the input string does not match the specified format, a DateTimeParseException will be thrown. You can handle this exception using standard Java exception handling mechanisms.
+
 
 
 

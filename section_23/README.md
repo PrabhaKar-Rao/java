@@ -572,7 +572,7 @@ Duration negatedDuration = duration.negated();
 ### Conclusion
 The `multipliedBy()`, `dividedBy()`, and `negatedBy()` methods in the java.time package provide additional functionalities for performing arithmetic operations on time-based values in Java. By using these methods, developers can easily manipulate time durations according to their requirements.
 
-## `truncatedTo()`
+## truncatedTo()
 
 The `truncatedTo()` method is used to truncate a time-based value to a specified unit, such as hours, minutes, or seconds.
 
@@ -601,6 +601,49 @@ ZonedDateTime specificZonedDateTime = ZonedDateTime.of(localDateTime, zoneId);
 ```
 ### Conclusion
 The `ZoneId` and `ZonedDateTime` classes in the `java.time` package provide essential functionalities for dealing with time zones in Java. By using these classes, developers can easily work with date-times in different time zones and handle time zone conversions accurately in their applications.
+
+## ZoneOffset
+
+The `ZoneOffset` class represents a time zone offset from Greenwich/UTC, such as "+02:00" or "-05:00".
+
+### Usage
+
+```java
+ZoneOffset zoneOffset = ZoneOffset.of("+02:00");
+```
+### Conclusion
+The `ZoneOffset` class in the `java.time` package provides essential functionality for dealing with time zone offsets in Java. By using this class, developers can easily represent and work with time zone offsets accurately in their applications.
+
+## OffsetDateTime
+
+The `OffsetDateTime` class represents a date-time with an offset from UTC/Greenwich, such as "2024-04-09T12:34:56+02:00".
+
+### Usage
+
+```java
+OffsetDateTime offsetDateTime = OffsetDateTime.now(); // Current date-time with default offset
+OffsetDateTime specificOffsetDateTime = OffsetDateTime.of(localDateTime, zoneOffset);
+```
+## OffsetTime
+The OffsetTime class represents a time with an offset from UTC/Greenwich, such as "12:34:56+02:00".
+
+### Usage
+```java
+OffsetTime offsetTime = OffsetTime.now(); // Current time with default offset
+OffsetTime specificOffsetTime = OffsetTime.of(localTime, zoneOffset);
+```
+### Conclusion
+The OffsetDateTime and OffsetTime classes in the java.time package provide essential functionalities for dealing with date-time and time with offsets in Java. By using these classes, developers can easily work with date-times and times in specific offsets from UTC/Greenwich and handle time zone offsets accurately in their applications.
+
+
+
+
+
+
+
+
+
+
 
 
 

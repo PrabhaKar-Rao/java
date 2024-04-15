@@ -184,3 +184,41 @@ This will output:
 ```sql
 Instance method called
 ```
+
+## Demo of Constructor Reference
+Constructor reference is a shorthand syntax for creating instances of functional interfaces. It's particularly useful when working with functional interfaces like `Supplier`, `Function`, `Consumer`, etc.
+
+### Usage
+The ConstructorReferenceDemo.java file contains examples of how to use constructor reference. It demonstrates creating instances of functional interfaces using constructor references.
+
+### Example
+```java
+import java.util.function.Supplier;
+
+public class ConstructorReferenceDemo {
+
+    // Define a simple class
+    static class MyClass {
+        private String message;
+
+        MyClass(String message) {
+            this.message = message;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Using constructor reference to create a new instance of MyClass
+        Supplier<MyClass> supplier = MyClass::new;
+        
+        // Getting instance using supplier
+        MyClass instance = supplier.get();
+        
+        // Outputting message from MyClass instance
+        System.out.println(instance.getMessage());
+    }
+}
+```

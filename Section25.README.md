@@ -48,3 +48,100 @@ Method references provide several benefits:
 - **Reusability :** They promote code reuse by allowing you to reuse existing methods.
 ### Conclusion
 Method references are a powerful feature introduced in Java 8 that provide a shorthand syntax for referencing methods or constructors. They offer conciseness, readability, and promote code reuse. Understanding and using method references effectively can lead to cleaner and more expressive Java code.
+
+## Static Method References
+Static method references in Java provide a concise and expressive way to refer to static methods using the `::` operator. This feature was introduced in Java 8 as part of the lambda expressions and method references enhancements.
+
+### Syntax
+
+The syntax for static method references is as follows:
+
+```java
+ContainingClass::staticMethodName
+```
+
+### Example
+Consider a scenario where you have a static method `staticMethod()` in a class `MyClass`. You can refer to this method using static method references as follows:
+
+java
+Copy code
+public class MyClass {
+    public static void staticMethod() {
+        System.out.println("Hello from static method!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Using static method references
+        Runnable runnable = MyClass::staticMethod;
+        Thread thread = new Thread(runnable);
+        thread.start();
+    }
+}
+In the above example, MyClass::staticMethod refers to the static method staticMethod() of the MyClass class.
+
+### Advantages
+**Conciseness :** Static method references provide a concise alternative to lambda expressions when referring to static methods.
+
+**Readability :** They enhance the readability of code by providing a clear and direct reference to the method being invoked.
+
+**Reusability :** Static method references enable reusing existing static methods without the need for additional code.
+
+### Limitations
+Access to Instance Variables: Static method references cannot access instance variables or instance methods directly. They operate only on the parameters passed to them.
+
+Interface Method Compatibility: The method signature of the static method being referenced must match the functional interface's abstract method signature.
+
+### Conclusion
+Static method references in Java offer a convenient way to refer to static methods, improving code readability and conciseness. By leveraging this feature, developers can write cleaner and more expressive code while promoting code reuse and maintainability.
+
+## Instance Method Reference
+In Java, instance method reference is a feature introduced in Java 8 as part of the lambda expressions and functional interfaces enhancements. It provides a concise way to reference instance methods of objects as functional interfaces, particularly useful when those methods match the signature of the functional interface's abstract method.
+
+Instance method reference is often used in conjunction with functional interfaces like `Function`, `Predicate`, `Consumer`, etc., where you want to refer to an existing method to implement the abstract method of the interface.
+
+### Syntax
+
+The syntax for instance method reference is as follows:
+
+```java
+ClassName::instanceMethodName
+```
+
+Where:
+
+ClassName is the name of the class containing the instance method.
+instanceMethodName is the name of the instance method.
+### Example
+Consider a simple example of sorting strings in alphabetical order using instance method reference:
+
+```java
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class InstanceMethodReferenceExample {
+
+    public static void main(String[] args) {
+        String[] names = {"Alice", "Bob", "Charlie", "David"};
+
+        // Using lambda expression
+        Arrays.sort(names, (s1, s2) -> s1.compareTo(s2));
+        System.out.println("Sorted names: " + Arrays.toString(names));
+
+        // Using instance method reference
+        Arrays.sort(names, String::compareTo);
+        System.out.println("Sorted names: " + Arrays.toString(names));
+    }
+}
+```
+In this example, `String::compareTo` is an instance method reference that refers to the `compareTo` method of the String class. This method is compatible with the Comparator functional interface, which expects a method with the same signature.
+
+### When to Use
+Instance method reference is useful when:
+
+You have an existing method that matches the signature of the abstract method of a functional interface.
+You want to improve code readability by avoiding verbose lambda expressions.
+
+### Conclusion
+Instance method reference in Java provides a concise and readable way to refer to instance methods as functional interface implementations. It enhances code readability and promotes a more functional programming style in Java.

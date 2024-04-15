@@ -145,3 +145,42 @@ You want to improve code readability by avoiding verbose lambda expressions.
 
 ### Conclusion
 Instance method reference in Java provides a concise and readable way to refer to instance methods as functional interface implementations. It enhances code readability and promotes a more functional programming style in Java.
+
+## Instance Method Reference Using Class Type
+Instance method references in Java allow you to reference methods of an object. When using instance method references with a class type, you're essentially referring to a method of an object of that class. This can be useful when you want to pass a method as a functional interface parameter, such as in lambda expressions or streams.
+
+## Example
+
+Suppose we have a class `MyClass` with an instance method `myMethod`:
+
+```java
+class MyClass {
+    void myMethod() {
+        System.out.println("Instance method called");
+    }
+}
+```
+We can use instance method references using Class Type as follows:
+```java
+// Define a functional interface
+interface MyFunctionalInterface {
+    void myMethod();
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+
+        // Using instance method reference with Class Type
+        MyFunctionalInterface functionalInterface = obj::myMethod;
+
+        // Calling the method through functional interface
+        functionalInterface.myMethod();
+    }
+}
+```
+This will output:
+
+```sql
+Instance method called
+```

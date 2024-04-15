@@ -409,11 +409,304 @@ The `Function` interface is part of the Java 8 functional interfaces hierarchy, 
 ### Conclusion
 The `Function` functional interface in Java provides a powerful way to represent and use functions as first-class objects. It promotes functional programming paradigms and enables developers to write more concise and expressive code. By leveraging lambda expressions, method references, and additional operations like function chaining and identity functions, you can leverage the full potential of the Function interface in your Java applications.
 
+## UnaryOperator Interface
+The `UnaryOperator` interface in Java is a functional interface introduced in Java 8. It belongs to the `java.util.function` package and represents an operation on a single operand that produces a result of the same type as its operand. It extends the `Function` interface.
+
+### Usage
+The `UnaryOperator` interface is commonly used in scenarios where you need to transform or operate on an object of a certain type and return an object of the same type. Here's an example of how you can use `UnaryOperator`:
+
+```java
+import java.util.function.UnaryOperator;
+
+public class Main {
+    public static void main(String[] args) {
+        // Define a UnaryOperator for String concatenation
+        UnaryOperator<String> concatOperator = s -> s + " World";
+
+        // Apply the UnaryOperator to a String
+        String result = concatOperator.apply("Hello");
+
+        System.out.println(result); // Output: Hello World
+    }
+}
+```
 
 
+Certainly! Here's a sample README.md file for the UnaryOperator interface in Java:
 
+markdown
+Copy code
+# UnaryOperator Interface
 
+The `UnaryOperator` interface in Java is a functional interface introduced in Java 8. It belongs to the `java.util.function` package and represents an operation on a single operand that produces a result of the same type as its operand. It extends the `Function` interface.
 
+## Functional Descriptor
+
+```java
+@FunctionalInterface
+public interface UnaryOperator<T> extends Function<T, T> {
+    // Inherits abstract method from Function interface
+}
+Usage
+The UnaryOperator interface is commonly used in scenarios where you need to transform or operate on an object of a certain type and return an object of the same type. Here's an example of how you can use UnaryOperator:
+
+java
+Copy code
+import java.util.function.UnaryOperator;
+
+public class Main {
+    public static void main(String[] args) {
+        // Define a UnaryOperator for String concatenation
+        UnaryOperator<String> concatOperator = s -> s + " World";
+
+        // Apply the UnaryOperator to a String
+        String result = concatOperator.apply("Hello");
+
+        System.out.println(result); // Output: Hello World
+    }
+}
+```
+In this example, we define a UnaryOperator that concatenates " World" to a given String. Then, we apply this operator to the String "Hello", resulting in "Hello World".
+
+### Functional Method
+The `UnaryOperator` interface inherits the following abstract method from the Function interface:
+
+```java
+T apply(T t);
+```
+This method applies the operation to the given argument and returns the result.
+
+### Functional Interface
+`UnaryOperator` is a functional interface, which means it has exactly one abstract method. It can be used in lambda expressions and method references.
+
+### Related Interfaces
+- **Function :** Represents a function that accepts one argument and produces a result.
+- **BinaryOperator :** Represents an operation upon two operands of the same type, producing a result of the same type as the operands.
+
+## Consumer Interface
+The consumer interface is a functional interface provided by Java's `java.util.function` package. It represents an operation that accepts a single input argument and returns no result.
+
+### Features
+- **Genericity**: The consumer interface is generic, allowing it to accept different types of input arguments.
+- **Flexibility**: Consumers can be used to perform a wide range of operations, such as printing values, adding them to a collection, or applying transformations.
+
+## Example
+```java
+import java.util.function.Consumer;
+
+public class Example {
+    public static void main(String[] args) {
+        // Example 1: Printing elements of an array using a consumer
+        String[] names = {"Alice", "Bob", "Charlie"};
+        Consumer<String> printConsumer = System.out::println;
+        forEach(names, printConsumer);
+
+        // Example 2: Adding elements to a list using a consumer
+        List<Integer> numbers = new ArrayList<>();
+        Consumer<Integer> addConsumer = numbers::add;
+        addConsumer.accept(1);
+        addConsumer.accept(2);
+        addConsumer.accept(3);
+        System.out.println("Numbers added to list: " + numbers);
+    }
+
+    // Generic method to iterate over an array and apply a consumer to each element
+    public static <T> void forEach(T[] array, Consumer<T> consumer) {
+        for (T element : array) {
+            consumer.accept(element);
+        }
+    }
+}
+```
+## Supplier Interface in Java
+The `Supplier` interface in Java is a functional interface defined in the `java.util.function` package. It represents a supplier of results. It does not accept any arguments and is expected to generate or supply results when called upon by the functional method `get()`.
+
+### Usage
+The Supplier interface is primarily used when a function needs to generate or supply values without taking any input. It can be useful in scenarios such as lazy initialization, where you want to defer the creation of an object until it's actually needed.
+
+The Supplier interface is commonly used with Java 8's Stream API to generate streams of elements. It can also be used in various functional programming constructs to provide values on demand.
+
+### Example 
+```java
+import java.util.function.Supplier;
+
+public class SupplierExample {
+    public static void main(String[] args) {
+        // Example 1: Using a Supplier to lazily initialize an object
+        Supplier<String> lazyStringSupplier = () -> {
+            // Simulating expensive object creation
+            System.out.println("Creating an expensive object...");
+            return "Expensive Object";
+        };
+
+        // Lazy initialization only happens when get() is called
+        System.out.println("First get(): " + lazyStringSupplier.get());
+        System.out.println("Second get(): " + lazyStringSupplier.get());
+
+        // Example 2: Using a Supplier with Stream API
+        Stream.generate(() -> "Hello").limit(5).forEach(System.out::println);
+    }
+}
+```
+
+## BiFunctional Interfaces
+BiFunctional interfaces are functional interfaces that accept two arguments and produce a result. They are useful for scenarios where you need to perform operations on two inputs and return a result.
+
+### Examples
+Example 1: Adding Two Numbers
+```java
+import java.util.function.*;
+
+public class AddTwoNumbers {
+    public static void main(String[] args) {
+        BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;
+        int result = add.apply(10, 20);
+        System.out.println("Sum: " + result); // Output: Sum: 30
+    }
+}
+```
+### Example 2: Concatenating Two Strings
+```java
+import java.util.function.*;
+
+public class ConcatenateStrings {
+    public static void main(String[] args) {
+        BiFunction<String, String, String> concat = (str1, str2) -> str1 + " " + str2;
+        String result = concat.apply("Hello", "World");
+        System.out.println("Concatenated String: " + result); // Output: Concatenated String: Hello World
+    }
+}
+```
+### Example 3: Custom Operation on Two Integers
+```java
+import java.util.function.*;
+
+public class CustomOperation {
+    public static void main(String[] args) {
+        BiFunction<Integer, Integer, Integer> customOperation = (a, b) -> (a * a) + (b * b);
+        int result = customOperation.apply(3, 4);
+        System.out.println("Result of Custom Operation: " + result); // Output: Result of Custom Operation: 25
+    }
+}
+```
+
+## Primitive Type Functional Interfaces 
+This repository contains examples and explanations of primitive type functional interfaces in Java. `Primitive` type functional interfaces are special types of functional interfaces designed to work with primitive data types (int, long, double, etc.) rather than objects. These interfaces are part of the `java.util.function` package introduced in Java 8 and are used extensively in functional programming paradigms.
+
+Primitive type functional interfaces are useful when you need to optimize performance or when you're working with large datasets, as they avoid the overhead of autoboxing and unboxing. By using primitive type functional interfaces, you can write more efficient and concise code.
+
+In this repository, you will find examples and explanations of the following primitive type functional interfaces:
+
+- IntSupplier
+- IntConsumer
+- IntPredicate
+- IntFunction
+- IntUnaryOperator
+- IntBinaryOperator
+- LongSupplier
+- LongConsumer
+- LongPredicate
+- LongFunction
+- LongUnaryOperator
+- LongBinaryOperator
+- DoubleSupplier
+- DoubleConsumer
+- DoublePredicate
+- DoubleFunction
+- DoubleUnaryOperator
+- DoubleBinaryOperator
+
+### Usage
+Each interface is accompanied by examples demonstrating how to use it in various scenarios. These examples are provided as Java code snippets along with explanations to help you understand their usage and behavior.
+
+To use these interfaces in your projects, simply import them from the java.util.function package:
+
+```java
+import java.util.function.IntSupplier;
+import java.util.function.IntConsumer;
+import java.util.function.IntPredicate;
+import java.util.function.IntFunction;
+import java.util.function.IntUnaryOperator;
+import java.util.function.IntBinaryOperator;
+```
+
+##  Lexical scoping of Lambda Expressions
+
+Lexical scoping of lambda expressions in Java refers to the ability of a lambda expression to access variables from its surrounding context. In lexical scoping, the variables that are accessible to a lambda expression are determined by the code structure (the lexical scope) where the lambda expression is defined, rather than where it is executed.
+
+In Java, lambda expressions can access variables from the enclosing scope if those variables are effectively final or effectively final. An effectively final variable is one whose value does not change after it is initialized, even though it might not be explicitly declared as final. Lambda expressions can access such variables without any issues.
+
+Here's a simple example to illustrate lexical scoping of lambda expressions in Java:
+
+```java
+public class LexicalScopingExample {
+    public static void main(String[] args) {
+        int x = 10; // Outer variable
+        
+        // Lambda expression accessing outer variable
+        Runnable runnable = () -> {
+            System.out.println("Value of x: " + x);
+        };
+        
+        runnable.run(); // Output: Value of x: 10
+    }
+}
+```
+In this example, the lambda expression accesses the variable x from its surrounding context. Since x is effectively final (its value doesn't change after initialization), the lambda expression can access it without any issues.
+
+Lexical scoping allows lambda expressions in Java to capture and use variables from their enclosing scope, which enables concise and expressive code in functional programming paradigms.
+
+## this and super keywords inside Lambda expression 
+Understanding how `this` and `super` behave within lambda expressions is crucial for writing clean and effective code, especially in object-oriented programming scenarios.
+
+### Examples
+#### 1. Using `this` Inside Lambda Expression
+
+```java
+public class ThisSuperExample {
+    private String name = "Example";
+
+    public void exampleMethod() {
+        Runnable runnable = () -> {
+            // Accessing instance variable using 'this' inside lambda expression
+            System.out.println("Name using 'this': " + this.name);
+        };
+        runnable.run();
+    }
+
+    public static void main(String[] args) {
+        ThisSuperExample example = new ThisSuperExample();
+        example.exampleMethod(); // Output: Name using 'this': Example
+    }
+}
+```
+#### 2. Using super Inside Lambda Expression
+```java
+class Parent {
+    String name = "Parent";
+
+    public void printName() {
+        System.out.println("Parent class name: " + name);
+    }
+}
+
+public class ThisSuperExample extends Parent {
+    String name = "Child";
+
+    public void exampleMethod() {
+        Runnable runnable = () -> {
+            // Accessing superclass instance variable using 'super' inside lambda expression
+            super.printName(); // Output: Parent class name: Parent
+        };
+        runnable.run();
+    }
+
+    public static void main(String[] args) {
+        ThisSuperExample example = new ThisSuperExample();
+        example.exampleMethod();
+    }
+}
+```
 
 
 

@@ -46,7 +46,7 @@ Method references provide several benefits:
 - **Conciseness :** They offer a more concise syntax compared to lambda expressions, especially when simply delegating to an existing method.
 - **Readability :** They make the code more readable by clearly indicating which method is being used.
 - **Reusability :** They promote code reuse by allowing you to reuse existing methods.
-### Conclusion
+### Conclusion 🎉
 Method references are a powerful feature introduced in Java 8 that provide a shorthand syntax for referencing methods or constructors. They offer conciseness, readability, and promote code reuse. Understanding and using method references effectively can lead to cleaner and more expressive Java code.
 
 ## Static Method References
@@ -93,7 +93,7 @@ Access to Instance Variables: Static method references cannot access instance va
 
 Interface Method Compatibility: The method signature of the static method being referenced must match the functional interface's abstract method signature.
 
-### Conclusion
+### Conclusion 🎉
 Static method references in Java offer a convenient way to refer to static methods, improving code readability and conciseness. By leveraging this feature, developers can write cleaner and more expressive code while promoting code reuse and maintainability.
 
 ## Instance Method Reference
@@ -143,7 +143,7 @@ Instance method reference is useful when:
 You have an existing method that matches the signature of the abstract method of a functional interface.
 You want to improve code readability by avoiding verbose lambda expressions.
 
-### Conclusion
+### Conclusion 🎉
 Instance method reference in Java provides a concise and readable way to refer to instance methods as functional interface implementations. It enhances code readability and promotes a more functional programming style in Java.
 
 ## Instance Method Reference Using Class Type

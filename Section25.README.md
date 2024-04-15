@@ -1,4 +1,4 @@
-# Method References
+# Method References 📚
 Method references in Java provide a way to refer to methods or constructors without invoking them. They are similar to lambda expressions but provide a more concise syntax when the lambda expression simply calls an existing method. Method references are particularly useful when you want to pass a method as an argument to another method or when you want to use a method as a functional interface implementation.
 
 ## Types of Method References
@@ -17,7 +17,7 @@ The syntax for method references depends on the type of method being referenced:
 - **Reference to an Instance Method of an Arbitrary Object of a Particular Type :** ContainingType::methodName
 - **Reference to a Constructor :** ClassName::new
 
-### Example
+### Example 💡
 Consider a list of strings that we want to sort using a case-insensitive comparison. We can achieve this using method references.
 
 ```java
@@ -60,11 +60,10 @@ The syntax for static method references is as follows:
 ContainingClass::staticMethodName
 ```
 
-### Example
+### Example 💡
 Consider a scenario where you have a static method `staticMethod()` in a class `MyClass`. You can refer to this method using static method references as follows:
 
-java
-Copy code
+```java
 public class MyClass {
     public static void staticMethod() {
         System.out.println("Hello from static method!");
@@ -79,7 +78,8 @@ public class Main {
         thread.start();
     }
 }
-In the above example, MyClass::staticMethod refers to the static method staticMethod() of the MyClass class.
+```
+In the above example, `MyClass::staticMethod` refers to the static method `staticMethod()` of the MyClass class.
 
 ### Advantages
 **Conciseness :** Static method references provide a concise alternative to lambda expressions when referring to static methods.
@@ -149,7 +149,7 @@ Instance method reference in Java provides a concise and readable way to refer t
 ## Instance Method Reference Using Class Type
 Instance method references in Java allow you to reference methods of an object. When using instance method references with a class type, you're essentially referring to a method of an object of that class. This can be useful when you want to pass a method as a functional interface parameter, such as in lambda expressions or streams.
 
-## Example
+## Example 💡
 
 Suppose we have a class `MyClass` with an instance method `myMethod`:
 
@@ -191,7 +191,7 @@ Constructor reference is a shorthand syntax for creating instances of functional
 ### Usage
 The ConstructorReferenceDemo.java file contains examples of how to use constructor reference. It demonstrates creating instances of functional interfaces using constructor references.
 
-### Example
+### Example 💡
 ```java
 import java.util.function.Supplier;
 

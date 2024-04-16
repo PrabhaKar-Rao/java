@@ -479,7 +479,7 @@ Parameters
 ### Return Value
 - The `reduce()` function returns an Optional or the accumulated result of applying the binary operator to the elements of the stream.
 
-### Example
+### Example 💡
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -513,7 +513,7 @@ In Example 1, the `reduce()` function is used to calculate the sum of all elemen
 - **Powerful Aggregation :** Enables powerful aggregation operations on stream elements.
 - **Flexibility :** Provides flexibility in defining custom reduction operations.
 - **Error Handling :** Returns an Optional to handle scenarios where the stream is empty.
-### Conclusion
+### Conclusion 🎉
 The `reduce()` function in Java Streams is a versatile tool for aggregating the elements of a stream into a single result. It supports various aggregation operations and provides flexibility in defining custom reduction logic, making it a fundamental building block for stream processing tasks.
 
 ## Java Streams `collect()` Function
@@ -535,7 +535,7 @@ Parameters
 ### Return Value
 - The `collect()` function returns the result of the accumulation, which can be of any type specified by the collector.
 
-### Example
+### Example 💡
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -569,13 +569,13 @@ In Example 1, the `collect()` function is used to accumulate elements into a Lis
 - **Flexible Collection :** Provides flexibility in accumulating elements into various types of collections.
 - **Concise Code :** Allows concise and readable code for collecting and processing stream elements.
 - **Efficient Data Handling :** Offers efficient handling of large datasets by accumulating elements in a single operation.
-### Conclusion
+### Conclusion 🎉
 The `collect()` function in Java Streams is a versatile tool for accumulating elements of a stream into a collection or a single value. It supports various collection types and customization options, making it a fundamental operation for stream processing tasks.
 
 ## Java Streams `collectingAndThen()` Function
 In Java, Streams provide a powerful way to work with sequences of elements. The `collectingAndThen()` function is used to perform an additional operation on the result of the `collect()` function.
 
-## Syntax
+### Syntax
 
 The syntax of the `collectingAndThen()` function in Java Streams is as follows:
 
@@ -593,7 +593,7 @@ Parameters
 ### Return Value
 The `collectingAndThen()` function returns the result of applying the finisher function to the result of the collection operation.
 
-### Example
+### Example 💡
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -624,6 +624,96 @@ In this example, the `collectingAndThen()` function is used to first collect ele
 - **Enhanced Functionality :** Extends the capabilities of the collect() function by enabling post-processing operations.
 - **Streamlining Operations :**  Allows chaining multiple operations in a concise and readable manner.
 - **Customization :** Provides flexibility in defining custom finishing operations based on specific requirements.
-### Conclusion
+### Conclusion 🎉
 The `collectingAndThen()` function in Java Streams enhances the functionality of the `collect()` operation by enabling additional post-processing operations on the collected result. It supports various use cases such as transformation, validation, and custom finishing operations, making it a valuable tool for stream processing tasks.
+
+## Java Streams `groupingBy()` and `partitioningBy()` Functions
+In Java, Streams provide powerful operations for grouping and partitioning elements based on specific criteria. The `groupingBy()` function is used to group elements of a stream by a classification function, while the `partitioningBy()` function is used to partition elements into two groups based on a predicate.
+
+### `groupingBy()` Function
+
+The `groupingBy()` function in Java Streams is used to group elements of a stream by a classification function.
+
+### Syntax
+
+The syntax of the `groupingBy()` function is as follows:
+
+```java
+groupingBy(Function<? super T, ? extends K> classifier);
+```
+
+Here,
+
+- **classifier :** A function that classifies stream elements into groups based on certain criteria.
+### Parameters
+- **classifier :** The classification function used to group elements.
+### Return Value
+- The `groupingBy()` function returns a Collector that categorizes elements of the stream into groups.
+
+### Example 💡
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("apple", "banana", "cherry", "blueberry", "avocado");
+
+        Map<Character, List<String>> groupedByFirstLetter = words.stream()
+                .collect(Collectors.groupingBy(word -> word.charAt(0)));
+
+        System.out.println("Grouped by first letter: " + groupedByFirstLetter);
+    }
+}
+```
+In this example, the `groupingBy()` function is used to group words by their first letter.
+
+### partitioningBy() Function
+The `partitioningBy()` function in Java Streams is used to partition elements into two groups based on a predicate.
+
+### Syntax
+The syntax of the` partitioningBy()` function is as follows:
+
+```java
+partitioningBy(Predicate<? super T> predicate);
+```
+Here,
+
+- **predicate :** A predicate function that determines the partitioning criteria.
+Parameters
+- **predicate :** The predicate used to partition elements.
+### Return Value
+The `partitioningBy()` function returns a Collector that partitions elements into two groups based on the given predicate.
+
+### Example 💡
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        Map<Boolean, List<Integer>> partitionedEvenOdd = numbers.stream()
+                .collect(Collectors.partitioningBy(num -> num % 2 == 0));
+
+        System.out.println("Partitioned into even and odd: " + partitionedEvenOdd);
+    }
+}
+```
+In this example, the partitioningBy() function is used to partition numbers into even and odd.
+
+### Common Use Cases
+- **groupingBy() :** Grouping elements by a specific attribute or key.
+- **partitioningBy() :** Partitioning elements based on a binary condition (e.g., true or false).
+### Advantages
+- **Data Organization :** Helps organize data into meaningful groups or partitions.
+- **Efficient Data Processing :** Enables efficient processing of large datasets by grouping or partitioning elements based on specific criteria.
+- **Streamlining Operations :** Provides a concise and readable way to perform grouping and partitioning operations.
+### Conclusion 🎉
+The `groupingBy()` and `partitioningBy()` functions in Java Streams are powerful tools for organizing and categorizing elements based on specific criteria. They support various use cases such as data grouping, partitioning, and analysis, making them essential for stream processing tasks.
 

@@ -572,3 +572,58 @@ In Example 1, the `collect()` function is used to accumulate elements into a Lis
 ### Conclusion
 The `collect()` function in Java Streams is a versatile tool for accumulating elements of a stream into a collection or a single value. It supports various collection types and customization options, making it a fundamental operation for stream processing tasks.
 
+## Java Streams `collectingAndThen()` Function
+In Java, Streams provide a powerful way to work with sequences of elements. The `collectingAndThen()` function is used to perform an additional operation on the result of the `collect()` function.
+
+## Syntax
+
+The syntax of the `collectingAndThen()` function in Java Streams is as follows:
+
+```java
+<R,A> R collectingAndThen(Collector<? super T,A,R> downstream, Function<R,RR> finisher);
+```
+
+Here,
+
+- **downstream :** A Collector that describes how to accumulate elements into a result container.
+- **finisher :** A function to be applied to the result of the collection operation.
+Parameters
+- **downstream :** The collector that specifies the way elements are collected into the result.
+- **finisher :** The function to be applied to the result of the collection operation.
+### Return Value
+The `collectingAndThen()` function returns the result of applying the finisher function to the result of the collection operation.
+
+### Example
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("apple", "banana", "cherry");
+
+        // Example: Collect elements into a List and then find the size
+        int sizeOfList = words.stream()
+                              .collect(Collectors.collectingAndThen(
+                                  Collectors.toList(),
+                                  List::size
+                              ));
+
+        System.out.println("Size of List: " + sizeOfList); // Output: Size of List: 3
+    }
+}
+```
+In this example, the `collectingAndThen()` function is used to first collect elements into a List and then apply the `size()` function to determine the size of the list.
+
+### Common Use Cases
+- **Post-Processing :** Performing additional operations on the result of a collection operation.
+- **Transformation :** Transforming the result of collection into a different type or format.
+- **Validation :** Applying validation checks or assertions on the collected result.
+### Advantages
+- **Enhanced Functionality :** Extends the capabilities of the collect() function by enabling post-processing operations.
+- **Streamlining Operations :**  Allows chaining multiple operations in a concise and readable manner.
+- **Customization :** Provides flexibility in defining custom finishing operations based on specific requirements.
+### Conclusion
+The `collectingAndThen()` function in Java Streams enhances the functionality of the `collect()` operation by enabling additional post-processing operations on the collected result. It supports various use cases such as transformation, validation, and custom finishing operations, making it a valuable tool for stream processing tasks.
+

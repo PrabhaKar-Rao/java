@@ -369,7 +369,7 @@ Here,
 ### Return Value
 - The `limit() function returns a new Stream consisting of the first maxSize elements of the original stream.
 
-### Example
+### Example 💡
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -394,12 +394,63 @@ In this example, the limit() function is used to restrict the stream to the firs
 - **Pagination :** Limiting the number of elements displayed on a page.
 - **Performance Optimization :** Reducing processing time by limiting the number of elements processed.
 - **Sampling :** Extracting a subset of elements for analysis or testing.
-### Advantages
+### Advantages 🚀
 **Control :** Provides control over the size of the stream, allowing for efficient memory usage.
 **Performance Optimization :** Can lead to performance improvements by reducing the number of elements processed.
 **Tailoring Output :** Allows tailoring the output to specific requirements, such as display limitations.
-### Conclusion
+### Conclusion 🎉
 The `limit()` function in Java Streams is a useful tool for restricting the size of a stream to a specified maximum number of elements. It promotes efficient data processing and enables tailored output based on specific requirements.
+
+## Java Streams `skip()` Function
+In Java, Streams provide a convenient way to work with sequences of elements. The `skip()` function is used to bypass a specified number of elements in a stream, returning a new stream without those elements.
+
+### Syntax
+
+The syntax of the `skip()` function in Java Streams is as follows:
+
+```java
+Stream<T> skip(long n);
+```
+
+Here,
+
+- `n `: The number of elements to skip.
+### Parameters
+- `n `: The number of elements to bypass in the stream.
+### Return Value
+The `skip()` function returns a new Stream consisting of the remaining elements of the original stream after skipping the specified number of elements.
+
+### Example 💡
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        // Skip the first 5 elements
+        List<Integer> remainingNumbers = numbers.stream()
+                                                .skip(5)
+                                                .collect(Collectors.toList());
+
+        System.out.println(remainingNumbers); // Output: [6, 7, 8, 9, 10]
+    }
+}
+```
+In this example, the `skip()` function is used to skip the first 5 elements of the numbers list and return the remaining elements.
+
+### Common Use Cases
+- **Pagination :** Skipping elements for displaying results on subsequent pages.
+- **Data Skimming :** Bypassing irrelevant or unwanted elements from the beginning of a stream.
+- **Data Transformation :** Pre-processing data by skipping initial records or headers.
+### Advantages 🚀
+**Flexibility :** Provides flexibility in skipping a specific number of elements from the beginning of a stream.
+**Efficient Data Processing :** Enables efficient processing of large datasets by skipping unnecessary initial elements.
+**Tailoring Output :** Allows tailoring the output to specific requirements by excluding irrelevant data.
+### Conclusion 🎉
+The `skip()` function in Java Streams is a valuable tool for bypassing a specified number of elements in a stream, enabling efficient data processing and tailored output based on specific requirements.
 
 
 

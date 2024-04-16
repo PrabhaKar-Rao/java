@@ -316,8 +316,8 @@ Here,
 - ** Predicate<? super T> predicate :** A functional interface that represents a predicate (boolean-valued function) of one argument. The function returns true if the input argument matches the condition, otherwise false.
 ### Parameters
 - **predicate :** The predicate to apply to each element of the stream. Only elements that satisfy the predicate will be included in the resulting stream.
-Return Value
-The `filter()` function returns a new Stream consisting of the elements that match the given predicate.
+### Return Value
+- The `filter()` function returns a new Stream consisting of the elements that match the given predicate.
 
 ### Example 💡
 ```java
@@ -350,6 +350,56 @@ In this example, the `filter()` function is used to select only the even numbers
 - Performance :** Can lead to performance improvements by reducing the number of elements to process.
 ### Conclusion 🎉
 The `filter()` function in Java Streams is a powerful tool for selecting elements from a stream based on specified criteria. It promotes clean and expressive code and enables efficient data filtering and selection operations.
+
+## Java Streams `limit()` Function
+In Java, Streams provide a convenient way to work with sequences of elements. The `limit()` function is used to reduce the size of a stream to a specified maximum number of elements.
+
+### Syntax
+
+The syntax of the `limit()` function in Java Streams is as follows:
+
+```java
+Stream<T> limit(long maxSize);
+```
+
+Here,
+- **maxSize :** The maximum number of elements the resulting stream should contain.
+### Parameters
+- **maxSize :** The maximum number of elements to be present in the resulting stream.
+### Return Value
+- The `limit() function returns a new Stream consisting of the first maxSize elements of the original stream.
+
+### Example
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        // Limit to first 5 elements
+        List<Integer> limitedNumbers = numbers.stream()
+                                              .limit(5)
+                                              .collect(Collectors.toList());
+
+        System.out.println(limitedNumbers); // Output: [1, 2, 3, 4, 5]
+    }
+}
+```
+In this example, the limit() function is used to restrict the stream to the first 5 elements of the numbers list.
+
+### Common Use Cases
+- **Pagination :** Limiting the number of elements displayed on a page.
+- **Performance Optimization :** Reducing processing time by limiting the number of elements processed.
+- **Sampling :** Extracting a subset of elements for analysis or testing.
+### Advantages
+**Control :** Provides control over the size of the stream, allowing for efficient memory usage.
+**Performance Optimization :** Can lead to performance improvements by reducing the number of elements processed.
+**Tailoring Output :** Allows tailoring the output to specific requirements, such as display limitations.
+### Conclusion
+The `limit()` function in Java Streams is a useful tool for restricting the size of a stream to a specified maximum number of elements. It promotes efficient data processing and enables tailored output based on specific requirements.
 
 
 

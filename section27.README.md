@@ -1,4 +1,4 @@
-# Optional class 
+# Optional class 📚
 The `Optional` class was introduced in Java 8 to address the problem of null references. It provides a container object that may or may not contain a non-null value. This can be useful for methods that may or may not return a value or when dealing with potentially null values returned from external sources.
 
 ## Introduction
@@ -36,7 +36,7 @@ nonEmpty.ifPresent(val -> System.out.println("Value is present: " + val));
 Avoid using `get()` method directly, prefer `orElse()` or `orElseGet()` to handle absent values safely.
 Use `isPresent()` or `isEmpty()` to check if a value is present or absent.
 Be cautious when using `orElseThrow()` as it may introduce unnecessary complexity.
-### Examples
+### Examples 💡
 Here's a simple example demonstrating the usage of Optional:
 
 ```java
@@ -59,7 +59,7 @@ public class OptionalExample {
     }
 }
 ```
-### Conclusion
+### Conclusion 🎉
 The Optional class provides a concise and safe way to handle potentially null values in Java, reducing the risk of `NullPointerExceptions` and making code more readable and robust.
 
 ### ifPresent() Method
@@ -93,6 +93,54 @@ String defaultValSupplier = empty.orElseGet(() -> "Default Value from Supplier")
 - Avoid using `get()` method directly, prefer `orElse()` or `orElseGet()` to handle absent values safely.
 - Use `isPresent()` or `isEmpty()` to check if a value is present or absent.
 - Be cautious when using `orElseThrow()` as it may introduce unnecessary complexity.
+### Examples 💡
+Here's a simple example demonstrating the usage of Optional:
+
+```java
+import java.util.Optional;
+
+public class OptionalExample {
+    public static void main(String[] args) {
+        Optional<String> optional = Optional.of("Hello");
+        
+        // Printing value if present
+        optional.ifPresent(val -> System.out.println("Value is present: " + val));
+        
+        // Using orElse to provide default value
+        String value = optional.orElse("Default Value");
+        System.out.println("Value: " + value);
+        
+        // Using orElseThrow to throw exception if value is absent
+        String val = optional.orElseThrow(() -> new IllegalArgumentException("Value is absent"));
+        System.out.println("Value: " + val);
+    }
+}
+```
+### Conclusion 🎉
+The Optional class provides a concise and safe way to handle potentially null values in Java, reducing the risk of `NullPointerExceptions` and making code more readable and robust.
+
+### orElseThrow() Method
+The `orElseThrow()` method returns the value if present, otherwise throws an exception provided by the Supplier.
+
+```java
+String value = optional.orElseThrow(() -> new NoSuchElementException("Value is absent"));
+```
+### map() Method
+The `map()` method applies a given function to the value if present and returns an Optional describing the result, or an empty Optional if the value is absent.
+
+```java
+Optional<Integer> lengthOptional = optional.map(String::length);
+```
+### filter() Method
+The `filter()` method returns an Optional describing the value if a predicate is true, otherwise returns an empty Optional.
+
+```java
+Optional<String> filteredOptional = optional.filter(val -> val.startsWith("H"));
+```
+### Best Practices
+- Avoid using `get()` method directly, prefer `orElse() or orElseGet() to handle absent values safely.
+- Use `isPresent()` or `isEmpty()` to check if a value is present or absent.
+- Be cautious when using orElseThrow() as it may introduce unnecessary complexity.
 ### Examples
 Here's a simple example demonstrating the usage of Optional:
 
@@ -117,4 +165,4 @@ public class OptionalExample {
 }
 ```
 ### Conclusion
-The Optional class provides a concise and safe way to handle potentially null values in Java, reducing the risk of `NullPointerExceptions` and making code more readable and robust.
+The Optional class provides a concise and safe way to handle potentially null values in Java, reducing the risk of NullPointerExceptions and making code more readable and robust.

@@ -141,7 +141,7 @@ Optional<String> filteredOptional = optional.filter(val -> val.startsWith("H"));
 - Avoid using `get()` method directly, prefer `orElse() or orElseGet() to handle absent values safely.
 - Use `isPresent()` or `isEmpty()` to check if a value is present or absent.
 - Be cautious when using orElseThrow() as it may introduce unnecessary complexity.
-### Examples
+### Examples 💡
 Here's a simple example demonstrating the usage of Optional:
 
 ```java
@@ -164,5 +164,34 @@ public class OptionalExample {
     }
 }
 ```
-### Conclusion
+### Conclusion 🎉
 The Optional class provides a concise and safe way to handle potentially null values in Java, reducing the risk of NullPointerExceptions and making code more readable and robust.
+### Quick tip to filter Null elements with Stream API
+You can filter out null elements from a Stream using the `filter()` method along with a null-check condition. Here's a quick tip using the Stream API:
+
+```java
+import java.util.stream.Stream;
+import java.util.List;
+import java.util.Objects;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> listWithNulls = List.of("a", null, "b", null, "c");
+
+        // Filter out null elements using Stream API
+        List<String> listWithoutNulls = listWithNulls.stream()
+                                                      .filter(Objects::nonNull)
+                                                      .toList();
+
+        // Print the list without null elements
+        System.out.println("List without nulls: " + listWithoutNulls);
+    }
+}
+```
+In this example:
+
+- We have a list `listWithNulls` containing some elements along with null values.
+- We use the `stream()` method to convert the list into a Stream.
+- We apply the `filter()` method with a predicate Objects::nonNull to exclude null elements.
+- Finally, we collect the filtered elements into a new list using the `toList()` method introduced in Java 16.
+- This results in a new list `listWithoutNulls` containing only non-null elements.

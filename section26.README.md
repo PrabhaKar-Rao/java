@@ -801,3 +801,91 @@ In this example, the `allMatch()` function is used to check if all elements in t
 ### Conclusion 🎉
 The `finding()` and `matching()` functions in Java Streams are essential tools for searching for elements and checking conditions within streams. They offer efficient and concise operations for performing these tasks, making them valuable for stream processing tasks.
 
+### Streams in Java: Traversable Only Once
+Streams are an integral part of Java since the introduction of Java 8. They provide a powerful and efficient way to process collections of objects. However, one crucial characteristic of streams is that they are **traversable only once**.
+
+### What Does "Traversable Only Once" Mean?
+
+When you create a stream and perform operations on it, such as filtering, mapping, or reducing, the stream processes the elements in a pipeline fashion. Once you have consumed or processed the elements of the stream, the stream cannot be reused. Attempting to iterate over the stream again or perform any terminal operation on it will result in an `IllegalStateException`.
+
+### Why Are Streams Traversable Only Once?
+
+This characteristic is designed to promote efficiency and simplicity in stream processing. By limiting streams to a single traversal, Java can optimize various aspects of stream operations, such as lazy evaluation and reduced memory consumption.
+
+### Best Practices
+
+To avoid unexpected behavior and exceptions when working with streams, it's essential to keep in mind that streams are traversable only once. Here are some best practices:
+
+- **Create streams when needed:** Avoid storing streams in variables if you plan to traverse them multiple times. Instead, recreate the stream when necessary.
+- **Perform terminal operations judiciously:** Once you perform a terminal operation (e.g., `forEach`, `collect`, `reduce`), the stream is consumed. Make sure you have processed all necessary operations before calling a terminal operation.
+- **Consider intermediate operations:** Intermediate operations (e.g., `filter`, `map`, `flatMap`) do not trigger traversal of the stream. You can chain multiple intermediate operations before invoking a terminal operation.
+
+### Example 💡
+
+```java
+import java.util.stream.Stream;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating a stream
+        Stream<String> stream = Stream.of("A", "B", "C");
+
+        // Performing intermediate operations
+        stream = stream.filter(s -> !s.equals("B")); // Filtering out "B"
+        stream = stream.map(String::toLowerCase);    // Converting elements to lowercase
+
+        // Performing terminal operation
+        stream.forEach(System.out::println); // Prints "a" and "c"
+
+        // Attempting to reuse the stream will result in an IllegalStateException
+        // stream.forEach(System.out::println); // Throws IllegalStateException
+    }
+}
+```
+### Conclusion 🎉
+Understanding that streams are traversable only once is crucial for effective and efficient stream processing in Java. By adhering to best practices and being mindful of this characteristic, you can leverage the full power of streams while avoiding common pitfalls.
+
+##  Parallel Streams in Java
+Parallel streams are a feature introduced in Java 8 that allow for concurrent execution of stream operations. They provide an easy way to parallelize bulk operations on collections, potentially improving performance for computationally intensive tasks.
+
+### What Are Parallel Streams?
+
+In Java, streams are sequences of elements that support various operations to perform computations. Parallel streams leverage the multi-core architecture of modern CPUs by splitting the stream into multiple segments and processing each segment concurrently.
+
+Parallel streams can offer significant performance improvements for certain types of operations, especially when dealing with large datasets and computationally intensive tasks. However, they also come with some considerations and potential pitfalls, such as increased memory consumption and the need for proper synchronization in certain scenarios.
+
+### Example 💡
+
+- Let's demonstrate the usage of parallel streams with a simple example:
+
+ -Suppose we have a list of integers and we want to calculate the sum of squares of each element in parallel.
+
+```java
+import java.util.Arrays;
+
+public class ParallelStreamDemo {
+    public static void main(String[] args) {
+        // Create a list of integers
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        // Calculate the sum of squares using parallel stream
+        long sum = Arrays.stream(numbers)
+                         .parallel() // Convert stream to parallel stream
+                         .mapToLong(x -> x * x) // Calculate square of each element
+                         .sum(); // Sum up the squares
+
+        System.out.println("Sum of squares (parallel): " + sum);
+    }
+}
+```
+In this example, we convert the array of numbers into a parallel stream using the `parallel()` method. Then, we use the `mapToLong()` operation to calculate the square of each element and `sum()` operation to compute the total sum of squares. The parallel processing capability of the stream allows the computation to be distributed across multiple threads, potentially leading to improved performance.
+
+### Considerations
+While parallel streams can offer performance benefits, they are not always the best choice. Here are some considerations to keep in mind:
+
+- **Performance overhead :** Parallelizing stream operations incurs overhead due to thread management and synchronization, which may not always lead to performance gains, especially for small datasets or operations with low computational complexity.
+- **Concurrency issues :** Parallel streams introduce concurrency, which can lead to race conditions and other synchronization issues if not used correctly. Proper synchronization mechanisms should be employed when dealing with shared mutable state.
+- **Memory consumption :** Parallel streams may consume more memory than sequential streams due to the need to split the stream into segments and maintain intermediate results. This increased memory consumption can impact the performance of the application, especially in memory-constrained environments.
+### Conclusion 🎉
+Parallel streams in Java provide a convenient way to parallelize stream operations and leverage multi-core processors for improved performance. However, they come with considerations such as performance overhead, concurrency issues, and increased memory consumption. By understanding when and how to use parallel streams effectively, developers can harness their power to optimize performance for computationally intensive tasks.
+

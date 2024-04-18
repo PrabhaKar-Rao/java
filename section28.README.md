@@ -287,4 +287,99 @@ Thread thread = new Thread();
 int priority = thread.getPriority();
 System.out.println("Thread Priority: " + priority);
 ```
+### wait()
+- **Description :**  Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+- **Syntax :** public final void wait() throws InterruptedException
+- **Throws :** InterruptedException - if any thread interrupted the current thread before or while the current thread was waiting for a notification.
+#### Example:
+```java
+synchronized (sharedObject) {
+    sharedObject.wait(); // Wait for notification
+}
+```
+### notify()
+- **Description :** Wakes up a single thread that is waiting on this object's monitor.
+- **Syntax :** public final void notify()
+#### Example:
+```java
+synchronized (sharedObject) {
+    sharedObject.notify(); // Notify a single waiting thread
+}
+```
+### notifyAll()
+- **Description :** Wakes up all threads that are waiting on this object's monitor.
+- **Syntax :** public final void notifyAll()
+#### Example:
+```java
+synchronized (sharedObject) {
+    sharedObject.notifyAll(); // Notify all waiting threads
+}
+```
+
+### Race Condition:
+A race condition occurs in concurrent programming when the outcome of a program depends on the relative timing or interleaving of multiple threads or processes. It happens when two or more threads or processes attempt to modify shared data at the same time. The result of the program becomes unpredictable and may lead to erroneous behavior.
+
+#### Example:
+Consider a scenario where two threads, Thread A and Thread B, increment a shared counter variable:
+
+```java
+// Shared Counter
+int counter = 0;
+
+// Thread A
+Thread threadA = new Thread(() -> {
+    for (int i = 0; i < 1000; i++) {
+        counter++;
+    }
+});
+
+// Thread B
+Thread threadB = new Thread(() -> {
+    for (int i = 0; i < 1000; i++) {
+        counter++;
+    }
+});
+
+// Start both threads
+threadA.start();
+threadB.start();
+
+// Wait for both threads to finish
+threadA.join();
+threadB.join();
+
+// Print the final value of the counter
+System.out.println("Counter: " + counter);
+```
+In this example, the expected final value of the counter should be 2000 (1000 increments from Thread A and 1000 increments from Thread B). However, due to the race condition, the actual final value may vary, and the program may produce unexpected results.
+
+### Synchronization Keywords:
+Java provides synchronization mechanisms to prevent race conditions and ensure thread-safe access to shared resources. Two main synchronization keywords are used: synchronized keyword and volatile keyword.
+
+### synchronized Keyword:
+The synchronized keyword is used to create synchronized blocks of code or methods.
+It ensures that only one thread can execute a synchronized block or method at a time, preventing concurrent access to shared resources.
+It can be applied to instance methods, static methods, and blocks of code.
+### Example of synchronized method:
+```java
+public synchronized void incrementCounter() {
+    counter++;
+}
+Example of synchronized block:
+java
+Copy code
+synchronized (sharedObject) {
+    // Critical section of code
+}
+```
+### volatile Keyword:
+The volatile keyword is used to indicate that a variable's value will be modified by different threads.
+It ensures that changes to the variable made by one thread are immediately visible to other threads.
+It does not provide atomicity like synchronized, but it ensures visibility of changes across threads.
+#### Example:
+```java
+private volatile int sharedVariable;
+```
+### Conclusion:
+Race conditions can lead to unpredictable behavior in concurrent programs. To avoid race conditions, synchronization mechanisms such as synchronized and volatile are used in Java to ensure thread safety and proper coordination among threads accessing shared resources. Understanding and correctly applying these synchronization keywords are essential for writing reliable and efficient concurrent programs.
 

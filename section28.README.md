@@ -436,3 +436,291 @@ Without the `volatile` keyword, the `readerThread` might cache the value of the 
 
 This demonstrates how the volatile keyword ensures visibility of changes across threads without providing atomicity.
 
+## Demo of Synchronized methods and blocks
+```java
+public class SynchronizationDemo {
+    private int counter = 0;
+
+    // Synchronized method
+    public synchronized void synchronizedMethod() {
+        for (int i = 0; i < 1000; i++) {
+            counter++;
+        }
+    }
+
+    // Non-synchronized method
+    public void nonSynchronizedMethod() {
+        for (int i = 0; i < 1000; i++) {
+            counter++;
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        SynchronizationDemo demo = new SynchronizationDemo();
+
+        // Create multiple threads to call synchronized method
+        Thread thread1 = new Thread(() -> {
+            demo.synchronizedMethod();
+        });
+
+        Thread thread2 = new Thread(() -> {
+            demo.synchronizedMethod();
+        });
+
+        // Create multiple threads to call non-synchronized method
+        Thread thread3 = new Thread(() -> {
+            demo.nonSynchronizedMethod();
+        });
+
+        Thread thread4 = new Thread(() -> {
+            demo.nonSynchronizedMethod();
+        });
+
+        // Start threads
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
+
+        // Wait for threads to finish
+        thread1.join();
+        thread2.join();
+        thread3.join();
+        thread4.join();
+
+        // Print counter value
+        System.out.println("Counter value with synchronized method: " + demo.counter);
+
+        // Reset counter
+        demo.counter = 0;
+
+        // Create threads to call synchronized block
+        Thread thread5 = new Thread(() -> {
+            synchronized (demo) {
+                for (int i = 0; i < 1000; i++) {
+                    demo.counter++;
+                }
+            }
+        });
+
+        Thread thread6 = new Thread(() -> {
+            synchronized (demo) {
+                for (int i = 0; i < 1000; i++) {
+                    demo.counter++;
+                }
+            }
+        });
+
+        // Start threads
+        thread5.start();
+        thread6.start();
+
+        // Wait for threads to finish
+        thread5.join();
+        thread6.join();
+
+        // Print counter value
+        System.out.println("Counter value with synchronized block: " + demo.counter);
+    }
+}
+```
+
+In this demo:
+
+- `SynchronizationDemo` class contains a shared counter variable counter.
+- It has two methods: `synchronizedMethod()` and `nonSynchronizedMethod()`.
+- `synchronizedMethod()` is synchronized, while `nonSynchronizedMethod()` is not.
+- We create multiple threads to call these methods simultaneously.
+- In the second part of the demo, we use synchronized blocks to ensure thread safety while accessing the shared variable `counter`.
+- After executing the threads, we print the final value of the counter to observe the difference between synchronized and `non-synchronized` access.
+
+## Dead lock
+
+Deadlock is a situation in concurrent programming where two or more threads are blocked forever, waiting for each other to release resources. It typically occurs in a multi-threaded environment when two or more threads hold resources and wait for other resources held by different threads, causing a cyclic dependency. As a result, none of the threads can proceed further, leading to a deadlock.
+
+Characteristics of Deadlock:
+**Mutual Exclusion :**
+Threads hold exclusive access to resources, and only one thread can use a resource at a time.
+**Hold and Wait :**
+Threads hold resources while waiting for other resources. A thread may hold one resource while waiting for another, leading to potential deadlock.
+**No Preemption :**
+Resources cannot be forcibly taken from a thread. They can only be released voluntarily.
+**Circular Wait :**
+There exists a circular chain of two or more threads, each waiting for a resource held by the next thread in the chain.
+**Example of Deadlock :**
+Consider a scenario with two threads, Thread A and Thread B, and two resources, Resource 1 and Resource 2:
+
+- Thread A holds Resource 1 and requests Resource 2.
+- Thread B holds Resource 2 and requests Resource 1.
+If both threads acquire their first resource and then attempt to acquire the second resource, a deadlock may occur. Thread A is waiting for Resource 2 to be released by Thread B, while Thread B is waiting for Resource 1 to be released by Thread A. Both threads are blocked indefinitely, waiting for each other to release resources.
+
+### Prevention and Handling of Deadlock:
+Deadlock can be prevented or resolved using various techniques:
+
+### Avoidance:
+Design the system in such a way that the conditions necessary for deadlock are not possible.
+ **Detection and Recovery :**
+Implement algorithms to detect deadlock and take corrective actions, such as killing processes or rolling back transactions.
+**Preemption :**
+Allow resources to be preempted from threads when necessary to break potential deadlocks.
+**Resource Ordering :**
+Establish a global order in which resources must be acquired to avoid circular waits.
+**Timeouts :**
+Implement timeouts for resource acquisition to prevent threads from waiting indefinitely.
+### Conclusion :
+Deadlock is a critical issue in multi-threaded programming that can lead to application failure and system instability. Understanding the characteristics of deadlock and adopting appropriate prevention and handling strategies are essential for writing robust and reliable concurrent programs.
+
+## Demo of Dead lock and possible fixes
+```java
+public class DeadlockDemo {
+    // Resources
+    private static final Object resource1 = new Object();
+    private static final Object resource2 = new Object();
+
+    public static void main(String[] args) {
+        // Thread 1
+        Thread thread1 = new Thread(() -> {
+            synchronized (resource1) {
+                System.out.println("Thread 1: Holding resource 1...");
+                try {
+                    Thread.sleep(100); // Adding delay to increase the chance of deadlock
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Thread 1: Waiting for resource 2...");
+                synchronized (resource2) {
+                    System.out.println("Thread 1: Holding resource 1 and resource 2...");
+                }
+            }
+        });
+
+        // Thread 2
+        Thread thread2 = new Thread(() -> {
+            synchronized (resource2) {
+                System.out.println("Thread 2: Holding resource 2...");
+                try {
+                    Thread.sleep(100); // Adding delay to increase the chance of deadlock
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Thread 2: Waiting for resource 1...");
+                synchronized (resource1) {
+                    System.out.println("Thread 2: Holding resource 1 and resource 2...");
+                }
+            }
+        });
+
+        // Start both threads
+        thread1.start();
+        thread2.start();
+    }
+}
+```
+In this code:
+
+We have two threads, thread1 and thread2, each trying to acquire two resources resource1 and resource2 in a different order.
+Both threads acquire one resource and then wait for the other resource to be released, creating a potential deadlock scenario.
+Now, let's explore some possible fixes for the deadlock:
+
+### Resource Ordering:
+Ensure that threads acquire resources in a consistent global order to prevent circular waits. In this case, we can make both threads acquire resources in the same order:
+```java
+Copy code
+// Thread 1
+synchronized (resource1) {
+    System.out.println("Thread 1: Holding resource 1...");
+    try {
+        Thread.sleep(100); // Adding delay to increase the chance of deadlock
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    System.out.println("Thread 1: Waiting for resource 2...");
+    synchronized (resource2) {
+        System.out.println("Thread 1: Holding resource 1 and resource 2...");
+    }
+}
+
+// Thread 2
+synchronized (resource1) { // Acquire resource1 first
+    System.out.println("Thread 2: Holding resource 1...");
+    try {
+        Thread.sleep(100); // Adding delay to increase the chance of deadlock
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    System.out.println("Thread 2: Waiting for resource 2...");
+    synchronized (resource2) {
+        System.out.println("Thread 2: Holding resource 1 and resource 2...");
+    }
+}
+```
+### Timeouts:
+Implement timeouts for resource acquisition to prevent threads from waiting indefinitely. If a thread cannot acquire a resource within a certain time limit, it can release the acquired resources and retry later.
+### Preemption:
+Allow resources to be preempted from threads when necessary to break potential deadlocks. In Java, this can be achieved by using methods like `Thread.interrupt()` to interrupt waiting threads or using ReentrantLock with `tryLock()` method to attempt non-blocking acquisition of resources.
+Applying one or more of these fixes can help prevent or resolve deadlock situations in multi-threaded applications.
+
+## Introduction to virtual Threads
+Virtual threads, introduced in Java 17 as part of Project Loom, are lightweight threads managed by the Java Virtual Machine (JVM) rather than the operating system. They provide a more efficient and scalable alternative to traditional OS threads, allowing developers to create thousands or even millions of threads without incurring the overhead associated with OS threads.
+
+### Key Features of Virtual Threads:
+### Lightweight:
+Virtual threads are significantly lighter than OS threads, consuming minimal memory and resources. This lightweight nature allows the creation of a large number of threads without the performance overhead associated with traditional threads.
+### Efficient Scheduling:
+Virtual threads are scheduled by the JVM's thread scheduler, which can optimize thread execution based on available CPU resources and thread priorities. This enables more efficient resource utilization and better performance compared to OS thread scheduling.
+### Simplified Programming Model:
+Virtual threads follow the same programming model as traditional threads, making it easy for developers to migrate existing thread-based code to use virtual threads. They support standard thread operations such as starting, joining, and interrupting.
+### Scoped Concurrency:
+Virtual threads support scoped concurrency, where groups of related threads can be managed together. This allows for better organization and control of concurrent tasks within an application.
+### Integration with Existing APIs:
+Virtual threads seamlessly integrate with existing Java APIs, such as CompletableFuture and ExecutorService, allowing developers to leverage the benefits of virtual threads without significant code changes.
+### Use Cases for Virtual Threads:
+### High-Concurrency Applications:
+Virtual threads are ideal for applications requiring high concurrency, such as web servers, network services, and reactive applications. They enable efficient handling of a large number of concurrent tasks without overwhelming system resources.
+### Asynchronous Programming:
+Virtual threads simplify asynchronous programming by allowing developers to write code that appears synchronous while executing asynchronously in the background. This enhances code readability and maintainability.
+### Task Parallelism:
+Virtual threads support task parallelism, where multiple tasks can execute concurrently to improve overall application performance. Developers can parallelize independent tasks without worrying about thread management overhead.
+### Scalable Workloads:
+Applications with dynamic workloads that require scaling up or down based on demand can benefit from virtual threads. The lightweight nature of virtual threads makes it easier to scale resources dynamically to meet changing workload requirements.
+### Conclusion
+Virtual threads represent a significant advancement in Java's concurrency model, offering lightweight, scalable, and efficient threading capabilities. By providing a more efficient alternative to traditional OS threads, virtual threads enable developers to build highly concurrent and responsive applications with improved performance and resource utilization. As Java continues to evolve, virtual threads are expected to play a crucial role in the development of modern, scalable, and resilient Java applications.
+
+To create a virtual thread in Java, you can use the Thread.startVirtualThread() method introduced in Java 17. Here's a conceptual example:
+
+```java
+Copy code
+public class VirtualThreadDemo {
+
+    public static void main(String[] args) {
+        // Creating and starting a virtual thread
+        Thread virtualThread = Thread.startVirtualThread(() -> {
+            System.out.println("Virtual thread is running");
+        });
+
+        // Wait for the virtual thread to complete
+        try {
+            virtualThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Main thread exiting");
+    }
+}
+```
+In this example:
+
+We create a virtual thread using the `Thread.startVirtualThread()` method, passing a `Runnable` lambda expression that prints a message indicating that the virtual thread is running.
+We then use `join()` to wait for the virtual thread to complete before printing a message indicating that the main thread is exiting.
+Remember that in order to run this code, you need to have Java 17 or later installed on your system, as virtual threads are a feature introduced in Java 17.
+
+Please note that this is a conceptual demonstration, and you may need to adapt the code based on your specific requirements and the version of Java you are using. Additionally, virtual threads are designed to integrate seamlessly with existing Java concurrency APIs, so you can also explore their usage with classes like CompletableFuture and `ExecutorService`.
+
+
+
+
+
+
+
+

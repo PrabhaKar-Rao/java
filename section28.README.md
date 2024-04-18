@@ -383,3 +383,56 @@ private volatile int sharedVariable;
 ### Conclusion:
 Race conditions can lead to unpredictable behavior in concurrent programs. To avoid race conditions, synchronization mechanisms such as synchronized and volatile are used in Java to ensure thread safety and proper coordination among threads accessing shared resources. Understanding and correctly applying these synchronization keywords are essential for writing reliable and efficient concurrent programs.
 
+## Demo of volatile keyword 
+
+```java
+public class VolatileDemo {
+    // Shared variable accessed by multiple threads
+    private volatile boolean flag = false;
+
+    public static void main(String[] args) {
+        VolatileDemo demo = new VolatileDemo();
+
+        // Thread to modify the flag
+        Thread modifierThread = new Thread(() -> {
+            try {
+                Thread.sleep(1000); // Sleep for 1 second to simulate some work
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            demo.setFlag(true);
+            System.out.println("Flag has been set to true");
+        });
+
+        // Thread to read the flag
+        Thread readerThread = new Thread(() -> {
+            while (!demo.isFlag()) {
+                // Spin-wait until flag becomes true
+            }
+            System.out.println("Flag is now true");
+        });
+
+        // Start both threads
+        modifierThread.start();
+        readerThread.start();
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+}
+```
+In this demo:
+
+- We have a `VolatileDemo` class with a private `volatile` boolean variable `flag`.
+- There are two threads: `modifierThread` and `readerThread`.
+- `modifierThread` sets the flag to true after 1 second of sleep.
+- readerThread continuously checks the value of the flag in a loop until it becomes true.
+Without the `volatile` keyword, the `readerThread` might cache the value of the flag and never see it change, leading to an infinite loop. However, with the `volatile` keyword, changes made to the flag by one thread are immediately visible to other threads, ensuring that the `readerThread` sees the updated value and exits the loop when the flag becomes true.
+
+This demonstrates how the volatile keyword ensures visibility of changes across threads without providing atomicity.
+

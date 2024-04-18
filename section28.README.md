@@ -201,4 +201,90 @@ public class Task implements Runnable {
     }
 }
 ```
+## Thread Methods in Java
+### `getId()`
+
+- **Description:** Returns the identifier of this Thread. The thread ID is a unique long value assigned to each new thread when it is created.
+- **Syntax:** `public long getId()`
+- **Return Type:** `long`
+- **Example:**
+  ```java
+  Thread thread = new Thread();
+  long id = thread.getId();
+  System.out.println("Thread ID: " + id);
+  ```
+### getName()
+- **Description :** Returns the name of this Thread.
+- **Syntax :** public String getName()
+- **Return Type :** String
+### Example:
+```java
+Thread thread = new Thread();
+String name = thread.getName();
+System.out.println("Thread Name: " + name);
+```
+### setName()
+- **Description :** Sets the name of this Thread.
+- **Syntax :** public final void setName(String name)
+### Parameters:
+- **name :** The new name for this Thread.
+### Example:
+```java
+Thread thread = new Thread();
+thread.setName("MyThread");
+currentThread();
+```
+- **Description :** Returns a reference to the currently executing Thread object.
+- **Syntax :** public static native Thread currentThread()
+- **Return Type :** Thread
+### Example:
+```java
+Thread currentThread = Thread.currentThread();
+System.out.println("Current Thread: " + currentThread.getName());
+```
+### sleep()
+- **Description :** Causes the currently executing thread to sleep (temporarily cease execution) for the specified number of milliseconds.
+- **Syntax :** public static void sleep(long millis) throws InterruptedException
+### Parameters:
+- **millis :** The length of time to sleep in milliseconds.
+- **Throws :** InterruptedException - if any thread has interrupted the current thread.
+### Example:
+```java
+try {
+    Thread.sleep(1000); // Sleep for 1 second
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+```
+
+### join()
+- **Description :** Waits for this thread to die.
+- **Syntax :** public final void join() throws InterruptedException
+- **Throws :** InterruptedException - if any thread has interrupted the current thread.
+### Example:
+```java
+Thread thread = new Thread();
+thread.start();
+thread.join(); // Wait for the thread to finish execution
+```
+### setPriority()
+- **Description :** Sets the priority of this thread.
+- **Syntax :** public final void setPriority(int newPriority)
+### Parameters:
+- **newPriority :** The new priority for this thread. The value should be in the range 1-10.
+### Example:
+```java
+Thread thread = new Thread();
+thread.setPriority(Thread.MAX_PRIORITY); // Set priority to maximum
+```
+### getPriority()
+- **Description :** Returns the priority of this thread.
+- **Syntax :** public final int getPriority()
+- **Return Type :** int
+### Example:
+```java
+Thread thread = new Thread();
+int priority = thread.getPriority();
+System.out.println("Thread Priority: " + priority);
+```
 

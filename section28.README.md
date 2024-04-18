@@ -715,7 +715,7 @@ We create a virtual thread using the `Thread.startVirtualThread()` method, passi
 We then use `join()` to wait for the virtual thread to complete before printing a message indicating that the main thread is exiting.
 Remember that in order to run this code, you need to have Java 17 or later installed on your system, as virtual threads are a feature introduced in Java 17.
 
-Please note that this is a conceptual demonstration, and you may need to adapt the code based on your specific requirements and the version of Java you are using. Additionally, virtual threads are designed to integrate seamlessly with existing Java concurrency APIs, so you can also explore their usage with classes like CompletableFuture and `ExecutorService`.
+Please note that this is a conceptual demonstration, and you may need to adapt the code based on your specific requirements and the version of Java you are using. Additionally, virtual threads are designed to integrate seamlessly with existing Java concurrency APIs, so you can also explore their usage with classes like `CompletableFuture` and `ExecutorService`.
 
 
 

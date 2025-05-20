@@ -237,7 +237,7 @@ Java 24 introduces the **Stream Gatherers API**, expanding the Java Stream capab
 
 
 
-## 📘 1. Introduction to Stream Gatherers API
+## 📘  Introduction to Stream Gatherers API
 
 The **Gatherers API** in Java 24 enhances the Stream pipeline by enabling more expressive and stateful transformations in the middle of a stream.  
 Think of it as a customizable version of `map()` or `flatMap()`—but with more power!
@@ -246,7 +246,7 @@ Think of it as a customizable version of `map()` or `flatMap()`—but with more 
 
 
 
-## 🧩 2. Getting to Know the Basic Syntax of `Gatherer` Interface
+## 🧩 Getting to Know the Basic Syntax of `Gatherer` Interface
 
 The `Gatherer<T, A, R>` interface allows you to define:
 - `T`: Input element type
@@ -262,7 +262,7 @@ Gatherer<String, ?, String> toUpper = Gatherer.ofSequential(
 ```
 - 🔍 This basic Gatherer will convert each string to uppercase.
   
-### 🛠️ 3. Using Gatherer.of() to Create an Intermediate Operation
+### 🛠️  Using Gatherer.of() to Create an Intermediate Operation
 The `Gatherer.of()` and `Gatherer.ofSequential()` methods are used to define custom intermediate operations. These can act similarly to map() or batch-wise transformation using `flatMap()`.
 
 ### 🧪 Example: Custom Batch Gatherer
@@ -305,7 +305,7 @@ java --enable-preview GathererDemo
 ```
 
 
-## 🧠 1. Gatherers with Mutable State & Initializer
+## 🧠 Gatherers with Mutable State & Initializer
 
 Gatherers allow the use of a **mutable container** (like `StringBuilder`, `List`, or `Map`) to accumulate state across elements.
 
@@ -349,7 +349,7 @@ public class GathererStateDemo {
 | Accumulator `(sb, s, downstream)` | Adds characters and pushes when ready      |
 | Finisher `(sb, downstream)`       | Pushes any leftover data at the end        |
 
-## 🎯 2. Finisher in a Stream Gatherer
+## 🎯  Finisher in a Stream Gatherer
 The finisher is optional but crucial when the remaining state may contain useful data at the end of the stream. It ensures that no data is lost during stream processing.
 
  📌 Without a finisher, any "incomplete" batches (like a group of 1 or 2 characters in a 3-char gatherer) would be discarded.
@@ -375,7 +375,7 @@ java --enable-preview GathererStateDemo
 - Windowed aggregations
 
 
-## 📘 1. Parallel Gatherers
+## 📘  Parallel Gatherers
 
 Parallel Gatherers enable **stateful intermediate operations** to be executed in parallel without violating the ordering and correctness of the stream.
 
@@ -450,3 +450,91 @@ java --enable-preview ParallelGathererDemo
 | Final Finisher Phase | Combines leftover results per parallel thread |
 
 🔥 Java 24 is pushing boundaries in Stream API performance and flexibility. Parallel Gatherers are especially useful when working with large data pipelines!
+
+
+## ⚡ Interrupting & Chaining Gatherers
+
+You can **interrupt** a Gatherer chain using custom logic (e.g., break on a condition), and you can also **chain multiple Gatherers** together to build layered processing flows.
+
+### 🔧 Example: Interrupt stream when an element equals "STOP"
+
+```java
+import java.util.stream.*;
+import java.util.stream.Gatherers;
+import java.util.*;
+
+public class InterruptAndChainDemo {
+    public static void main(String[] args) {
+        List<String> result = Stream.of("one", "two", "STOP", "three")
+            .gather(Gatherers.<String>filtering(s -> !s.equals("STOP")))
+            .gather(Gatherers.mapping(String::toUpperCase))
+            .toList();
+
+        System.out.println(result); // Output: [ONE, TWO, THREE]
+    }
+}
+```
+- 💡 Use filtering and mapping to chain logic like a pipeline.
+
+### 🔁  `fold()`, `scan()`, `mapConcurrent()` Methods
+🔹 `fold(identity, accumulator)`
+Accumulates all items like reduce, but emits only the final result.
+
+🔹 `scan(identity, accumulator)`
+Like fold, but emits the intermediate result after every element.
+
+🔹 `mapConcurrent(fn)`
+Maps elements in parallel, useful for heavy transformation tasks.
+
+### 🧪 Example: Using scan() to track running total
+```java
+import java.util.stream.*;
+import java.util.stream.Gatherers;
+import java.util.*;
+
+public class ScanDemo {
+    public static void main(String[] args) {
+        List<Integer> result = Stream.of(1, 2, 3, 4)
+            .gather(Gatherers.scan(0, Integer::sum))
+            .toList();
+
+        System.out.println(result); // Output: [1, 3, 6, 10]
+    }
+}
+```
+### 🪟 `windowFixed()` and `windowSliding()`
+These gatherers help group elements into fixed-size or sliding windows, just like in time-series processing or real-time analytics.
+
+### 📦 `windowFixed(size)` — Non-overlapping chunks
+```java
+Stream.of("A", "B", "C", "D", "E")
+    .gather(Gatherers.windowFixed(2))
+    .toList();
+// Output: [[A, B], [C, D], [E]]
+```
+### 🔄 windowSliding(size, step) — Overlapping windows
+```java
+Stream.of(1, 2, 3, 4, 5)
+    .gather(Gatherers.windowSliding(3, 1))
+    .toList();
+// Output: [[1,2,3], [2,3,4], [3,4,5]]
+```
+
+### ⚙️ Compile and Run
+```java
+javac --enable-preview --release 24 *.java
+java --enable-preview InterruptAndChainDemo
+java --enable-preview ScanDemo
+```
+### 📚 Summary
+
+| Feature                | Description                       |
+| ---------------------- | --------------------------------- |
+| `filtering`, `mapping` | Interrupting & chaining gatherers |
+| `fold()`               | Single result after reduction     |
+| `scan()`               | Running total or accumulation     |
+| `mapConcurrent()`      | High-performance parallel mapping |
+| `windowFixed()`        | Non-overlapping groupings         |
+| `windowSliding()`      | Overlapping groupings             |
+
+

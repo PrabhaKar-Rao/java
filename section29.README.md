@@ -180,3 +180,273 @@ final class Truck implements Vehicle {
     }
 }
 ```
+# 📘 Java 23 Feature: Markdown Documentation Comments (Preview)
+Java 23 introduces support for Markdown syntax inside Javadoc comments using the @-style JavaDoc tool, making documentation easier to write and more readable.
+
+✅ This feature is available as a preview and must be enabled using the --enable-preview compiler option.
+
+✅ Key Points
+Markdown syntax can now be used in Javadoc comments (e.g., **bold**, _italic_, lists, code blocks).
+
+This improves readability and integrates well with modern documentation tools.
+
+It allows a better developer experience and enhances API documentation quality.
+## ✏️ Example
+```java
+  /** Markdown in Javadoc
+ 
+  This method adds two integers.
+ 
+  Parameters
+  - `a`: First number
+  - `b`: Second number
+ 
+  Returns
+  The sum of `a` and `b`.
+ 
+  Example **/
+   
+
+int result = add(10, 20);
+public class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+## 🚀 How to Compile with Preview Features
+```java
+javac --enable-preview --release 23 Calculator.java
+```
+## 📚 Output in Javadoc
+```java
+javadoc --enable-preview --release 23 Calculator.java
+```
+The output will render your Javadoc with Markdown formatting like:
+
+- Headers (e.g., #, ##)
+
+- Code blocks
+
+- Lists and inline formatting
+
+ ## 🚀 Java 24 Features: Stream Gatherers API
+
+Java 24 introduces the **Stream Gatherers API**, expanding the Java Stream capabilities with powerful intermediate operations that allow custom data grouping and transformation.
+
+
+
+## 📘 1. Introduction to Stream Gatherers API
+
+The **Gatherers API** in Java 24 enhances the Stream pipeline by enabling more expressive and stateful transformations in the middle of a stream.  
+Think of it as a customizable version of `map()` or `flatMap()`—but with more power!
+
+> ✅ This feature is part of the Java 24 preview and requires `--enable-preview`.
+
+
+
+## 🧩 2. Getting to Know the Basic Syntax of `Gatherer` Interface
+
+The `Gatherer<T, A, R>` interface allows you to define:
+- `T`: Input element type
+- `A`: Accumulation state type
+- `R`: Result type emitted to the downstream
+
+### 🧪 Example:
+
+```java
+Gatherer<String, ?, String> toUpper = Gatherer.ofSequential(
+    () -> Gatherer.Sink.ofConsumer(s -> s.toUpperCase())
+);
+```
+- 🔍 This basic Gatherer will convert each string to uppercase.
+  
+### 🛠️ 3. Using Gatherer.of() to Create an Intermediate Operation
+The `Gatherer.of()` and `Gatherer.ofSequential()` methods are used to define custom intermediate operations. These can act similarly to map() or batch-wise transformation using `flatMap()`.
+
+### 🧪 Example: Custom Batch Gatherer
+```java
+import java.util.stream.*;
+import java.util.stream.Gatherers;
+import java.util.List;
+
+public class GathererDemo {
+    public static void main(String[] args) {
+        List<String> result = Stream.of("a", "b", "c", "d", "e")
+            .gather(Gatherers.windowFixed(2))
+            .map(window -> String.join("-", window))
+            .toList();
+
+        System.out.println(result); // Output: [a-b, c-d, e]
+    }
+}
+
+```
+### 📌 Output:
+```java
+[a-b, c-d, e]
+```
+### 🔍 Explanation:
+- `Gatherers.windowFixed(2)` splits elements into windows of size 2.
+
+- `map()` combines them with a dash `(-)` separator.
+
+- The output shows string batches combined.
+
+### 📎 Notes
+- Gatherers provide fine-grained control over intermediate stream processing.
+
+- Use this feature in preview mode:
+
+```java
+javac --enable-preview --release 24 GathererDemo.java
+java --enable-preview GathererDemo
+```
+
+
+## 🧠 1. Gatherers with Mutable State & Initializer
+
+Gatherers allow the use of a **mutable container** (like `StringBuilder`, `List`, or `Map`) to accumulate state across elements.
+
+### 🧪 Example: Group characters into 3-letter words
+
+```java
+import java.util.stream.*;
+import java.util.stream.Gatherers;
+import java.util.*;
+
+public class GathererStateDemo {
+    public static void main(String[] args) {
+        List<String> result = Stream.of("a", "b", "c", "d", "e", "f", "g")
+            .gather(Gatherer.of(
+                () -> new StringBuilder(),  // Initializer (creates mutable state)
+                (sb, s, downstream) -> {
+                    sb.append(s);
+                    if (sb.length() == 3) {
+                        downstream.push(sb.toString()); // Send result downstream
+                        sb.setLength(0); // Reset state
+                    }
+                },
+                (sb, downstream) -> {
+                    if (sb.length() > 0) {
+                        downstream.push(sb.toString()); // Finish remaining chars
+                    }
+                }
+            ))
+            .toList();
+
+        System.out.println(result); // Output: [abc, def, g]
+    }
+}
+```
+
+### 🧾 Explanation
+
+| Part                              | What It Does                               |
+| --------------------------------- | ------------------------------------------ |
+| `() -> new StringBuilder()`       | **Initializer**: Sets up the mutable state |
+| Accumulator `(sb, s, downstream)` | Adds characters and pushes when ready      |
+| Finisher `(sb, downstream)`       | Pushes any leftover data at the end        |
+
+## 🎯 2. Finisher in a Stream Gatherer
+The finisher is optional but crucial when the remaining state may contain useful data at the end of the stream. It ensures that no data is lost during stream processing.
+
+ 📌 Without a finisher, any "incomplete" batches (like a group of 1 or 2 characters in a 3-char gatherer) would be discarded.
+
+### 🛠️ Compile and Run
+Make sure to enable preview features when compiling:
+```java
+javac --enable-preview --release 24 GathererStateDemo.java
+java --enable-preview GathererStateDemo
+```
+### 📚 Summary
+| Concept     | Description                                     |
+| ----------- | ----------------------------------------------- |
+| Initializer | Prepares mutable state (e.g., a buffer or list) |
+| Accumulator | Handles element-by-element logic                |
+| Finisher    | Final cleanup or output of remaining state      |
+
+#### 💡 Use Cases:
+
+- Batching data
+- Grouping elements
+- Stateful filtering
+- Windowed aggregations
+
+
+## 📘 1. Parallel Gatherers
+
+Parallel Gatherers enable **stateful intermediate operations** to be executed in parallel without violating the ordering and correctness of the stream.
+
+### 🔍 Key Concepts
+
+- **Thread-safety**: Each parallel task uses its own mutable state.
+- **Split behavior**: The `Gatherer` is designed to operate correctly when the stream is split across threads.
+- **Finisher**: Ensures that residual state from each parallel thread is passed downstream.
+
+> ⚠️ Parallel gatherers must **not** share mutable state unless it is properly synchronized.
+
+## 🔬 When to Use
+
+- Large-scale stream processing
+- Custom parallel batching or windowing
+- Parallel grouping of elements (e.g., words, logs, events)
+
+### 🔧 Example Code
+
+```java
+import java.util.stream.*;
+import java.util.stream.Gatherers;
+import java.util.*;
+
+public class ParallelGathererDemo {
+    public static void main(String[] args) {
+        List<String> result = Stream.of("a", "b", "c", "d", "e", "f")
+            .parallel() // Run the stream in parallel
+            .gather(Gatherer.of(
+                () -> new ArrayList<String>(), // initializer
+                (list, item, downstream) -> {
+                    list.add(item);
+                    if (list.size() == 2) {
+                        downstream.push(String.join("-", list));
+                        list.clear();
+                    }
+                },
+                (list, downstream) -> {
+                    if (!list.isEmpty()) {
+                        downstream.push(String.join("-", list));
+                    }
+                }
+            ))
+            .toList();
+
+        System.out.println(result);
+    }
+}
+```
+- 💡 Note: The order may vary due to parallel processing!
+
+### 🧾 Explanation
+
+| Component          | Purpose                                               |
+| ------------------ | ----------------------------------------------------- |
+| `parallel()`       | Enables parallel stream processing                    |
+| `Gatherer.of(...)` | Defines how to group in batches                       |
+| `Finisher`         | Handles any leftover elements in each parallel thread |
+
+### ⚙️ Compile and Run
+```java
+javac --enable-preview --release 24 ParallelGathererDemo.java
+java --enable-preview ParallelGathererDemo
+```
+- ✅ Ensure your system has multiple cores to take advantage of parallelism.
+
+### 📚 Summary
+| Concept              | Description                                   |
+| -------------------- | --------------------------------------------- |
+| Parallel Gatherers   | Allows gatherers to work on parallel streams  |
+| Independent State    | Each task maintains its own buffer/state      |
+| Final Finisher Phase | Combines leftover results per parallel thread |
+
+🔥 Java 24 is pushing boundaries in Stream API performance and flexibility. Parallel Gatherers are especially useful when working with large data pipelines!
